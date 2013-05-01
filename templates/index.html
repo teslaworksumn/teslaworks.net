@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <p>Thanks for checking out Tesla Works.</p>
+    <p>Here's a list of our current projects.</p>
+    <ul>
+        {% for project in projects %}
+        <li>{{ project.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
