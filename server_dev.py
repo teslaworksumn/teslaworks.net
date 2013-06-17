@@ -1,7 +1,11 @@
 import projects
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 app = Flask(__name__)
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 @app.route('/')
 def index():
@@ -19,7 +23,7 @@ def project(project):
         project_data = project_list[project]
         return "Contact %s to join the %s project!" % (project_data['project_leaders'][0]['name'], project_data['project_title'])
     else:
-        return render_template('404.html'), 404
+        abort(404)
 
 
 if __name__ == '__main__':
