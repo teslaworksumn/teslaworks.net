@@ -1,0 +1,39 @@
+{
+    "project_title": "Audio Project",
+    "project_goal": "Build an audio amplifier from discrete parts while learning about analog and digital systems.",
+    "project_details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "project_needs":
+    {
+        "engineering":
+        [
+            "Volunteers to help teach analog theory",
+            "Anyone who knows and can help teach PCB layout"
+        ]
+        "design":
+        [
+            "Anyone who wants to learn about designing for electronics"
+        ]
+        "marketing":
+        [
+            "Someone to contact UMN faculty about classroom integration"
+        ]
+    },
+    "project_leaders":
+    [
+        {
+            "name": "Ken Condon",
+            "email": "ken@condon.com",
+            "phone": "612-555-1212"
+        }
+    ]
+    "photos":
+    [
+        "frontpage": "img/audioproject/bigphoto.jpg",
+        "details":
+        [
+            "img/audioproject/photo1.jpg",
+            "img/audioproject/photo2.jpg",
+            "img/audioproject/photo3.jpg"
+        ]
+    ],
+}
