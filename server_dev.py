@@ -1,5 +1,5 @@
 import projects
-from flask import Flask, render_template, abort
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -19,7 +19,7 @@ def project(project):
         project_data = project_list[project]
         return "Contact %s to join the %s project!" % (project_data['project_leaders'][0]['name'], project_data['project_title'])
     else:
-        abort(404)
+        return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
