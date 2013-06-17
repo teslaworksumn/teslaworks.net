@@ -27,11 +27,14 @@
             "phone": "612-555-2424"
         }
     ],
-    "front_page_photo": "img/lightshow/bigphoto.jpg",
-    "detail_photos":
-    [
-        "img/lightshow/photo1.jpg",
-        "img/lightshow/photo2.jpg",
-        "img/lightshow/photo3.jpg"
-    ]
+    "photos":
+    {
+        "front_page": "img/lightshow/bigphoto.jpg",
+        "detail":
+        [
+            "img/lightshow/photo1.jpg",
+            "img/lightshow/photo2.jpg",
+            "img/lightshow/photo3.jpg"
+        ]
+    }
 }
