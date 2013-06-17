@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <p>Thanks for checking out Tesla Works.</p>
+    <p>Here's a list of our current projects.</p>
+    <ul>
+        {% for project in projects %}
+        <li>
+            <p>
+                {{ project.name }}, run by {% for leader in project.leaders %}{{ leader }} {% endfor %}
+            </p>
+            <p><em>{{ project.desc }}</em></p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

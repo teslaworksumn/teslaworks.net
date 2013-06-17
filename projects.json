@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "name": "Audio Project",
+            "leaders": ["Ken Condon"],
+            "desc": "Students construct an audio amplifier from scratch while learning about analog and digital circuit concepts."
+        },
+        {
+            "name": "Robosaic",
+            "leaders": ["Scott Sievert", "Matthew Lewis"],
+            "desc": "Mechanical art on a massive scale."
+        },
+        {
+            "name": "Fido",
+            "leaders": ["Taylor Trimble"],
+            "desc": "I'm afraid I can't let you do that, Dave."
+        }
+    ]
+}
