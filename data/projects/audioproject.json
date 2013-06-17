@@ -8,11 +8,11 @@
         [
             "Volunteers to help teach analog theory",
             "Anyone who knows and can help teach PCB layout"
-        ]
+        ],
         "design":
         [
             "Anyone who wants to learn about designing for electronics"
-        ]
+        ],
         "marketing":
         [
             "Someone to contact UMN faculty about classroom integration"
@@ -25,15 +25,12 @@
             "email": "ken@condon.com",
             "phone": "612-555-1212"
         }
-    ]
-    "photos":
-    [
-        "frontpage": "img/audioproject/bigphoto.jpg",
-        "details":
-        [
-            "img/audioproject/photo1.jpg",
-            "img/audioproject/photo2.jpg",
-            "img/audioproject/photo3.jpg"
-        ]
     ],
+    "front_page_photo": "img/audioproject/bigphoto.jpg",
+    "detail_photos":
+    [
+        "img/audioproject/photo1.jpg",
+        "img/audioproject/photo2.jpg",
+        "img/audioproject/photo3.jpg"
+    ]
 }
