@@ -10,6 +10,8 @@ def get_projects():
         long_file_name = os.path.join(PROJECT_JSON_LOC, file_name)
         with open(long_file_name, 'r') as file:
             data = json.load(file)
-        projects[file_name] = data
+        
+        base_file_name = os.path.splitext(file_name)[0]
+        projects[base_file_name] = data
     
     return projects
