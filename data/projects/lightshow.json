@@ -1,0 +1,37 @@
+{
+    "project_title": "CSE Light Show",
+    "project_goal": "Engineer and design a computer-synchronized music and light show on the Civil Engineering plaza.",
+    "project_details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "project_needs":
+    {
+        "engineering":
+        [
+            "EE/CompEs to build the next-gen light control systems",
+            "People interested in writing apps for the Mac"
+        ],
+        "design":
+        [
+            "People who want to design the show's layout",
+            "Graphic designers for the posters"
+        ],
+        "marketing":
+        [
+            "Someone to plan the big kickoff event for 1,500 spectators!"
+        ]
+    },
+    "project_leaders":
+    [
+        {
+            "name": "Taylor Trimble",
+            "email": "taylortrimble@fake.com",
+            "phone": "612-555-2424"
+        }
+    ],
+    "front_page_photo": "img/lightshow/bigphoto.jpg",
+    "detail_photos":
+    [
+        "img/lightshow/photo1.jpg",
+        "img/lightshow/photo2.jpg",
+        "img/lightshow/photo3.jpg"
+    ]
+}
