@@ -1,20 +1,12 @@
 {% extends "main.html" %}
 
-{% block title %}
-    Home
-{% endblock %}
+{% block title %}Home{% endblock %}
 
-{% block content %}
-    <p>Thanks for checking out Tesla Works.</p>
-    <p>Here's a list of our current projects.</p>
-    <ul>
-        {% for project in projects %}
-        <li>
-            <p>
-                {{ project.name }}, run by {% for leader in project.leaders %}{{ leader }} {% endfor %}
-            </p>
-            <p><em>{{ project.desc }}</em></p>
-        </li>
-        {% endfor %}
-    </ul>
+{% block html_body %}
+    <div class="container">
+
+        <h1>Bootstrap starter template</h1>
+        <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+    </div>
 {% endblock %}
