@@ -12,11 +12,11 @@ def index():
     project_list = projects.get_projects()
     return render_template('index.html', projects=project_list)
 
-@app.route('/blog')
+@app.route('/blog', strict_slashes=False)
 def blog():
     return "Flasktopress isn't quite ready yet, but we're stoked that it's coming."
 
-@app.route('/<project>')
+@app.route('/<project>', strict_slashes=False)
 def project(project):
     project_list = projects.get_projects()
     if project in project_list:
