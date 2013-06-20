@@ -3,20 +3,25 @@ from flask import Flask, render_template, abort
 app = Flask(__name__)
 
 
+def route(*a, **kw):
+    kw['strict_slashes'] = kw.get('strict_slashes', False)
+    return app.route(*a, **kw)
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-@app.route('/')
+@route('/')
 def index():
     project_list = projects.get_projects()
     return render_template('index.html', projects=project_list)
 
-@app.route('/blog', strict_slashes=False)
+@route('/blog')
 def blog():
     return "Flasktopress isn't quite ready yet, but we're stoked that it's coming."
 
-@app.route('/<project>', strict_slashes=False)
+@route('/<project>')
 def project(project):
     project_list = projects.get_projects()
     if project in project_list:
