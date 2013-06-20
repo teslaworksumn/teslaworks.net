@@ -23,11 +23,10 @@
     <hr>
 
     <div class="jumbotron">
-        
         <h1>{{ project_data.project_title }}</h1>
         <div class="slideshow">
         {% for img in project_data.photos.detail %}
-            <img class="polaroid" src="{{ img }}" alt="">
+            <img class="big-polaroid" src="{{ img }}" alt="">
         {% endfor %}
         </div>
         <p class="lead">{{ project_data.project_goal }}</p>
@@ -36,11 +35,38 @@
 
     <hr>
 
+    <div class="row-fluid">
+        <h2>
+        {% if project_data.project_leaders|length > 1 %}
+            Project Leaders
+        {% else %}
+            Project Leader
+        {% endif %}
+        </h2>
+    </div>
     
-    <div class="row-fluid marketing">
+    {% for leader in project_data.project_leaders %}
+    <div class="row-fluid">
+        <div class="span3">
+            <img src="{{ leader.photo }}" alt="" class="leader-polaroid">
+        </div>
+        <div class="span9">
+            <div class="row-fluid">
+                <h3 class="leader-name">{{  leader.name  }}</h3>
+                <a href="{{ leader.email }}" class="leader-email">{{ leader.email }}</a>
+                <span class="leader-phone">{{ leader.phone }}</span>
+            </div>
+            {{ leader.bio }}
+        </div>
+    </div>
+    {% endfor %}
+
+    <hr>
+    
+    <div class="row-fluid">
         <h2>Project Needs</h2>
     </div>
-    <div class="row-fluid marketing">
+    <div class="row-fluid">
         <div class="span6">
             <h4><i class="icon-wrench"></i> Engineering</h4>
             <ul>
@@ -58,7 +84,7 @@
             </ul>
         </div>
     </div>
-    <div class="row-fluid marketing">
+    <div class="row-fluid">
         <div class="span6">
             <h4><i class="icon-shopping-cart"></i> Marketing</h4>
             <ul>

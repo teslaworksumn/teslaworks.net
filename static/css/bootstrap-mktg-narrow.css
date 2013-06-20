@@ -14,7 +14,8 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-    margin: 60px 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
     text-align: center;
 }
 .jumbotron h1 {
@@ -26,20 +27,35 @@ body {
     padding: 14px 24px;
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 0;
-}
-.marketing p + h4 {
-    margin-top: 28px;
+.pad-bottom {
+    padding-bottom: 30px;
 }
 
 /* Style the pics */
-.polaroid {
+.big-polaroid {
     width: 670px;
     height: 503px;
     padding: 15px;
     border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
+
+/* Project leader stuff */
+.leader-name {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+.leader-email, .leader-phone {
+    margin-right: 10px;
+}
+.leader-polaroid {
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #eee;
 }
