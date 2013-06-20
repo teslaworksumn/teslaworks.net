@@ -1,12 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
-
 {% block html_body %}
     <div class="container">
-
-        <h1>Bootstrap starter template</h1>
-        <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-
+        <div class="row">
+            <div class="span8 offset2">
+                <div class="hero-unit">
+                    <img src="/static/img/logo-jumbo.png">
+                    <h1>Be a part of awesome engineering and design projects</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="span8 offset2">
+                <div class="well well-large">
+                    Get involved by checking out our projects below!
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="span8 offset2">
+                Filter by interest:
+                <div class="btn-group">
+                    <button class="btn">EE</button>
+                    <button class="btn">Programming</button>
+                    <button class="btn">MechE</button>
+                    <button class="btn">PDes</button>
+                    <button class="btn">Marketing</button>
+                    <button class="btn">Graphic Design</button>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

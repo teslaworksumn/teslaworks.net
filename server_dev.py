@@ -15,7 +15,7 @@ def page_not_found(e):
 @route('/')
 def index():
     project_list = projects.get_projects()
-    return render_template('index.html', projects=project_list)
+    return render_template('home.html', projects=project_list)
 
 @route('/blog')
 def blog():
