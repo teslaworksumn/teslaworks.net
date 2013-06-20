@@ -5,7 +5,7 @@
         <div class="row">
             <div class="span8 offset2">
                 <div class="hero-unit">
-                    <img src="/static/img/logo-jumbo.png">
+                    <img src="/static/img/logo-jumbo.png" alt="">
                     <h1>Be a part of awesome engineering and design projects</h1>
                 </div>
             </div>
@@ -37,11 +37,9 @@
             <div class="span8 offset2">
                 <ul class="thumbnails">
                     {% for project_name, project in projects.iteritems() %}
-                        {#<img class="polaroid" src="{{ img }}" alt="">#}
-                    
                         <li class="span4">
                             <div class="thumbnail">
-                                <img class="img-rounded" src={{ project.photos.front_page }}>
+                                <img class="img-rounded" src={{ project.photos.front_page }} alt="">
                                 <h3>{{ project.project_title }}</h3>
                                 <p>{{ project.project_goal }}</p>
                             </div>
