@@ -26,8 +26,10 @@
     [
         {
             "name": "Ken Condon",
-            "email": "ken@condon.com",
-            "phone": "612-555-1212"
+            "email": "ken@condon.fake",
+            "phone": "(612) 555-1212",
+            "photo": "/static/img/leaders/condon.jpg",
+            "bio": "Ken Condon is a senior in electrical engineering at the U of M. He likes rockets, space, and keeping robots from coming to life."
         }
     ],
     "photos":
