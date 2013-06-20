@@ -23,7 +23,13 @@
     <hr>
 
     <div class="jumbotron">
+        
         <h1>{{ project_data.project_title }}</h1>
+        <div class="slideshow">
+        {% for img in project_data.photos.detail %}
+            <img class="polaroid" src="{{ img }}" alt="">
+        {% endfor %}
+        </div>
         <p class="lead">{{ project_data.project_goal }}</p>
         <a class="btn btn-large btn-success" href="#">Sign up today</a>
     </div>
@@ -83,5 +89,16 @@
 {% endblock %}
 
 {% block html_post_body %}
-
+<script src="/static/js/jquery-2.0.2.min.js"></script>
+<script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/js/jquery.cycle.js"></script>
+<script>
+// start slideshow
+$(document).ready(function() {
+    $('.slideshow').cycle({
+        fx: 'fade',
+        timeout: 4000
+    });
+});
+</script>
 {% endblock %}
