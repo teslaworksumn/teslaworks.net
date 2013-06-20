@@ -28,7 +28,7 @@
     ],
     "photos":
     {
-        "front_page": "img/audioproject/bigphoto.jpg",
+        "front_page": "/static/img/projects/audioproject/bigphoto.jpg",
         "detail":
         [
             "img/audioproject/photo1.jpg",

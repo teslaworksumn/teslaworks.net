@@ -29,7 +29,7 @@
     ],
     "photos":
     {
-        "front_page": "img/lightshow/bigphoto.jpg",
+        "front_page": "/static/img/projects/lightshow/bigphoto.jpg",
         "detail":
         [
             "img/lightshow/photo1.jpg",

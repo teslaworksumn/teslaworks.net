@@ -32,5 +32,23 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="span8 offset2">
+                <ul class="thumbnails">
+                    {% for project_name, project in projects.iteritems() %}
+                        {#<img class="polaroid" src="{{ img }}" alt="">#}
+                    
+                        <li class="span4">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src={{ project.photos.front_page }}>
+                                <h3>{{ project.project_title }}</h3>
+                                <p>{{ project.project_goal }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}
