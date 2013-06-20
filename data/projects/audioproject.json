@@ -31,9 +31,9 @@
         "front_page": "img/audioproject/bigphoto.jpg",
         "detail":
         [
-            "img/audioproject/photo1.jpg",
-            "img/audioproject/photo2.jpg",
-            "img/audioproject/photo3.jpg"
+            "/img/audioproject/photo1.jpg",
+            "/img/audioproject/photo2.jpg",
+            "/img/audioproject/photo3.jpg"
         ]
     }
 }
