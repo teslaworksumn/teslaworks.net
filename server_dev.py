@@ -21,7 +21,7 @@ def project(project):
     project_list = projects.get_projects()
     if project in project_list:
         project_data = project_list[project]
-        return "Contact %s to join the %s project!" % (project_data['project_leaders'][0]['name'], project_data['project_title'])
+        return render_template('project.html', project_data=project_data)
     else:
         abort(404)
 
