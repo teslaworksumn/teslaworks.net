@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %} | Tesla Works</title>
+    <title>{{ title }} | Tesla Works</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -25,6 +25,7 @@
 
 <body>
     <div class="container-narrow">
+        {% include 'masthead.html' %}
         {% block html_body %}{% endblock %}
         {% block html_post_body %}{% endblock %}
     </div>
