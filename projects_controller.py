@@ -20,12 +20,14 @@ class ProjectsController:
     
         return self.projects
     
-    def set_projects(self, projects):
-        self.projects = projects
-        
+    def write_projects():
         for project_key in self.projects:
             data = self.projects[project_key]
         
             full_file_name = os.path.join(self.projects_dir, project_key + '.json')
             with open(full_file_name, 'w') as f:
                 json.dump(data, f)
+    
+    def set_projects(self, projects):
+        self.projects = projects
+        self.write_projects()
