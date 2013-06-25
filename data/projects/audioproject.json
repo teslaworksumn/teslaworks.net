@@ -16,14 +16,20 @@
         "marketing":
         [
             "Someone to contact UMN faculty about classroom integration"
+        ],
+        "other":
+        [
+            "Happy faces to improve Ken's outlook on life!"
         ]
     },
     "project_leaders":
     [
         {
             "name": "Ken Condon",
-            "email": "ken@condon.com",
-            "phone": "612-555-1212"
+            "email": "ken@condon.fake",
+            "phone": "(612) 555-1212",
+            "photo": "/static/img/leaders/condon.jpg",
+            "bio": "Ken Condon is a senior in electrical engineering at the U of M. He likes rockets, space, and keeping robots from coming to life."
         }
     ],
     "photos":
@@ -31,9 +37,9 @@
         "front_page": "/static/img/projects/audioproject/bigphoto.jpg",
         "detail":
         [
-            "img/audioproject/photo1.jpg",
-            "img/audioproject/photo2.jpg",
-            "img/audioproject/photo3.jpg"
+            "/static/img/projects/audioproject/krate.jpg",
+            "/static/img/projects/audioproject/crush.jpg",
+            "/static/img/projects/audioproject/blaster.jpg"
         ]
     }
 }
