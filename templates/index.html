@@ -3,52 +3,42 @@
 {% set title = 'Home' %}
 
 {% block html_body %}
-    <div class="container">
-        <div class="row">
-            <div class="span8 offset2">
-                <div class="hero-unit">
-                    <img src="/static/img/logo-jumbo.png" alt="">
-                    <h1>Be a part of awesome engineering and design projects</h1>
+    <div class="row-fluid">
+        <div class="hero-unit">
+            <img src="/static/img/logo-jumbo.png" alt="">
+            <h1>Be a part of awesome engineering and design projects</h1>
+        </div>
+    </div>
+    
+    <div class="row-fluid">
+        <div class="well well-large">
+            Get involved by checking out our projects below!
+        </div>
+    </div>
+    
+    <div class="row-fluid">
+        Filter by interest:
+        <div class="btn-group">
+            <button class="btn">EE</button>
+            <button class="btn">Programming</button>
+            <button class="btn">MechE</button>
+            <button class="btn">PDes</button>
+            <button class="btn">Marketing</button>
+            <button class="btn">Graphic Design</button>
+        </div>
+    </div>
+    
+    <div class="row-fluid">
+        <ul class="thumbnails">
+        {% for project_name, project in projects.iteritems() %}
+            <li class="span6">
+                <div class="thumbnail">
+                    <img class="img-rounded" src={{ project.photos.front_page }} alt="">
+                    <h3>{{ project.project_title }}</h3>
+                    <p>{{ project.project_goal }}</p>
                 </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="span8 offset2">
-                <div class="well well-large">
-                    Get involved by checking out our projects below!
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="span8 offset2">
-                Filter by interest:
-                <div class="btn-group">
-                    <button class="btn">EE</button>
-                    <button class="btn">Programming</button>
-                    <button class="btn">MechE</button>
-                    <button class="btn">PDes</button>
-                    <button class="btn">Marketing</button>
-                    <button class="btn">Graphic Design</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="span8 offset2">
-                <ul class="thumbnails">
-                {% for project_name, project in projects.iteritems() %}
-                    <li class="span4">
-                        <div class="thumbnail">
-                            <img class="img-rounded" src={{ project.photos.front_page }} alt="">
-                            <h3>{{ project.project_title }}</h3>
-                            <p>{{ project.project_goal }}</p>
-                        </div>
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
-        </div>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
 {% endblock %}
