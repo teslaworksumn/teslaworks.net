@@ -20,7 +20,7 @@ class ProjectsController:
     
         return self.projects
     
-    def write_projects():
+    def write_projects(self):
         for project_key in self.projects:
             data = self.projects[project_key]
         
