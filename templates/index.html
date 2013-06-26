@@ -37,7 +37,9 @@
     <ul class="thumbnails">
     {% for project_name, project in projects.iteritems() %}
         <li class="span6">
-            <i class="icon-star icon-4x starburst"></i>
+            <div class="starburst">
+                <i class="icon-star icon-4x"></i>
+            </div>
             <a class="thumbnail thumbnail-project click-zone" href="/{{ project_name }}">
                 <img class="img-rounded" src={{ project.photos.front_page }} alt="">
                 <h3>{{ project.project_title }}</h3>

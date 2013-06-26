@@ -9,7 +9,7 @@ a.click-zone {
     z-index: 1;
 }
 
-i.starburst {
+.starburst {
     position: relative;
     top: -30px;
     left: -30px;
