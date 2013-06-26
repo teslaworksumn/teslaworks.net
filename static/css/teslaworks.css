@@ -5,11 +5,16 @@ a.click-zone {
     color: inherit;
 }
 
+.thumbnail-project {
+    z-index: 1;
+}
+
 i.starburst {
     position: relative;
     top: -30px;
     left: -30px;
-    margin: 0px;
+    margin-bottom: -60px;
+    z-index = 2;
 }
 
 /* Project leader stuff */
