@@ -1,3 +1,13 @@
+/* Front page stuff */
+
+a.click-zone:hover {
+    text-decoration: none;
+}
+
+a.thumbnail-project:hover {
+    color: #0088cc;
+}
+
 /* Project leader stuff */
 
 .leader-name {

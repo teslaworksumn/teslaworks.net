@@ -33,12 +33,10 @@
     <ul class="thumbnails">
     {% for project_name, project in projects.iteritems() %}
         <li class="span6">
-            <a href="/{{ project_name }}">
-                <div class="thumbnail">
-                    <img class="img-rounded" src={{ project.photos.front_page }} alt="">
-                    <h3>{{ project.project_title }}</h3>
-                    <p>{{ project.project_goal }}</p>
-                </div>
+            <a class="thumbnail thumbnail-project click-zone" href="/{{ project_name }}">
+                <img class="img-rounded" src={{ project.photos.front_page }} alt="">
+                <h3>{{ project.project_title }}</h3>
+                <p>{{ project.project_goal }}</p>
             </a>
         </li>
     {% endfor %}
@@ -46,18 +44,18 @@
 </div>
 
 <div class="row-fluid">
-    <a data-toggle="collapse" data-target="#get-involved">
-        <div class="alert alert-info">
+    <div class="alert alert-info">
+        <a class="click-zone" data-toggle="collapse" data-target="#get-involved">
             Looking for other ways to get involved? <i class="icon-chevron-down"></i>
-            <div id="get-involved" class="collapse out">
-                <ol>
-                    <li>Show up to a meeting! Meetings are Fridays at 5pm in Tate 170.</li>
-                    <li>Email the group's president, Peter Wagner, at peter@wagner.fake.</li>
-                    <li>Sign up for our mailing list!</li>
-                </ol>
-            </div>
+        </a>
+        <div id="get-involved" class="collapse out">
+            <ol>
+                <li>Show up to a meeting! Meetings are Fridays at 5pm in Tate 170.</li>
+                <li>Email the group's president, Peter Wagner, at peter@wagner.fake.</li>
+                <li>Sign up for our mailing list!</li>
+            </ol>
         </div>
-    </a>
+    </div>
 </div>
     
 {% endblock %}
