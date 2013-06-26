@@ -2,6 +2,10 @@
 
 {% set title = 'Home' %}
 
+{% block html_head %}
+<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+{% endblock %}
+
 {% block html_body %}
 
 <div class="row-fluid">
@@ -34,6 +38,7 @@
     {% for project_name, project in projects.iteritems() %}
         <li class="span6">
             <a class="thumbnail click-zone" href="/{{ project_name }}">
+                <i class="icon-star icon-4x starburst"></i>
                 <img class="img-rounded" src={{ project.photos.front_page }} alt="">
                 <h3>{{ project.project_title }}</h3>
                 <p>{{ project.project_goal }}</p>

@@ -5,6 +5,13 @@ a.click-zone {
     color: inherit;
 }
 
+i.starburst {
+    position: relative;
+    top: -30px;
+    left: -30px;
+    margin: 0px;
+}
+
 /* Project leader stuff */
 
 .leader-name {
