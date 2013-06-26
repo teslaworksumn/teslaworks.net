@@ -33,7 +33,7 @@
     <ul class="thumbnails">
     {% for project_name, project in projects.iteritems() %}
         <li class="span6">
-            <a class="thumbnail thumbnail-project click-zone" href="/{{ project_name }}">
+            <a class="thumbnail click-zone" href="/{{ project_name }}">
                 <img class="img-rounded" src={{ project.photos.front_page }} alt="">
                 <h3>{{ project.project_title }}</h3>
                 <p>{{ project.project_goal }}</p>
@@ -44,18 +44,18 @@
 </div>
 
 <div class="row-fluid">
-    <div class="alert alert-info">
-        <a class="click-zone" data-toggle="collapse" data-target="#get-involved">
-            Looking for other ways to get involved? <i class="icon-chevron-down"></i>
-        </a>
-        <div id="get-involved" class="collapse out">
-            <ol>
-                <li>Show up to a meeting! Meetings are Fridays at 5pm in Tate 170.</li>
-                <li>Email the group's president, Peter Wagner, at peter@wagner.fake.</li>
-                <li>Sign up for our mailing list!</li>
-            </ol>
+    <a class="click-zone" data-toggle="collapse" data-target="#get-involved">
+        <div class="alert alert-info">
+            <span>Looking for other ways to get involved? <i class="icon-chevron-down"></i></span>
+            <div id="get-involved" class="collapse out">
+                <ol>
+                    <li>Show up to a meeting! Meetings are Fridays at 5pm in Tate 170.</li>
+                    <li>Email the group's president, Peter Wagner, at peter@wagner.fake.</li>
+                    <li>Sign up for our mailing list!</li>
+                </ol>
+            </div>
         </div>
-    </div>
+    </a>
 </div>
     
 {% endblock %}

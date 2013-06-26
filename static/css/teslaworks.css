@@ -1,11 +1,8 @@
 /* Front page stuff */
 
-a.click-zone:hover {
+a.click-zone {
     text-decoration: none;
-}
-
-a.thumbnail-project:hover {
-    color: #0088cc;
+    color: inherit;
 }
 
 /* Project leader stuff */
