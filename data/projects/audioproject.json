@@ -41,5 +41,6 @@
             "/static/img/projects/audioproject/crush.jpg",
             "/static/img/projects/audioproject/blaster.jpg"
         ]
-    }
+    },
+    "interests": ["electrical-engineering", "product-design"]
 }

@@ -23,13 +23,13 @@
 
 <div class="row-fluid">
     Filter by interest:
-    <div class="btn-group">
-        <button class="btn">EE</button>
-        <button class="btn">Programming</button>
-        <button class="btn">MechE</button>
-        <button class="btn">PDes</button>
-        <button class="btn">Marketing</button>
-        <button class="btn">Graphic Design</button>
+    <div id="interest-buttons" class="btn-group">
+        <button class="btn" data-interest="electrical-engineering">EE</button>
+        <button class="btn" data-interest="programming">Programming</button>
+        <button class="btn" data-interest="mechanical-engineering">MechE</button>
+        <button class="btn" data-interest="product-design">PDes</button>
+        <button class="btn" data-interest="marketing">Marketing</button>
+        <button class="btn" data-interest="graphic-design">Graphic Design</button>
     </div>
 </div>
 
@@ -66,6 +66,8 @@
         </div>
     </a>
 </div>
+
+<p class="debugger"> hi </p>
     
 {% endblock %}
 
@@ -73,4 +75,32 @@
 <script src="/static/js/jquery-2.0.2.min.js"></script>
 <script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    
+    var project_cards = {};
+    {% for project_name, project in projects.iteritems() %}
+    project_cards["{{ project_name }}"] = {};
+    project_cards["{{ project_name }}"]["interests"] = [];
+    project_cards["{{ project_name }}"]["selected_interests"] = 0;
+    
+        {% for interest in project.interests %}
+        project_cards["{{ project_name }}"]["interests"].push("{{ interest }}");
+        {% endfor %}
+    {% endfor %}
+        
+    $(document).ready(function(){
+        $('#interest-buttons button').click(function(){
+            var interest = $(this).data('interest');
+            
+            for (var project in project_cards) {
+                if ($.inArray(interest, project_cards[project]["interests"]) != -1) {
+                    project_cards[project]["selected_interests"]++;
+                }
+            }
+            
+            $('p.debugger').text(JSON.stringify(project_cards));
+        });
+    });
+    
+</script>
 {% endblock %}
