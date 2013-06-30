@@ -23,7 +23,7 @@
 
 <div class="row-fluid">
     Filter by interest:
-    <div id="interest-buttons" class="btn-group">
+    <div id="interest-buttons" class="btn-group" data-toggle="button-toggle">
         <button class="btn" data-interest="electrical-engineering">EE</button>
         <button class="btn" data-interest="programming">Programming</button>
         <button class="btn" data-interest="mechanical-engineering">MechE</button>
@@ -66,8 +66,6 @@
         </div>
     </a>
 </div>
-
-<p class="debugger"> hi </p>
     
 {% endblock %}
 
@@ -93,12 +91,20 @@
             var interest = $(this).data('interest');
             
             for (var project in project_cards) {
+                var currently_selected = $(this).hasClass('active');
+            
                 if ($.inArray(interest, project_cards[project]["interests"]) != -1) {
-                    project_cards[project]["selected_interests"]++;
+                    if (!currently_selected) {
+                        project_cards[project]["selected_interests"]++;
+                        console.log("star " + project);
+                    } else {
+                        project_cards[project]["selected_interests"]--;
+                        if (project_cards[project]["selected_interests"] == 0) {
+                            console.log("unstar " + project);
+                        }
+                    }
                 }
             }
-            
-            $('p.debugger').text(JSON.stringify(project_cards));
         });
     });
     
