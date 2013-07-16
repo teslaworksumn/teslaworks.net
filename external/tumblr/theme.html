@@ -44,45 +44,39 @@
             padding-bottom: 30px;
         }
 
+        /* Tumblr specific stylin' */
         /* Style the pics */
-        .frame-polaroid {
+        .photo {
+            max-width: 532px !important; /* includes 16px border on either side */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .photo > .caption {
+            text-align: center;
+        }
+        .frame-polaroid, .photoset img {
             padding: 15px;
             border-radius: 10px;
             border: 1px solid #ccc;
             background-color: #eee;
         }
-
-        /* Tesla Works styles (adapted)
-         * Based on teslaworks.css from commit d17b545 in github.com/teslaworks/teslaworks.net
-         */
-        /* Project leader stuff */
-
-        .leader-name {
-            display: inline-block;
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-right: 15px;
-        }
-        .leader-email, .leader-phone {
-            margin-right: 10px;
-        }
-        .leader-polaroid {
-            width: 140px;
-            height: 140px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #eee;
-        }
-
-        /* Tumblr specific stylin' */
-        .datestamp {
+        .datestamp, .link-marker {
             font-size: 14px;
             color: #888;
             font-weight: normal;
-            margin-left: 10px;
-        }        
-
+        }
+        div.datestamp {
+            margin-bottom: 10px;
+        }
+        .caption {
+            margin-top: 10px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        .source {
+            font-style: oblique;
+        }
     </style>
 </head>
 <body>
@@ -97,8 +91,6 @@
             <h3><a href="/">{Title}</a></h3>
         </div>
 
-        <hr>
-
         {block:Description}
             <p id="description">{Description}</h2>
         {/block:Description}
@@ -110,7 +102,9 @@
             {block:Text}
                 <div class="post text">
                     {block:Title}
-                        <h3><a href="{Permalink}">{Title}</a><span class="datestamp">{Month} {DayOfWeekNumber}, {Year}</span></h3>
+                        <h3><a href="{Permalink}">{Title}</a>
+                            {block:Date}<span class="datestamp" style="margin-left: 10px;">{Month} {DayOfWeekNumber}, {Year}</span>{/block:Date}
+                        </h3>
                     {/block:Title}
 
                     {Body}
@@ -119,18 +113,22 @@
 
             {block:Photo}
                 <div class="post photo">
-                    <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
+                    <img src="{PhotoURL-500}" alt="{PhotoAlt}" class="frame-polaroid"/>
 
                     {block:Caption}
-                        <div class="caption">{Caption}</div>
+                        <div class="caption">
+                            {Caption}
+                        </div>
                     {/block:Caption}
                 </div>
             {/block:Photo}
 
             {block:Panorama}
                 <div class="post panorama">
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
                     {LinkOpenTag}
-                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" class="frame-polaroid"/>
                     {LinkCloseTag}
 
                     {block:Caption}
@@ -141,6 +139,7 @@
 
             {block:Photoset}
                 <div class="post photoset">
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
                     {Photoset-500}
 
                     {block:Caption}
@@ -151,17 +150,23 @@
 
             {block:Quote}
                 <div class="post quote">
-                    "{Quote}"
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
+                    <blockquote>{Quote}</blockquote>
 
                     {block:Source}
-                        <div class="source">{Source}</div>
+                        <div class="source">~ {Source}</div>
                     {/block:Source}
                 </div>
             {/block:Quote}
 
             {block:Link}
                 <div class="post link">
-                    <a href="{URL}" class="link" {Target}>{Name}</a>
+                    <h3>
+                        <span class="link-marker">Link:</span>
+                        <a href="{URL}" class="link" {Target}>
+                            {Name}<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png" style="margin-left: 4px;"></a>
+                        {block:Date}<span class="datestamp" style="margin-left: 10px;">{Month} {DayOfWeekNumber}, {Year}</span>{/block:Date}
+                    </h3>
 
                     {block:Description}
                         <div class="description">{Description}</div>
@@ -171,6 +176,7 @@
 
             {block:Chat}
                 <div class="post chat">
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
                     {block:Title}
                         <h3><a href="{Permalink}">{Title}</a></h3>
                     {/block:Title}
@@ -191,6 +197,7 @@
 
             {block:Video}
                 <div class="post video">
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
                     {Video-500}
 
                     {block:Caption}
@@ -201,6 +208,7 @@
 
             {block:Audio}
                 <div class="post audio">
+                    {block:Date}<div class="datestamp">{Month} {DayOfWeekNumber}, {Year}</div>{/block:Date}
                     {AudioPlayerBlack}
 
                     {block:Caption}
