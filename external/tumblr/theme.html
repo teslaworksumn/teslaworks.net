@@ -75,6 +75,14 @@
             background-color: #eee;
         }
 
+        /* Tumblr specific stylin' */
+        .datestamp {
+            font-size: 14px;
+            color: #888;
+            font-weight: normal;
+            margin-left: 10px;
+        }        
+
     </style>
 </head>
 <body>
@@ -98,10 +106,11 @@
         <hr>
 
         {block:Posts}
+
             {block:Text}
                 <div class="post text">
                     {block:Title}
-                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        <h3><a href="{Permalink}">{Title}</a><span class="datestamp">{Month} {DayOfWeekNumber}, {Year}</span></h3>
                     {/block:Title}
 
                     {Body}
