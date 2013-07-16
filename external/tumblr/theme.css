@@ -1,0 +1,68 @@
+/* Bootstrap Marketing Narrow
+ * bootstrap-mktg-narrow.css from commit d17b545 in github.com/teslaworks/teslaworks.net
+ */
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+    margin: 0 auto;
+    max-width: 700px;
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.jumbotron h1 {
+    font-size: 72px;
+    line-height: 1;
+}
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.pad-bottom {
+    padding-bottom: 30px;
+}
+
+/* Style the pics */
+.big-polaroid {
+    width: 670px;
+    height: 503px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
+
+/* Tesla Works styles
+ * teslaworks.css from commit d17b545 in github.com/teslaworks/teslaworks.net
+ */
+/* Project leader stuff */
+
+.leader-name {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+.leader-email, .leader-phone {
+    margin-right: 10px;
+}
+.leader-polaroid {
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
