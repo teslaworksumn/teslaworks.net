@@ -23,25 +23,23 @@
 
 <div class="row-fluid">
     Filter by interest:
-    <div class="btn-group">
-        <button class="btn">EE</button>
-        <button class="btn">Programming</button>
-        <button class="btn">MechE</button>
-        <button class="btn">PDes</button>
-        <button class="btn">Marketing</button>
-        <button class="btn">Graphic Design</button>
+    <div id="interest-buttons" class="btn-group" data-toggle="button-toggle">
+        <button class="btn" data-interest="electrical-engineering">EE</button>
+        <button class="btn" data-interest="programming">Programming</button>
+        <button class="btn" data-interest="mechanical-engineering">MechE</button>
+        <button class="btn" data-interest="product-design">PDes</button>
+        <button class="btn" data-interest="marketing">Marketing</button>
+        <button class="btn" data-interest="graphic-design">Graphic Design</button>
     </div>
 </div>
 
 <div class="row-fluid">
     <ul class="thumbnails">
     {% for project_name, project in projects.iteritems() %}
-        <li class="span6">
-            {% if loop.index0 == 1 %}
+        <li id="{{ project_name }}" class="span6">
             <div class="starburst">
                 <i class="icon-star icon-4x"></i>
             </div>
-            {% endif %}
             <a class="thumbnail click-zone" href="/{{ project_name }}">
                 <img class="img-rounded" src={{ project.photos.front_page }} alt="">
                 <h3>{{ project.project_title }}</h3>
@@ -96,4 +94,42 @@
 <script src="/static/js/jquery-2.0.2.min.js"></script>
 <script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    
+    var project_cards = {};
+    {% for project_name, project in projects.iteritems() %}
+    project_cards["{{ project_name }}"] = {};
+    project_cards["{{ project_name }}"]["interests"] = [];
+    project_cards["{{ project_name }}"]["selected_interests"] = 0;
+    
+        {% for interest in project.interests %}
+        project_cards["{{ project_name }}"]["interests"].push("{{ interest }}");
+        {% endfor %}
+    {% endfor %}
+        
+    $(document).ready(function(){
+        $('#interest-buttons button').click(function(){
+            var interest = $(this).data('interest');
+            
+            for (var project in project_cards) {
+                var currently_selected = $(this).hasClass('active');
+            
+                if ($.inArray(interest, project_cards[project]["interests"]) != -1) {
+                    if (!currently_selected) {
+                        project_cards[project]["selected_interests"]++;
+                        $('#' + project + " .starburst").css("opacity", "1");
+                        $('#' + project + " .starburst").css("opacity", "1");
+                    } else {
+                        project_cards[project]["selected_interests"]--;
+                        if (project_cards[project]["selected_interests"] == 0) {
+                            $('#' + project + " .starburst").css("opacity", "0");
+                            $('#' + project + " .starburst").css("opacity", "0");
+                        }
+                    }
+                }
+            }
+        });
+    });
+    
+</script>
 {% endblock %}

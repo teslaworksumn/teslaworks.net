@@ -36,5 +36,6 @@
             "img/lightshow/photo2.jpg",
             "img/lightshow/photo3.jpg"
         ]
-    }
+    },
+    "interests": ["electrical-engineering", "programming", "product-design", "marketing", "graphic-design"]
 }
