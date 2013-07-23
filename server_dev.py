@@ -1,7 +1,14 @@
-import projects
+from projects_controller import ProjectsController
 from flask import Flask, render_template, abort
+
+
+PROJECTS_DIR = 'data/projects'
+
 app = Flask(__name__)
+projects_controller = ProjectsController(PROJECTS_DIR)
+
 app.url_map.strict_slashes = False
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -9,8 +16,8 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
-    project_list = projects.get_projects()
-    return render_template('index.html', projects=project_list)
+    projects = projects_controller.get_projects()
+    return render_template('index.html', projects=projects)
 
 @app.route('/blog')
 def blog():
@@ -18,9 +25,9 @@ def blog():
 
 @app.route('/<project>')
 def project(project):
-    project_list = projects.get_projects()
-    if project in project_list:
-        project_data = project_list[project]
+    projects = projects_controller.get_projects()
+    if project in projects:
+        project_data = projects[project]
         return render_template('project.html', project_data=project_data)
     else:
         abort(404)
