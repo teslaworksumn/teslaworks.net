@@ -1,11 +1,11 @@
 /* General */
 
 a {
-    color: #1a80f7;
+    color: #257dff;
 }
 
 a:hover, a:focus {
-    color: #166dd2;
+    color: #1f6ad9;
 }
 
 /* Masthead stuff */
@@ -13,7 +13,7 @@ a:hover, a:focus {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
-    background-color: #1a80f7;
+    background-color: #257dff;
 }
 
 /* Project leader stuff */
