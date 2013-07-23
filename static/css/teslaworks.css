@@ -1,5 +1,15 @@
 /* Front page stuff */
 
+#interest-toolbar {
+    margin-top: 10px;
+}
+
+#interest-toolbar p {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
 a.click-zone {
     text-decoration: none;
     color: inherit;
