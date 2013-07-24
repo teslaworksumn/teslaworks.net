@@ -36,9 +36,9 @@ a.click-zone {
 a.thumbnail:hover,
 a.thumbnail:focus {
   border-color: #257dff;
-  -webkit-box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
-  -moz-box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
-  box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
+  -webkit-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+  -moz-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+  box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
 }
 
 .starburst {
