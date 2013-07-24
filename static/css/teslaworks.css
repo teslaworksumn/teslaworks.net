@@ -46,6 +46,7 @@ a.thumbnail:focus {
     left: -30px;            /* Half the starburst's width */
     margin-bottom: -30px;   /* Half the starburst's height */
     z-index = 1;
+    color: #257dff;
     opacity: 0;
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
