@@ -77,6 +77,20 @@
         .source {
             font-style: oblique;
         }
+        .left-footer, .center-footer, .right-footer {
+            display: inline-block;    
+            width: 230px;
+            vertical-align: top;
+        }
+        .left-footer {
+            text-align: left;
+        }
+        .center-footer {
+            text-align: center;
+        }
+        .right-footer {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -221,17 +235,23 @@
 
         {/block:Posts}
 
-        <p id="footer">
-            {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}
+        <div id="footer">
+            <span class="left-footer">
+                {block:PreviousPage}
+                    <a href="{PreviousPage}">&#171; Newer</a>
+                {/block:PreviousPage}
+            </span>
 
-            {block:NextPage}
-                <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
+            <span class="center-footer">
+                <a href="/archive">Archive</a>
+            </span>
 
-            <a href="/archive">Archive</a>
-        </p>
+            <span class="right-footer">
+                {block:NextPage}
+                    <a href="{NextPage}">Older &#187;</a>
+                {/block:NextPage}
+            </span>
+        </div>
     
     </div>
 
