@@ -53,6 +53,11 @@ a.thumbnail:focus {
     transition: opacity 0.2s ease-in-out;
 }
 
+#get-involved ol li {
+    font-size: 18px;
+    line-height: 26px;
+}
+
 /* Project leader stuff */
 
 .leader-name {
