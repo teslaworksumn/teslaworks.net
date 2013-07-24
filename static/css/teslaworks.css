@@ -33,6 +33,14 @@ a.click-zone {
     color: inherit;
 }
 
+a.thumbnail:hover,
+a.thumbnail:focus {
+  border-color: #257dff;
+  -webkit-box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
+  -moz-box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
+  box-shadow: -1px -1px 0 #1f6ad9, 1px -1px 0 #1f6ad9, -1px 1px 0 #1f6ad9, 1px 1px 0 #1f6ad9;
+}
+
 .starburst {
     position: relative;
     left: -30px;            /* Half the starburst's width */
