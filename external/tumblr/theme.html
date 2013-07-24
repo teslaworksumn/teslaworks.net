@@ -47,14 +47,19 @@
         /* Tumblr specific stylin' */
         /* Style the pics */
         .photo {
-            max-width: 532px !important; /* includes 16px border on either side */
+            max-width: 512px !important; /* includes 16px border on either side */
             margin-left: auto;
             margin-right: auto;
         }
-        .photo > .caption {
+        .html_photoset {
+            max-width: 500px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .photo > .caption > p {
             text-align: center;
         }
-        .frame-polaroid, .photoset img {
+        .frame-polaroid, .html_photoset {
             padding: 15px;
             border-radius: 10px;
             border: 1px solid #ccc;
@@ -67,6 +72,11 @@
         }
         div.datestamp {
             margin-bottom: 10px;
+        }
+        div.photoset div.datestamp {
+            max-width: 542px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .caption {
             margin-top: 10px;
