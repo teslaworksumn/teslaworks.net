@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% set title = 'Start a Project' %}
+
+{% block html_body %}
+
+<h1>Start a Project</h1>
+<p>Provide some details about your project below and we'll get in touch with you about how we can help!</p>
+
+<hr>
+
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="user-name">Name</label>
+            <div class="controls">
+                <input id="user-name" name="user-name" type="text" placeholder="What's your name?" class="input-xlarge">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="user-email">Email</label>
+            <div class="controls">
+                <input id="user-email" name="user-email" type="text" placeholder="What's your email address?" class="input-xlarge">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="proj-name">Project Name</label>
+            <div class="controls">
+                <input id="proj-name" name="proj-name" type="text" placeholder="What's the name of your project?" class="input-xlarge">
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="control-group">
+            <label class="control-label" for="proj-desc">Description</label>
+            <div class="controls">                     
+                <textarea id="proj-desc" name="proj-desc" placeholder="Tell us about your vision for the project!" style="width: 300px;" rows="8"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary">Make it happen!</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+{% endblock %}

@@ -23,6 +23,10 @@ def index():
 def blog():
     return "Flasktopress isn't quite ready yet, but we're stoked that it's coming."
 
+@app.route('/start')
+def start_project():
+    return render_template('start_project.html')
+
 @app.route('/<project>')
 def project(project):
     projects = projects_controller.get_projects()
