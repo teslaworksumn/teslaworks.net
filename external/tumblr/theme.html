@@ -16,6 +16,18 @@
             padding-bottom: 40px;
         }
 
+        a {
+            color: #257dff;
+        }
+
+        a:hover {
+            color: #1f6ad9;
+        }
+
+        .nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus {
+            background-color: #257dff;
+        }
+
         /* Custom container */
         .container-narrow {
             margin: 0 auto;
@@ -67,8 +79,14 @@
         }
         .datestamp, .link-marker {
             font-size: 14px;
-            color: #888;
             font-weight: normal;
+        }
+        .datestamp-link {
+            color: #888;
+        }
+        .datestamp-link:hover {
+            color: #257dff !important;
+            text-decoration: none;
         }
         div.datestamp {
             margin-bottom: 10px;
