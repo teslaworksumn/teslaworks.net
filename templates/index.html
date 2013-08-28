@@ -157,11 +157,9 @@
                     if (!currently_selected) {
                         project_cards[project]["selected_interests"]++;
                         $('#' + project + " .starburst").css("opacity", "1");
-                        $('#' + project + " .starburst").css("opacity", "1");
                     } else {
                         project_cards[project]["selected_interests"]--;
                         if (project_cards[project]["selected_interests"] == 0) {
-                            $('#' + project + " .starburst").css("opacity", "0");
                             $('#' + project + " .starburst").css("opacity", "0");
                         }
                     }
