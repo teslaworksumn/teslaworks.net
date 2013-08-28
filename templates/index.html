@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% set title = 'Home' %}
+{% set page_width = 'offset1 span10' %}
 
 {% block html_head %}
 <link rel="stylesheet" href="/static/css/font-awesome.min.css">
@@ -30,7 +31,7 @@
 <div class="row-fluid">
     <ul class="thumbnails">
     {% for project_name, project in projects.iteritems() %}
-        <li id="{{ project_name }}" class="span6">
+        <li id="{{ project_name }}" class="span4">
             <div class="starburst">
                 <i class="icon-star icon-4x"></i>
             </div>
@@ -41,7 +42,7 @@
             </a>
         </li>
     {% endfor %}
-        <li id="start" class="span6">
+        <li id="start" class="span4">
             <div class="starburst">
                 <i class="icon-star icon-4x"></i>
             </div>

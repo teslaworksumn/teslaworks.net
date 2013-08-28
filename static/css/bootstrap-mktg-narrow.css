@@ -3,12 +3,8 @@ body {
     padding-bottom: 40px;
 }
 
-/* Custom container */
-.container-narrow {
-    margin: 0 auto;
-    max-width: 700px;
-}
-.container-narrow > hr {
+/* Horizontal rule */
+hr {
     margin: 30px 0;
 }
 
