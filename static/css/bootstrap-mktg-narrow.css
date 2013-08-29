@@ -29,6 +29,7 @@ hr {
 
 /* Style the pics */
 .big-polaroid {
+    position: relative !important; /* overrides slideshow */
     width: 670px;
     height: 503px;
     padding: 15px;
