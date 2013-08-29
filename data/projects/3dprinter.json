@@ -27,14 +27,14 @@
     "project_leaders": [
         {
             "name": "Matthew Peterson", 
-            "photo": "/static/img/leader/matt-peterson.jpg", 
+            "photo": "/static/img/leaders/matt-peterson.jpg", 
             "phone": "218-330-5054", 
             "can_sms": "Yes", 
             "email": "pete8100@umn.edu", 
             "desc": "Matt is a recent Mechanical Engineering graduate from Aitkin, MN. He is an expert in Solid Works and linkage design."
         }, 
         {
-            "photo": "/static/img/leader/elias-peterson.jpg", 
+            "photo": "/static/img/leaders/elias-peterson.jpg", 
             "email": "pete9385@umn.edu", 
             "name": "Elias Peterson", 
             "bio": "", 

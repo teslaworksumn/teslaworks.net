@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Ethan Van Goor", 
-            "photo": "/static/img/leader/ethan-vangoor.jpg", 
+            "photo": "/static/img/leaders/ethan-vangoor.jpg", 
             "phone": "715-379-6017", 
             "can_sms": "Yes", 
             "email": "vango016@umn.edu", 

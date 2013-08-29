@@ -1,10 +1,10 @@
 {
     "project_title": "Robomural", 
     "photos": {
-        "front_page": "/static/img/projects/robomural/4color.jpg", 
+        "front_page": "/static/img/projects/robomural/4colors.jpg", 
         "detail": [
             "/static/img/projects/robomural/blank.jpg", 
-            "/static/img/projects/robomural/4color.jpg", 
+            "/static/img/projects/robomural/4colors.jpg", 
             "/static/img/projects/robomural/13kdots.jpg"
         ]
     }, 
@@ -28,14 +28,14 @@
     "project_leaders": [
         {
             "name": "Matt Lewis", 
-            "photo": "/static/img/leader/matt-lewis.jpg", 
+            "photo": "/static/img/leaders/matt-lewis.jpg", 
             "phone": "612-600-6907", 
             "can_sms": "Yes", 
             "email": "lewi0486@umn.edu", 
             "desc": "Matt is a senior studying computer engineering. He is passionate about graphic design, music, and human-focused development. In his spare time, he enjoys working on projects that fuse hardware, software, and art."
         }, 
         {
-            "photo": "/static/img/leader/scott-sievert.jpg", 
+            "photo": "/static/img/leaders/scott-sievert.jpg", 
             "email": "sieve121@umn.edu", 
             "name": "Scott Sievert", 
             "bio": "", 

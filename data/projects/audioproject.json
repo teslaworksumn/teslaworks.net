@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Ken Condon", 
-            "photo": "/static/img/leader/ken-condon.jpg", 
+            "photo": "/static/img/leaders/ken-condon.jpg", 
             "phone": "555-555-5555", 
             "can_sms": "Yes", 
             "email": "cond0134@umn.edu", 

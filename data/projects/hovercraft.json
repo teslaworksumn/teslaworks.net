@@ -28,14 +28,14 @@
     "project_leaders": [
         {
             "name": "Zach Fox", 
-            "photo": "/static/img/leader/zach-fox.jpg", 
+            "photo": "/static/img/leaders/zach-fox.jpg", 
             "phone": "555-555-5555", 
             "can_sms": "Yes", 
             "email": "foxxx548@umn.edu", 
             "desc": ""
         }, 
         {
-            "photo": "/static/img/leader/matt-hornung.jpg", 
+            "photo": "/static/img/leaders/matt-hornung.jpg", 
             "email": "horn0392@umn.edu", 
             "name": "Matt Hornung", 
             "bio": "", 
