@@ -1,0 +1,44 @@
+{
+    "project_title": "Aeroelasic Flutter", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            "Once the project is ready for implementation, we need to find a place to put it on campus. Also, if we are successful in our design we might have a marketable product."
+        ], 
+        "engineering": [
+            "Physicists/EEs to maximize power generation, material scientists to test new materials, and environmental scientists/meteorologists to assess placement locations around campus"
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            "Designers to make the final product something that can be implemented around campus."
+        ]
+    }, 
+    "project_goal": "Harness wind power with flutter caused by wind blowing across a ribbon.", 
+    "project_categories": "ME, EE, Product Design", 
+    "project_leaders": [
+        {
+            "name": "Andrew Ensign", 
+            "photo": "https://lh6.googleusercontent.com/-D-UL7DM0CwA/ThkaqAsJY0I/AAAAAAAAAPg/R53ZyAAjKwE/w597-h593-no/P1010985.JPG", 
+            "phone": "555-555-5555", 
+            "can_sms": "Yes", 
+            "email": "mousiee@gmail.com", 
+            "desc": "Andrew is a recent UMN graduate. He is very interested in sustainable energy and cheap, innovative designs for harvesting energy."
+        }, 
+        {
+            "photo": "", 
+            "email": "", 
+            "name": "", 
+            "bio": "", 
+            "phone": ""
+        }
+    ]
+}

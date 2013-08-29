@@ -1,0 +1,44 @@
+{
+    "project_title": "Farnsworth Fusor", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            "None"
+        ], 
+        "engineering": [
+            "EEs/Physicists to construct a 600W AC power supply"
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            ""
+        ]
+    }, 
+    "project_goal": "Apply a large voltage across a vacuum chamber to accelerate and collide deuterium ions, fusing them to create tritium and helium, and releasing detectable neutrons.", 
+    "project_categories": "ME, EE", 
+    "project_leaders": [
+        {
+            "name": "Ethan Van Goor", 
+            "photo": "https://sphotos-a.xx.fbcdn.net/hphotos-ash4/181562_1597873674353_6432617_n.jpg", 
+            "phone": "715-379-6017", 
+            "can_sms": "Yes", 
+            "email": "vango016@umn.edu", 
+            "desc": "Ethan is a sophomore in Physics. His interest in nuclear fusion inspired him to help with the fusor project."
+        }, 
+        {
+            "photo": "", 
+            "email": "", 
+            "name": "", 
+            "bio": "", 
+            "phone": ""
+        }
+    ]
+}
