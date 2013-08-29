@@ -29,7 +29,7 @@ hr {
 
 /* Style the pics */
 .big-polaroid {
-    position: relative !important; /* overrides slideshow */
+    left: 35px !important; /* quickfix slideshow left-aligned badness */
     width: 670px;
     height: 503px;
     padding: 15px;
