@@ -23,18 +23,20 @@
     [
         {
             "name": "Taylor Trimble",
-            "email": "taylortrimble@fake.com",
-            "phone": "612-555-2424"
+            "email": "t.trim@me.com",
+            "phone": "605-359-9756",
+            "desc": "Taylor is a computer engineering student at the University of Minnesota. A former president of Tesla Works, Taylor enjoys working on projects with blinking lights and unique software architecture."
         }
     ],
     "photos":
     {
-        "front_page": "img/lightshow/bigphoto.jpg",
+        "front_page": "/static/img/projects/lightshow/bigphoto.jpg",
         "detail":
         [
             "img/lightshow/photo1.jpg",
             "img/lightshow/photo2.jpg",
             "img/lightshow/photo3.jpg"
         ]
-    }
+    },
+    "interests": ["electrical-engineering", "programming", "product-design", "marketing", "graphic-design"]
 }

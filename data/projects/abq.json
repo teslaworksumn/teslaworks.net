@@ -1,0 +1,44 @@
+{
+    "project_title": "Animatronic Barbershop Quartet", 
+    "photos": {
+        "front_page": "/static/img/projects/abq/molding.jpg", 
+        "detail": [
+            "/static/img/projects/abq/pedestels.jpg", 
+            "/static/img/projects/abq/molding.jpg", 
+            "/static/img/projects/abq/eyes.jpg"
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            "Someone to find events where we can showcase this signature project."
+        ], 
+        "engineering": [
+            ""
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            ""
+        ]
+    }, 
+    "project_goal": "Design and construct four robotic replicas of President Kaler's head, painted to look like marble busts, that sing in glorious 4-part harmony.", 
+    "project_categories": "ME, EE, Programming, Product Design, Marketing", 
+    "project_leaders": [
+        {
+            "name": "John Phillips", 
+            "photo": "/static/img/leaders/john-phillips.jpg", 
+            "phone": "574-453-1537", 
+            "can_sms": "Yes", 
+            "email": "phil0780@umn.edu", 
+            "desc": "John is a chemical engineering major in his senior year at the University. Usually easy to spot with his rainbow propeller hat, John enjoys electronic music and anything goofy."
+        }, 
+        {
+            "photo": "/static/img/leaders/sam-finnegan.jpg", 
+            "email": "finne219@umn.edu", 
+            "name": "Sam Finnegan", 
+            "bio": "", 
+            "phone": "(507) 923-7995"
+        }
+    ]
+}

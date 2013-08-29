@@ -16,6 +16,48 @@ a:hover, a:focus {
     background-color: #257dff;
 }
 
+/* Front page stuff */
+
+#interest-toolbar {
+    margin-top: 10px;
+}
+
+#interest-toolbar p {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+a.click-zone {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus {
+  border-color: #257dff;
+  -webkit-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+  -moz-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+  box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+}
+
+.starburst {
+    position: relative;
+    left: -30px;            /* Half the starburst's width */
+    margin-bottom: -30px;   /* Half the starburst's height */
+    z-index = 1;
+    color: #257dff;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#get-involved ol li {
+    font-size: 18px;
+    line-height: 26px;
+}
+
 /* Project leader stuff */
 
 .leader-name {

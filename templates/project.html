@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% set title =  project_data.project_title %}
+{% set page_width = 'offset2 span8' %}
 
 {% block html_head %}
 <link rel="stylesheet" href="/static/css/font-awesome.min.css">
@@ -16,7 +17,7 @@
     {% endfor %}
     </div>
     <p class="lead">{{ project_data.project_goal }}</p>
-    <a class="btn btn-large btn-success" href="#">Sign up today</a>
+    <a class="btn btn-large btn-success" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
 </div>
 
 <hr>

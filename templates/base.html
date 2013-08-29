@@ -24,10 +24,14 @@
 </head>
 
 <body>
-    <div class="container-narrow">
-        {% include 'masthead.html' %}
-        {% block html_body %}{% endblock %}
-        {% block html_post_body %}{% endblock %}
+    <div class="container">
+        <div class="row-fluid">
+            <div {% if page_width is defined %}class="{{ page_width }}"{% endif %}>
+                {% include 'masthead.html' %}
+                {% block html_body %}{% endblock %}
+                {% block html_post_body %}{% endblock %}
+            </div>
+        </div>
     </div>
 </body>
 </html>
