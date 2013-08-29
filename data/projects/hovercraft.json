@@ -1,0 +1,45 @@
+{
+    "project_title": "Hovercraft", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            "People to find money and support for a high-quality hovercraft to be built this fall."
+        ], 
+        "engineering": [
+            ""
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            "People who want to design a hovercraft/float for the Homecoming parade.", 
+            "People who want to build a hovercraft/t-shirt launcher for sports events."
+        ]
+    }, 
+    "project_goal": "Build a UH-10F hovercraft.", 
+    "project_categories": "ME", 
+    "project_leaders": [
+        {
+            "name": "Zach Fox", 
+            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/5a4b1abebc3756136f534a72bd0b44c1fe7fdda72ec36f5fe74f3d8330cf5883505dbe6b7406d66978d94c560ea647f35da654709b2d2a446bc03fa9d62eb9ed30da25887791aba25f7d368a4c8cdfb2/original.5a4b1abebc3756136f534a72bd0b44c1fe7fdda72ec36f5fe74f3d8330cf5883505dbe6b7406d66978d94c560ea647f35da654709b2d2a446bc03fa9d62eb9ed30da25887791aba25f7d368a4c8cdfb2.gif?r=3", 
+            "phone": "555-555-5555", 
+            "can_sms": "Yes", 
+            "email": "foxxx548@umn.edu", 
+            "desc": ""
+        }, 
+        {
+            "photo": "https://sphotos-a-ord.xx.fbcdn.net/hphotos-frc1/316126_10101183529703920_1144709719_n.jpg", 
+            "email": "horn0392@umn.edu", 
+            "name": "Matt Hornung", 
+            "bio": "", 
+            "phone": ""
+        }
+    ]
+}

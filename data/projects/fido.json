@@ -1,0 +1,37 @@
+{
+    "project_title": "Fido", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            ""
+        ], 
+        "engineering": [
+            ""
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            ""
+        ]
+    }, 
+    "project_goal": "Create a computerized workshop control system.", 
+    "project_categories": "EE, Programming, Product Design, Marketing, Graphic Design", 
+    "project_leaders": [
+        {
+            "name": "Taylor Trimble", 
+            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/77150d57bf41644f3ae27cec03b02346ba42fc406802f1e8f5f4d9ca1e3c7897a1df6d36589c0c585261766c85152a599bd15aa2a6cbf795149a3d9bb00e91e951f4df89f1dd970938464989a72a06a4/original.77150d57bf41644f3ae27cec03b02346ba42fc406802f1e8f5f4d9ca1e3c7897a1df6d36589c0c585261766c85152a599bd15aa2a6cbf795149a3d9bb00e91e951f4df89f1dd970938464989a72a06a4.gif?r=3", 
+            "phone": "605-359-9756", 
+            "can_sms": "Yes", 
+            "email": "trim0055@umn.edu", 
+            "desc": "Taylor is a computer engineering student at the University of Minnesota. A former president of Tesla Works, Taylor enjoys working on projects with blinking lights and unique software architecture."
+        }
+    ]
+}

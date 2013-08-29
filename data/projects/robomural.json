@@ -1,0 +1,45 @@
+{
+    "project_title": "Robomural", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            "Individuals who want to help search for funding. This is a massive project, which will require massive resources to construct."
+        ], 
+        "engineering": [
+            "Mechanical engineers to design a large free-standing machine to \"paint\" a new image on the side of a building each day.",
+            "Computer scientists to program the mechanism."
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            "Designers to make the end result look visually appealing."
+        ]
+    }, 
+    "project_goal": "Build a giant robotic mural that periodically updates itself.", 
+    "project_categories": "ME, Graphic Design, Marketing", 
+    "project_leaders": [
+        {
+            "name": "Matt Lewis", 
+            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/f913307b9519070dd84e416730c9289506f35c31f9351e12061a7ba814f94abdbb597a8745271ea68a681e92ba13b8a1b3ac41222411f8255ca68a0ea19a7c7efad9f731c5a949a9e7b19b1c8052ac71/original.f913307b9519070dd84e416730c9289506f35c31f9351e12061a7ba814f94abdbb597a8745271ea68a681e92ba13b8a1b3ac41222411f8255ca68a0ea19a7c7efad9f731c5a949a9e7b19b1c8052ac71.gif?r=3", 
+            "phone": "612-600-6907", 
+            "can_sms": "Yes", 
+            "email": "lewi0486@umn.edu", 
+            "desc": "Matt is a senior studying computer engineering. He is passionate about graphic design, music, and human-focused development. In his spare time, he enjoys working on projects that fuse hardware, software, and art."
+        }, 
+        {
+            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/30fec076d1d77fa59104646803d8f6a40900904a23667862a5478d4c1407d4d65c22ef7c4e6d5e2cf02120218cca7273814cd11cedb1f7835cd22b86d51d4779f27f9f9f2b783f933a83ebaf9af2f022/original.30fec076d1d77fa59104646803d8f6a40900904a23667862a5478d4c1407d4d65c22ef7c4e6d5e2cf02120218cca7273814cd11cedb1f7835cd22b86d51d4779f27f9f9f2b783f933a83ebaf9af2f022.gif?r=3", 
+            "email": "sieve121@umn.edu", 
+            "name": "Scott Sievert", 
+            "bio": "", 
+            "phone": "555-555-5555"
+        }
+    ]
+}

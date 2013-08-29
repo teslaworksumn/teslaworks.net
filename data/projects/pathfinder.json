@@ -1,0 +1,37 @@
+{
+    "project_title": "Pathfinder", 
+    "photos": {
+        "front_page": null, 
+        "detail": [
+            null, 
+            null, 
+            null
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+            ""
+        ], 
+        "engineering": [
+            ""
+        ], 
+        "other": [
+            ""
+        ], 
+        "design": [
+            ""
+        ]
+    }, 
+    "project_goal": "Create an Android app for campus navigation, displaying bus routes, floor plans, NiceRide bicycle locations, and other useful data.", 
+    "project_categories": "Programming, Product Design", 
+    "project_leaders": [
+        {
+            "name": "Kern Walster", 
+            "photo": "https://lh5.googleusercontent.com/-h5SQ9UjMoMw/Ufm_PCoz4HI/AAAAAAAAAcA/V5EMNjMxxiE/w540-h543-no/2013-07-19+20.33.28.jpg", 
+            "phone": "651-403-3101", 
+            "can_sms": "Yes", 
+            "email": "wals0323@umn.edu", 
+            "desc": "Kern is a senior Computer Science student at the U of M. He likes programming, swing dancing, and really cool pens."
+        }
+    ]
+}

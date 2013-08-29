@@ -10,7 +10,9 @@ class ProjectsController:
     def get_projects(self):
     
         if not self.projects:
-            for file_name in os.listdir(self.projects_dir):
+            all_files = os.listdir(self.projects_dir)
+            json_files = [f for f in all_files if f.endswith('.json')]
+            for file_name in json_files:
                 full_file_name = os.path.join(self.projects_dir, file_name)
                 with open(full_file_name, 'r') as f:
                     data = json.load(f)
