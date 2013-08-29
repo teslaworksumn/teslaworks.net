@@ -1,11 +1,11 @@
 {
     "project_title": "Aeroelasic Flutter", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/flutter/windcell.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/flutter/windcell.jpg", 
+            "/static/img/projects/flutter/testing.jpg", 
+            "/static/img/projects/flutter/friction.jpg"
         ]
     }, 
     "project_needs": {
@@ -30,7 +30,7 @@
     "project_leaders": [
         {
             "name": "Andrew Ensign", 
-            "photo": "https://lh6.googleusercontent.com/-D-UL7DM0CwA/ThkaqAsJY0I/AAAAAAAAAPg/R53ZyAAjKwE/w597-h593-no/P1010985.JPG", 
+            "photo": "/static/img/leaders/andrew-ensign.jpg", 
             "phone": "555-555-5555", 
             "can_sms": "Yes", 
             "email": "mousiee@gmail.com", 

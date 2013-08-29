@@ -1,11 +1,11 @@
 {
     "project_title": "Fido", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/fido/controls.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/fido/controls.jpg", 
+            "/static/img/projects/fido/ideas.jpg", 
+            "/static/img/projects/fido/stress.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Taylor Trimble", 
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/77150d57bf41644f3ae27cec03b02346ba42fc406802f1e8f5f4d9ca1e3c7897a1df6d36589c0c585261766c85152a599bd15aa2a6cbf795149a3d9bb00e91e951f4df89f1dd970938464989a72a06a4/original.77150d57bf41644f3ae27cec03b02346ba42fc406802f1e8f5f4d9ca1e3c7897a1df6d36589c0c585261766c85152a599bd15aa2a6cbf795149a3d9bb00e91e951f4df89f1dd970938464989a72a06a4.gif?r=3", 
+            "photo": "/static/img/leaders/taylor-trimble.jpg", 
             "phone": "605-359-9756", 
             "can_sms": "Yes", 
             "email": "trim0055@umn.edu", 

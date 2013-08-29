@@ -1,11 +1,11 @@
 {
     "project_title": "Audio Project", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/audioproject/testing.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/audioproject/testing.jpg", 
+            "/static/img/projects/audioproject/demo.jpg", 
+            "/static/img/projects/audioproject/schematic.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Ken Condon", 
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/b81ff5c1d3de2531ed2e497500c6bbabbe7b4b7552a30a5ec15381f5d3b1befea57f63f293129cb8da2f99b53c64817d3c6b0ca9b05b7be1e4f0408d23f455af7a0c0c31aca515b3430b6d6ea0c301f8/original.b81ff5c1d3de2531ed2e497500c6bbabbe7b4b7552a30a5ec15381f5d3b1befea57f63f293129cb8da2f99b53c64817d3c6b0ca9b05b7be1e4f0408d23f455af7a0c0c31aca515b3430b6d6ea0c301f8.gif?r=3", 
+            "photo": "/static/img/leaders/ken-condon.jpg", 
             "phone": "555-555-5555", 
             "can_sms": "Yes", 
             "email": "cond0134@umn.edu", 

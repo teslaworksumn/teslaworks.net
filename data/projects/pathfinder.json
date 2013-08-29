@@ -1,11 +1,11 @@
 {
     "project_title": "Pathfinder", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/pathfinder/niceride.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/pathfinder/niceride.jpg", 
+            "/static/img/projects/pathfinder/pathfinder.jpg", 
+            "/static/img/projects/pathfinder/nextbus.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Kern Walster", 
-            "photo": "https://lh5.googleusercontent.com/-h5SQ9UjMoMw/Ufm_PCoz4HI/AAAAAAAAAcA/V5EMNjMxxiE/w540-h543-no/2013-07-19+20.33.28.jpg", 
+            "photo": "/static/img/leaders/kern-walster.jpg", 
             "phone": "651-403-3101", 
             "can_sms": "Yes", 
             "email": "wals0323@umn.edu", 

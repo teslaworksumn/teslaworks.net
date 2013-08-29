@@ -1,11 +1,11 @@
 {
     "project_title": "RepRap 3D Printer", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/3dprinter/assembly.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/3dprinter/model.jpg", 
+            "/static/img/projects/3dprinter/joint.jpg", 
+            "/static/img/projects/3dprinter/assembly.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,14 +27,14 @@
     "project_leaders": [
         {
             "name": "Matthew Peterson", 
-            "photo": "https://sphotos-a.xx.fbcdn.net/hphotos-ash3/255122_10150211818638292_787259_n.jpg", 
+            "photo": "/static/img/leaders/matt-peterson.jpg", 
             "phone": "218-330-5054", 
             "can_sms": "Yes", 
             "email": "pete8100@umn.edu", 
             "desc": "Matt is a recent Mechanical Engineering graduate from Aitkin, MN. He is an expert in Solid Works and linkage design."
         }, 
         {
-            "photo": "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/936416_557891134263127_1517324101_n.jpg", 
+            "photo": "/static/img/leaders/elias-peterson.jpg", 
             "email": "pete9385@umn.edu", 
             "name": "Elias Peterson", 
             "bio": "", 

@@ -1,11 +1,11 @@
 {
     "project_title": "Hovercraft", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/hovercraft/blade.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/hovercraft/blade.jpg", 
+            "/static/img/projects/hovercraft/glue.jpg", 
+            "/static/img/projects/hovercraft/example.jpg"
         ]
     }, 
     "project_needs": {
@@ -28,14 +28,14 @@
     "project_leaders": [
         {
             "name": "Zach Fox", 
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/5a4b1abebc3756136f534a72bd0b44c1fe7fdda72ec36f5fe74f3d8330cf5883505dbe6b7406d66978d94c560ea647f35da654709b2d2a446bc03fa9d62eb9ed30da25887791aba25f7d368a4c8cdfb2/original.5a4b1abebc3756136f534a72bd0b44c1fe7fdda72ec36f5fe74f3d8330cf5883505dbe6b7406d66978d94c560ea647f35da654709b2d2a446bc03fa9d62eb9ed30da25887791aba25f7d368a4c8cdfb2.gif?r=3", 
+            "photo": "/static/img/leaders/zach-fox.jpg", 
             "phone": "555-555-5555", 
             "can_sms": "Yes", 
             "email": "foxxx548@umn.edu", 
             "desc": ""
         }, 
         {
-            "photo": "https://sphotos-a-ord.xx.fbcdn.net/hphotos-frc1/316126_10101183529703920_1144709719_n.jpg", 
+            "photo": "/static/img/leaders/matt-hornung.jpg", 
             "email": "horn0392@umn.edu", 
             "name": "Matt Hornung", 
             "bio": "", 
