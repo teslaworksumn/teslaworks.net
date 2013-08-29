@@ -10,10 +10,13 @@
     }, 
     "project_needs": {
         "marketing": [
-            "Once the project is ready for implementation, we need to find a place to put it on campus. Also, if we are successful in our design we might have a marketable product."
+            "Once the project is ready for implementation, we need to find a place to put it on campus.",
+            "If we are successful in our design we might have a marketable product."
         ], 
         "engineering": [
-            "Physicists/EEs to maximize power generation, material scientists to test new materials, and environmental scientists/meteorologists to assess placement locations around campus"
+            "Physicists/EEs to maximize power generation",
+            "Material scientists to test new materials",
+            "Environmental scientists/meteorologists to assess placement locations around campus"
         ], 
         "other": [
             ""

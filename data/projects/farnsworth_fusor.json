@@ -10,10 +10,10 @@
     }, 
     "project_needs": {
         "marketing": [
-            "None"
+            ""
         ], 
         "engineering": [
-            "EEs/Physicists to construct a 600W AC power supply"
+            "Electrical engineers and physicists to construct a 600W AC power supply."
         ], 
         "other": [
             ""

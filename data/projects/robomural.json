@@ -13,13 +13,14 @@
             "Individuals who want to help search for funding. This is a massive project, which will require massive resources to construct."
         ], 
         "engineering": [
-            "MechE's to design a large free-standing machine to \"paint\" a new image on the side of a building each day. CSCI people to program the mechanism."
+            "Mechanical engineers to design a large free-standing machine to \"paint\" a new image on the side of a building each day.",
+            "Computer scientists to program the mechanism."
         ], 
         "other": [
             ""
         ], 
         "design": [
-            "Designers to make the end result look visually appealing"
+            "Designers to make the end result look visually appealing."
         ]
     }, 
     "project_goal": "Build a giant robotic mural that periodically updates itself.", 
