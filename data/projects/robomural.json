@@ -1,11 +1,11 @@
 {
     "project_title": "Robomural", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/robomural/4color.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/robomural/blank.jpg", 
+            "/static/img/projects/robomural/4color.jpg", 
+            "/static/img/projects/robomural/13kdots.jpg"
         ]
     }, 
     "project_needs": {
@@ -28,14 +28,14 @@
     "project_leaders": [
         {
             "name": "Matt Lewis", 
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/f913307b9519070dd84e416730c9289506f35c31f9351e12061a7ba814f94abdbb597a8745271ea68a681e92ba13b8a1b3ac41222411f8255ca68a0ea19a7c7efad9f731c5a949a9e7b19b1c8052ac71/original.f913307b9519070dd84e416730c9289506f35c31f9351e12061a7ba814f94abdbb597a8745271ea68a681e92ba13b8a1b3ac41222411f8255ca68a0ea19a7c7efad9f731c5a949a9e7b19b1c8052ac71.gif?r=3", 
+            "photo": "/static/img/leader/matt-lewis.jpg", 
             "phone": "612-600-6907", 
             "can_sms": "Yes", 
             "email": "lewi0486@umn.edu", 
             "desc": "Matt is a senior studying computer engineering. He is passionate about graphic design, music, and human-focused development. In his spare time, he enjoys working on projects that fuse hardware, software, and art."
         }, 
         {
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/30fec076d1d77fa59104646803d8f6a40900904a23667862a5478d4c1407d4d65c22ef7c4e6d5e2cf02120218cca7273814cd11cedb1f7835cd22b86d51d4779f27f9f9f2b783f933a83ebaf9af2f022/original.30fec076d1d77fa59104646803d8f6a40900904a23667862a5478d4c1407d4d65c22ef7c4e6d5e2cf02120218cca7273814cd11cedb1f7835cd22b86d51d4779f27f9f9f2b783f933a83ebaf9af2f022.gif?r=3", 
+            "photo": "/static/img/leader/scott-sievert.jpg", 
             "email": "sieve121@umn.edu", 
             "name": "Scott Sievert", 
             "bio": "", 

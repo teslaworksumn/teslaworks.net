@@ -1,11 +1,11 @@
 {
     "project_title": "Farnsworth Fusor", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/fusor/plasma.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/fusor/plasma.jpg", 
+            "/static/img/projects/fusor/chamber.jpg", 
+            "/static/img/projects/fusor/system.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,7 +27,7 @@
     "project_leaders": [
         {
             "name": "Ethan Van Goor", 
-            "photo": "https://sphotos-a.xx.fbcdn.net/hphotos-ash4/181562_1597873674353_6432617_n.jpg", 
+            "photo": "/static/img/leader/ethan-vangoor.jpg", 
             "phone": "715-379-6017", 
             "can_sms": "Yes", 
             "email": "vango016@umn.edu", 

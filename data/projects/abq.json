@@ -1,11 +1,11 @@
 {
     "project_title": "Animatronic Barbershop Quartet", 
     "photos": {
-        "front_page": null, 
+        "front_page": "/static/img/projects/abq/molding.jpg", 
         "detail": [
-            null, 
-            null, 
-            null
+            "/static/img/projects/abq/pedestels.jpg", 
+            "/static/img/projects/abq/molding.jpg", 
+            "/static/img/projects/abq/eyes.jpg"
         ]
     }, 
     "project_needs": {
@@ -27,14 +27,14 @@
     "project_leaders": [
         {
             "name": "John Phillips", 
-            "photo": "https://sphotos-a.xx.fbcdn.net/hphotos-prn2/1098135_10151631542148432_1438166419_n.jpg", 
+            "photo": "/static/img/leader/john-phillips.jpg", 
             "phone": "574-453-1537", 
             "can_sms": "Yes", 
             "email": "phil0780@umn.edu", 
             "desc": "John is a chemical engineering major in his senior year at the University. Usually easy to spot with his rainbow propeller hat, John enjoys electronic music and anything goofy."
         }, 
         {
-            "photo": "https://dge9rmgqjs8m1.cloudfront.net/global/ffe6a3a03b2c197278342f863a823560c54ad7a17a9a7e98226f037f98d8d73232d16db15939d63806ea6396363f4e768f876498d88067fc2f28d238136edde19f3519e502d7a6da6912a3dbd8caae75/original.ffe6a3a03b2c197278342f863a823560c54ad7a17a9a7e98226f037f98d8d73232d16db15939d63806ea6396363f4e768f876498d88067fc2f28d238136edde19f3519e502d7a6da6912a3dbd8caae75.gif?r=3", 
+            "photo": "/static/img/leader/sam-finnegan.jpg", 
             "email": "finne219@umn.edu", 
             "name": "Sam Finnegan", 
             "bio": "", 
