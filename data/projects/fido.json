@@ -32,13 +32,6 @@
             "can_sms": "Yes", 
             "email": "trim0055@umn.edu", 
             "desc": "Taylor is a senior studying computer engineering. He likes Apple products, blinkenlights, and sleepless nights."
-        }, 
-        {
-            "photo": "", 
-            "email": "", 
-            "name": "", 
-            "bio": "", 
-            "phone": ""
         }
     ]
 }

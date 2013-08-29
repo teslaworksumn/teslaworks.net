@@ -32,13 +32,6 @@
             "can_sms": "Yes", 
             "email": "vango016@umn.edu", 
             "desc": "Ethan is a sophomore in Physics. His interest in nuclear fusion inspired him to help with the fusor project."
-        }, 
-        {
-            "photo": "", 
-            "email": "", 
-            "name": "", 
-            "bio": "", 
-            "phone": ""
         }
     ]
 }

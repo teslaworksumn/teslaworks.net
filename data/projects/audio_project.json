@@ -32,13 +32,6 @@
             "can_sms": "Yes", 
             "email": "cond0134@umn.edu", 
             "desc": "Ken is an avionics intern at SpaceX and an expert in electrical engineering and PCB design."
-        }, 
-        {
-            "photo": "", 
-            "email": "", 
-            "name": "", 
-            "bio": "", 
-            "phone": ""
         }
     ]
 }

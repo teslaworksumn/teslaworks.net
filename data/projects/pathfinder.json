@@ -32,13 +32,6 @@
             "can_sms": "Yes", 
             "email": "wals0323@umn.edu", 
             "desc": "Kern is a senior Computer Science student at the U of M. He likes programming, swing dancing, and really cool pens."
-        }, 
-        {
-            "photo": "", 
-            "email": "", 
-            "name": "", 
-            "bio": "", 
-            "phone": ""
         }
     ]
 }
