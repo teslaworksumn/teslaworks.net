@@ -1,5 +1,5 @@
 from projects_controller import ProjectsController
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, redirect, abort
 
 
 PROJECTS_DIR = 'data/projects'
@@ -29,10 +29,16 @@ def start_project():
 
 @app.route('/<project>')
 def project(project):
+
     projects = projects_controller.get_projects()
     if project in projects:
         project_data = projects[project]
-        return render_template('project.html', project_data=project_data)
+        if 'conclusion_post' in project_data:
+            # The project is over, we should redirect to the post
+            return redirect(project_data['conclusion_post'])
+        else:
+          return render_template('project.html', project_data=project_data)
+
     else:
         abort(404)
 
