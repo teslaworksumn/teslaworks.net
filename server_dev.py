@@ -16,7 +16,7 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
-    projects = projects_controller.get_projects()
+    projects = projects_controller.get_current_projects()
     return render_template('index.html', projects=projects)
 
 @app.route('/blog')
@@ -30,7 +30,7 @@ def start_project():
 @app.route('/<project>')
 def project(project):
 
-    projects = projects_controller.get_projects()
+    projects = projects_controller.get_all_projects()
     if project in projects:
         project_data = projects[project]
         if 'conclusion_post' in project_data:
