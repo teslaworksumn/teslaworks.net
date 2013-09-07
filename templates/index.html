@@ -30,7 +30,7 @@
 
 <div class="row-fluid">
   <ul class="thumbnails">
-  {% for project_name, project in projects.iteritems() %}
+  {% for project_name, project in current_projects.iteritems() %}
     <li id="{{ project_name }}" class="span4">
       <div class="starburst">
         <i class="icon-star icon-4x"></i>
@@ -52,6 +52,33 @@
         <p>Blah blah.</p>
       </a>
     </li>
+  </ul>
+</div>
+
+<div class="row-fluid">
+  <a id="past-projects-btn" class="btn btn-block btn-large" data-toggle="collapse" data-target="#past-projects"><strong>See Past Projects</strong></a>
+</div>
+
+<div id="past-projects" class="row-fluid collapse out">
+  <ul class="thumbnails">
+  {% for project_name, project in past_projects.iteritems() %}
+    <li id="{{ project_name }}" class="span4">
+      <div class="starburst">
+        <i class="icon-star icon-4x"></i>
+      </div>
+      <a class="thumbnail click-zone" href="/{{ project_name }}">
+        <img class="img-rounded" src={{ project.photos.front_page }} alt="">
+        <h3>{{ project.project_title }}</h3>
+        <p>{{ project.project_goal }}</p>
+      </a>
+    </li>
+    {% if loop.index is divisibleby (3) %}
+  </ul>
+</div>
+<div class="row-fluid" style="margin-top: -30px;">
+  <ul class="thumbnails">
+    {% endif %}
+  {% endfor %}
   </ul>
 </div>
 
@@ -136,7 +163,7 @@
 <script type="text/javascript">
   
   var project_cards = {};
-  {% for project_name, project in projects.iteritems() %}
+  {% for project_name, project in current_projects.iteritems() %}
   project_cards["{{ project_name }}"] = {};
   project_cards["{{ project_name }}"]["interests"] = [];
   project_cards["{{ project_name }}"]["selected_interests"] = 0;
@@ -165,6 +192,10 @@
           }
         }
       }
+    });
+    
+    $('#past-projects-btn').click(function() {
+        $(this).button('toggle');
     });
   });
   

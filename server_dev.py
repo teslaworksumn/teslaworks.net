@@ -18,8 +18,9 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
-    projects = projects_controller.get_current_projects()
-    return render_template('index.html', projects=projects)
+    current_projects = projects_controller.get_current_projects()
+    past_projects = projects_controller.get_past_projects()
+    return render_template('index.html', current_projects=current_projects, past_projects=past_projects)
 
 @app.route('/start')
 def start_project():
