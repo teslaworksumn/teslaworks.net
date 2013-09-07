@@ -3,12 +3,12 @@ import os
 
 class ProjectsController:
 
-    def __init__(self, projects_dir):
-        self.projects_dir = projects_dir
-        self.current_projects = {}
-        self.past_projects = {}
-        self.all_projects = {}
-    
+    def __init__(self, data_dir):
+        self.projects_dir = os.path.join(data_dir, 'projects')
+        self.current_projects = None
+        self.past_projects = None
+        self.all_projects = None
+
     def get_current_projects(self):
         if not self.current_projects:
             self.load_projects()
@@ -28,6 +28,10 @@ class ProjectsController:
         return self.all_projects
     
     def load_projects(self):
+
+        self.current_projects = {}
+        self.past_projects = {}
+        self.all_projects = {}
     
         all_files = os.listdir(self.projects_dir)
         json_files = [f for f in all_files if f.endswith('.json')]
