@@ -28,10 +28,10 @@ def start_project():
 @app.route('/<dynamic>')
 def project(dynamic):
 
-    # First, test if if it's a project
     projects = projects_controller.get_all_projects()
     redirects = redirects_controller.get_redirects()
 
+    # First, test if if it's a project
     if dynamic in projects:
         project_data = projects[dynamic]
         if 'conclusion_post' in project_data:
