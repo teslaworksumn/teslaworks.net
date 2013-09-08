@@ -53,9 +53,23 @@ a.thumbnail:focus {
     transition: opacity 0.2s ease-in-out;
 }
 
-#get-involved ol li {
-    font-size: 18px;
-    line-height: 26px;
+#connect {
+    font-size: 22px;
+}
+
+#connect :hover {
+    text-decoration: none;
+}
+
+#connect div {
+    margin-left: 25px;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+#connect i {
+    font-size: 90px;
+    text-decoration: none;
 }
 
 /* Project leader stuff */
