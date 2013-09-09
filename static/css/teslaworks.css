@@ -1,11 +1,11 @@
 /* General */
 
 a {
-    color: #257dff;
+    color: #1a80f7;
 }
 
 a:hover, a:focus {
-    color: #1f6ad9;
+    color: #166dd2;
 }
 
 /* Masthead stuff */
@@ -13,7 +13,7 @@ a:hover, a:focus {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
-    background-color: #257dff;
+    background-color: #1a80f7;
 }
 
 /* Front page stuff */
@@ -35,10 +35,10 @@ a.click-zone {
 
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: #257dff;
-  -webkit-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
-  -moz-box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
-  box-shadow: -1px -1px 0 #257dff, 1px -1px 0 #257dff, -1px 1px 0 #257dff, 1px 1px 0 #257dff;
+  border-color: #1a80f7;
+  -webkit-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+  -moz-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+  box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
 }
 
 .starburst {
@@ -46,7 +46,7 @@ a.thumbnail:focus {
     left: -30px;            /* Half the starburst's width */
     margin-bottom: -30px;   /* Half the starburst's height */
     z-index = 1;
-    color: #257dff;
+    color: #1a80f7;
     opacity: 0;
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
