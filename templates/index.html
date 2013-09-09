@@ -19,71 +19,64 @@
 
 <hr>
 
-<div class="row">
-  <ul class="thumbnails">
-  {% for project_name, project in current_projects.iteritems() %}
-    <li id="{{ project_name }}" class="col-md-4">
-      <div class="starburst">
-        <i class="icon-star icon-4x"></i>
+<div id="projects">
+  <div class="row">
+    {% for project_name, project in current_projects.iteritems() %}
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a class="click-zone" href="/{{ project_name }}">
+          <img class="img-rounded img-responsive" src={{ project.photos.front_page }} alt="">
+          <h3>{{ project.project_title }}</h3>
+          <p>{{ project.project_goal }}</p>
+        </a>
       </div>
-      <a class="thumbnail click-zone" href="/{{ project_name }}">
-        <img class="img-rounded" src={{ project.photos.front_page }} alt="">
-        <h3>{{ project.project_title }}</h3>
-        <p>{{ project.project_goal }}</p>
-      </a>
-    </li>
-    {% if loop.index is divisibleby (3) %}
-  </ul>
-</div>
-<div class="row">
-  <ul class="thumbnails">
-    {% endif %}
-  {% endfor %}
-    <li id="start" class="col-md-4">
-      <div class="starburst">
-        <i class="icon-star icon-4x"></i>
+    </div>
+  {% if loop.index is divisibleby (3) %}
+  </div>
+  <div class="row">
+  {% endif %}
+    {% endfor %}
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a class="click-zone" href="/start">
+          <img class="img-rounded img-responsive" src="/static/img/start.png" alt="">
+          <h3>Start a New Project!</h3>
+          <p>We're always looking for new projects ideas! Go ahead and get started!</p>
+        </a>
       </div>
-      <a class="thumbnail click-zone" href="mailto:ntp2umn@gmail.com?subject=I want to start a new Tesla Works project!">
-        <img class="img-rounded" src="/static/img/start.png" alt="">
-        <h3>Start a New Project</h3>
-        <p>Blah blah.</p>
-      </a>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 {% if past_projects %}
 <div class="row">
-  <a id="past-projects-btn" class="btn btn-block btn-lg" data-toggle="collapse" data-target="#past-projects"><strong>See Past Projects</strong></a>
+  <a id="past-proj-btn" class="btn btn-default btn-lg btn-block" data-toggle="collapse" data-target="#past-projects">See Past Projects</a>
 </div>
 {% endif %}
 
 <div id="past-projects" class="row collapse">
-  <ul class="thumbnails">
-  {% for project_name, project in past_projects.iteritems() %}
-    <li id="{{ project_name }}" class="col-md-4">
-      <div class="starburst">
-        <i class="icon-star icon-4x"></i>
+  <div class="row">
+    {% for project_name, project in past_projects.iteritems() %}
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a class="click-zone" href="/{{ project_name }}">
+          <img class="img-rounded img-responsive" src={{ project.photos.front_page }} alt="">
+          <h3>{{ project.project_title }}</h3>
+          <p>{{ project.project_goal }}</p>
+        </a>
       </div>
-      <a class="thumbnail click-zone" href="/{{ project_name }}">
-        <img class="img-rounded" src={{ project.photos.front_page }} alt="">
-        <h3>{{ project.project_title }}</h3>
-        <p>{{ project.project_goal }}</p>
-      </a>
-    </li>
-    {% if loop.index is divisibleby (3) %}
-  </ul>
-</div>
-<div class="row">
-  <ul class="thumbnails">
-    {% endif %}
-  {% endfor %}
-  </ul>
+    </div>
+  {% if loop.index is divisibleby (3) %}
+  </div>
+  <div class="row">
+  {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 <hr>
 
-<div class="row">
+<div id="join-mail-list" class="row">
   <div class="col-md-offset-2 col-md-8">
     <form role="form"
           action="http://teslaworks.us6.list-manage.com/subscribe/post?u=29b6ec6923126f61a619ad372&amp;id=6ac5d62894"
@@ -140,11 +133,11 @@
   <div class="row">
     <div class="col-md-6">
       <h3>Would you make a good member?</h2>
-      <p>Our group attracts the brightest self-starters and people interested in gaining tons of hands-on experience. Engineers, designers, scientists, and artists especially love our group, but we have members from many other disciplines as well.</p>
+      <p>Our group attracts self-starters and people interested in maximizing hands-on experience. Engineers and designers especially love our group, but we have many other kinds of members.</p>
     </div>
     <div>
       <h3>Wondering how you can help?</h2>
-      <p>The best way to find out is to learn more about the projects. Find a project that interests you, and let the project manager know what looks interesting to you.</p>
+      <p>The best way to find out is to learn more about the projects. Find a project that interests you, and let the project manager know what you might like to work on.</p>
     </div>
   </div>
   <div class="row">
@@ -154,11 +147,11 @@
     </div>
     <div>
       <h3>Can't make the meeting?</h2>
-      <p>That's okay. Most projects meet on their own at other times during the week. Go to a project page to see when.</p>
+      <p>That's okay. Most projects meet on their own at other times during the week. Check with a few project managers to find something to fit your schedule.</p>
     </div>
   </div>
 </div>
-  
+
 {% endblock %}
 
 {% block html_post_body %}
@@ -167,7 +160,7 @@
 
   $(document).ready(function(){
 
-    $('#past-projects-btn').click(function() {
+    $('#past-proj-btn').click(function() {
         $(this).button('toggle');
     });
   });

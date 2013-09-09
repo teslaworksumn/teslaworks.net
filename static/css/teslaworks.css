@@ -18,14 +18,8 @@ a:hover, a:focus {
 
 /* Front page stuff */
 
-#interest-toolbar {
-    margin-top: 10px;
-}
-
-#interest-toolbar p {
-    display: inline-block;
-    font-size: 20px;
-    margin-top: 4px;
+#projects .row {
+    margin-bottom: 5%;
 }
 
 a.click-zone {
@@ -33,24 +27,20 @@ a.click-zone {
     color: inherit;
 }
 
-a.thumbnail:hover,
-a.thumbnail:focus {
-  border-color: #1a80f7;
-  -webkit-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
-  -moz-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
-  box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+.thumbnail:hover,
+.thumbnail:focus {
+    border-color: #1a80f7;
+    -webkit-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+       -moz-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+            box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
 }
 
-.starburst {
-    position: relative;
-    left: -30px;            /* Half the starburst's width */
-    margin-bottom: -30px;   /* Half the starburst's height */
-    z-index = 1;
-    color: #1a80f7;
-    opacity: 0;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
+#past-proj-btn {
+    margin-bottom: 5%;
+}
+
+#join-mail-list {
+    margin-bottom: 3%;
 }
 
 #connect {
@@ -62,13 +52,13 @@ a.thumbnail:focus {
 }
 
 #connect div {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 3%;
+    margin-right: 3%;
     display: inline-block;
 }
 
 #connect i {
-    font-size: 90px;
+    font-size: 300%;
     text-decoration: none;
 }
 
