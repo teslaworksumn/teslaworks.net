@@ -52,13 +52,13 @@ class ProjectsController:
         self.all_projects.update(self.past_projects)
     
     def write_projects(self):
-        for project_key in self.projects:
-            data = self.projects[project_key]
+        for project_key in self.all_projects:
+            data = self.all_projects[project_key]
         
             full_file_name = os.path.join(self.projects_dir, project_key + '.json')
             with open(full_file_name, 'w') as f:
                 json.dump(data, f)
     
-    def set_projects(self, projects):
-        self.projects = projects
+    def set_projects(self, all_projects):
+        self.all_projects = all_projects
         self.write_projects()

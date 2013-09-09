@@ -1,6 +1,6 @@
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
-from flask import Flask, render_template, redirect, abort
+from flask import Flask, request, url_for, render_template, redirect, abort
 
 
 DATA_DIR = 'data'
@@ -47,6 +47,28 @@ def project(dynamic):
 
     else:
         abort(404)
+
+@app.route('/dev_sync')
+def dev_save_and_reload_all_data():
+    save_all_data()
+    reload_all_data()
+    return redirect(redirect_url())
+
+@app.route('/dev_reload')
+def dev_reload_all_data():
+    reload_all_data()
+    return redirect(redirect_url())
+
+def save_all_data():
+    projects_controller.write_projects()
+    redirects_controller.load_redirects()
+
+def reload_all_data():
+    projects_controller.load_projects()
+    redirects_controller.load_redirects()
+
+def redirect_url():
+    return request.args.get('next') or request.referrer or url_for('index')
 
 
 if __name__ == '__main__':
