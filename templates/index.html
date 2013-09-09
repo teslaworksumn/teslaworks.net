@@ -55,11 +55,13 @@
   </ul>
 </div>
 
+{% if past_projects %}
 <div class="row-fluid">
   <a id="past-projects-btn" class="btn btn-block btn-large" data-toggle="collapse" data-target="#past-projects"><strong>See Past Projects</strong></a>
 </div>
+{% endif %}
 
-<div id="past-projects" class="row-fluid collapse out">
+<div id="past-projects" class="row-fluid collapse">
   <ul class="thumbnails">
   {% for project_name, project in past_projects.iteritems() %}
     <li id="{{ project_name }}" class="span4">
