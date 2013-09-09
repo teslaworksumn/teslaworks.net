@@ -1,42 +1,37 @@
 {
-    "project_title": "CSE Light Show",
-    "project_goal": "Engineer and design a computer-synchronized music and light show on the Civil Engineering plaza.",
-    "project_details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "project_needs":
-    {
-        "engineering":
-        [
-            "EE/CompEs to build the next-gen light control systems",
-            "People interested in writing apps for the Mac"
-        ],
-        "design":
-        [
-            "People who want to design the show's layout",
-            "Graphic designers for the posters"
-        ],
-        "marketing":
-        [
-            "Someone to plan the big kickoff event for 1,500 spectators!"
+    "project_title": "CSE Light Show", 
+    "photos": {
+        "front_page": "/static/img/projects/lightshow/promo.jpg", 
+        "detail": [
+            "/static/img/projects/lightshow/promo.jpg", 
+            "/static/img/projects/lightshow/group.jpg", 
+            "/static/img/projects/lightshow/panorama.jpg"
         ]
-    },
-    "project_leaders":
-    [
+    }, 
+    "project_needs": {
+        "marketing": [
+            "Someone to plan the HUGE kickoff event for 1.5k spectators!"
+        ], 
+        "engineering": [
+            "EEs/CompEs to build the next-gen light control systems"
+        ], 
+        "other": [
+            "People willing to paint, move stuff, and project positivity to the crowd"
+        ], 
+        "design": [
+            "People who want to design the show's layout/props"
+        ]
+    }, 
+    "project_goal": "Engineer and design a computer-synchronized music and light show on the Civil Engineering plaza.", 
+    "project_categories": "EE, Programming, Product Design, Marketing, Graphic Design", 
+    "project_leaders": [
         {
-            "name": "Taylor Trimble",
-            "email": "t.trim@me.com",
-            "phone": "605-359-9756",
-            "desc": "Taylor is a computer engineering student at the University of Minnesota. A former president of Tesla Works, Taylor enjoys working on projects with blinking lights and unique software architecture."
+            "name": "Trevor Laughlin", 
+            "photo": "/static/img/leaders/trevor-laughlin.jpg", 
+            "phone": "952-452-3222", 
+            "can_sms": "Yes", 
+            "email": "laugh039@umn.edu", 
+            "desc": "Trevor Laughlin is a sophomore studying Mechanical Engineering. He is interested in the automotive industry, but loves being involved in all sorts of projects."
         }
-    ],
-    "photos":
-    {
-        "front_page": "/static/img/projects/lightshow/bigphoto.jpg",
-        "detail":
-        [
-            "img/lightshow/photo1.jpg",
-            "img/lightshow/photo2.jpg",
-            "img/lightshow/photo3.jpg"
-        ]
-    },
-    "interests": ["electrical-engineering", "programming", "product-design", "marketing", "graphic-design"]
+    ]
 }

@@ -38,8 +38,9 @@
             "photo": "/static/img/leaders/scott-sievert.jpg", 
             "email": "sieve121@umn.edu", 
             "name": "Scott Sievert", 
-            "bio": "", 
-            "phone": "555-555-5555"
+            "bio": "Scott is a junior studying electrical engineering who enjoys math, user-interface design and is slightly passionate about skiing. He's normally found in Keller Hall.", 
+            "phone": "651-894-2001", 
+            "can_sms": "Yes"
         }
     ]
 }
