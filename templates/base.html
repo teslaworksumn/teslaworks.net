@@ -24,6 +24,16 @@
     <div class="row">
       <div {% if page_width is defined %}class="{{ page_width }}"{% endif %}>
         {% include 'masthead.html' %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ message }}
+        </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
         {% block html_body %}{% endblock %}
       </div>
     </div>
@@ -31,8 +41,8 @@
   
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="//code.jquery.com/jquery.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <!-- Page-specific post-body blocks -->
   {% block html_post_body %}{% endblock %}
 </body>

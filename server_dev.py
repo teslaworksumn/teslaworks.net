@@ -1,15 +1,18 @@
+from flask import Flask, request, url_for, render_template, flash, redirect, abort
+from flask_mail import Mail, Message
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
-from flask import Flask, request, render_template, redirect, abort
-
-
-DATA_DIR = 'data'
+import config
 
 app = Flask(__name__)
+app.secret_key = config.SECRET_KEY
 app.url_map.strict_slashes = False
 
-projects_controller = ProjectsController(DATA_DIR)
-redirects_controller = RedirectsController(DATA_DIR)
+app.config.update(config.MAIL_SETTINGS)
+mail = Mail(app)
+
+projects_controller = ProjectsController(config.DATA_DIR)
+redirects_controller = RedirectsController(config.DATA_DIR)
 
 
 @app.errorhandler(404)
@@ -47,7 +50,14 @@ def start_project():
     if len(notices):
         return render_template('start_project.html', notices=notices, values=values)
     
-    return render_template('start_project.html')
+    msg = Message("New Project Request")
+    msg.add_recipient('taylortrimble@me.com')
+    msg.html = render_template('project_request.html', name=name, email=email, title=title, desc=desc)
+    
+    # mail.send(msg)
+    
+    flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
+    return redirect(url_for('index'))
 
 @app.route('/<dynamic>')
 def project(dynamic):
