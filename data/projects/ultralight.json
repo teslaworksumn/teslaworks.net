@@ -1,11 +1,11 @@
 {
     "project_title": "Ultralight", 
     "photos": {
-        "front_page": "", 
+        "front_page": "/static/img/projects/ultralight/plane.jpg", 
         "detail": [
-            "", 
-            "", 
-            ""
+            "/static/img/projects/ultralight/plane.jpg", 
+            "/static/img/projects/ultralight/plane.jpg", 
+            "/static/img/projects/ultralight/plane.jpg"
         ]
     }, 
     "project_needs": {

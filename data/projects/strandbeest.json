@@ -1,11 +1,11 @@
 {
     "project_title": "Strandbeest", 
     "photos": {
-        "front_page": "", 
+        "front_page": "/static/img/projects/strandbeest/fishbeest.jpg", 
         "detail": [
-            "", 
-            "", 
-            ""
+            "/static/img/projects/strandbeest/fishbeest.jpg", 
+            "/static/img/projects/strandbeest/boardbeest.jpg", 
+            "/static/img/projects/strandbeest/mechanism.jpg"
         ]
     }, 
     "project_needs": {

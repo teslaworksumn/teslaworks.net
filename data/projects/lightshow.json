@@ -1,11 +1,11 @@
 {
     "project_title": "CSE Light Show", 
     "photos": {
-        "front_page": "", 
+        "front_page": "/static/img/projects/lightshow/promo.jpg", 
         "detail": [
-            "", 
-            "", 
-            ""
+            "/static/img/projects/lightshow/promo.jpg", 
+            "/static/img/projects/lightshow/group.jpg", 
+            "/static/img/projects/lightshow/panorama.jpg"
         ]
     }, 
     "project_needs": {
