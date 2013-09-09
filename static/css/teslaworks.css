@@ -1,5 +1,14 @@
 /* General */
 
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+hr {
+    margin: 30px 0;
+}
+
 a {
     color: #1a80f7;
 }
@@ -10,65 +19,59 @@ a:hover, a:focus {
 
 /* Masthead stuff */
 
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.nav-pills > .active > a:focus {
+.nav-pills > li.active > a {
     background-color: #1a80f7;
 }
 
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    background-color: #166dd2;
+}
+
+/* Make the masthead heading the same height as the navigation */
+#masthead h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
 /* Front page stuff */
-
-#interest-toolbar {
-    margin-top: 10px;
-}
-
-#interest-toolbar p {
-    display: inline-block;
-    font-size: 20px;
-    margin-top: 4px;
-}
 
 a.click-zone {
     text-decoration: none;
     color: inherit;
 }
 
-a.thumbnail:hover,
-a.thumbnail:focus {
-  border-color: #1a80f7;
-  -webkit-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
-  -moz-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
-  box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+.thumbnail {
+    margin-bottom: 5%;
 }
 
-.starburst {
-    position: relative;
-    left: -30px;            /* Half the starburst's width */
-    margin-bottom: -30px;   /* Half the starburst's height */
-    z-index = 1;
-    color: #1a80f7;
-    opacity: 0;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
+.thumbnail:hover,
+.thumbnail:focus {
+    border-color: #1a80f7;
+    -webkit-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+       -moz-box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
+            box-shadow: -1px -1px 0 #1a80f7, 1px -1px 0 #1a80f7, -1px 1px 0 #1a80f7, 1px 1px 0 #1a80f7;
 }
 
-#connect {
-    font-size: 22px;
+#past-proj-btn {
+    margin-bottom: 5%;
 }
 
-#connect :hover {
-    text-decoration: none;
-}
-
-#connect div {
-    margin-left: 25px;
-    margin-right: 25px;
-    display: inline-block;
+#join-mail-list {
+    margin-bottom: 3%;
 }
 
 #connect i {
-    font-size: 90px;
+    font-size: 350%;
+}
+
+#connect {
+    font-size: 150%;
+    text-align: center;
+}
+
+#connect :hover {
     text-decoration: none;
 }
 

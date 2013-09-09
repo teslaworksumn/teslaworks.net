@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% set title =  project_data.project_title %}
-{% set page_width = 'offset2 span8' %}
+{% set page_width = 'col-md-offset-2 col-md-8' %}
 
 {% block html_head %}
 <link rel="stylesheet" href="/static/css/font-awesome.min.css">
@@ -9,20 +9,25 @@
 
 {% block html_body %}  
   
-<div class="jumbotron">
+<div class="text-center">
     <h1>{{ project_data.project_title }}</h1>
-    <div class="slideshow">
+    <div class="cycle-slideshow"
+      data-cycle-fx="fade"
+      data-cycle-pause-on-hover="true"
+      data-cycle-timeout="3000"
+      data-cycle-speed="1500"
+      >
     {% for img in project_data.photos.detail %}
-        <img class="big-polaroid" src="{{ img }}" alt="">
+        <img class="img-thumbnail img-responsive" src="{{ img }}" alt="">
     {% endfor %}
     </div>
     <p class="lead">{{ project_data.project_goal }}</p>
-    <a class="btn btn-large btn-success" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
+    <a class="btn btn-success btn-lg btn-block" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
 </div>
 
 <hr>
 
-<div class="row-fluid">
+<div class="row">
     <h2>
     {% if project_data.project_leaders|length > 1 %}
         Project Leaders
@@ -33,12 +38,12 @@
 </div>
 
 {% for leader in project_data.project_leaders %}
-<div class="row-fluid">
-    <div class="span3">
-        <img src="{{ leader.photo }}" alt="" class="leader-polaroid">
+<div class="row">
+    <div class="col-md-3">
+        <img src="{{ leader.photo }}" alt="" class="img-thumbnail img-responsive">
     </div>
-    <div class="span9">
-        <div class="row-fluid">
+    <div class="col-md-9">
+        <div class="row">
             <h3 class="leader-name">{{  leader.name  }}</h3>
             <a href="{{ leader.email }}" class="leader-email">{{ leader.email }}</a>
             <span class="leader-phone">{{ leader.phone }}</span>
@@ -50,11 +55,11 @@
 
 <hr>
 
-<div class="row-fluid">
+<div class="row">
     <h2>Project Needs</h2>
 </div>
-<div class="row-fluid">
-    <div class="span6">
+<div class="row">
+    <div class="col-md-6">
         <h4><i class="icon-wrench"></i> Engineering</h4>
         <ul>
         {% for need in project_data.project_needs.engineering %}
@@ -62,7 +67,7 @@
         {% endfor %}
         </ul>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <h4><i class="icon-edit"></i> Design</h4>
         <ul>
         {% for need in project_data.project_needs.design %}
@@ -71,8 +76,8 @@
         </ul>
     </div>
 </div>
-<div class="row-fluid">
-    <div class="span6">
+<div class="row">
+    <div class="col-md-6">
         <h4><i class="icon-shopping-cart"></i> Marketing</h4>
         <ul>
         {% for need in project_data.project_needs.marketing %}
@@ -80,7 +85,7 @@
         {% endfor %}
         </ul>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <h4><i class="icon-beaker"></i> Other</h4>
         <ul>
         {% for need in project_data.project_needs.other %}
@@ -100,16 +105,7 @@
 {% endblock %}
 
 {% block html_post_body %}
-<script src="/static/js/jquery-2.0.2.min.js"></script>
-<script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="/static/js/jquery.cycle.js"></script>
-<script>
-// start slideshow
-$(document).ready(function() {
-    $('.slideshow').cycle({
-        fx: 'fade',
-        timeout: 4000
-    });
-});
-</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/20130801/jquery.cycle2.min.js"></script>
+
 {% endblock %}
