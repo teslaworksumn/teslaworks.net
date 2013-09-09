@@ -1,6 +1,6 @@
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
-from flask import Flask, render_template, redirect, abort
+from flask import Flask, request, render_template, redirect, abort
 
 
 DATA_DIR = 'data'
@@ -24,6 +24,29 @@ def index():
 
 @app.route('/start')
 def start_project():
+    if not request.args:
+        return render_template('start_project.html')
+
+    name = request.args.get('name')
+    email = request.args.get('email')
+    title = request.args.get('title')
+    desc = request.args.get('desc')
+    
+    values = {'name': name, 'email': email, 'title': title, 'desc': desc}
+
+    notices = {}
+    if not name:
+        notices['name'] = "Your name is required."
+    if not email: 
+        notices['email'] = "A valid email address is required."
+    if not title:
+        notices['title'] = "You've gotta call it something!"
+    if not desc:
+        notices['desc'] = "You forgot to fill out the project description!"
+    
+    if len(notices):
+        return render_template('start_project.html', notices=notices, values=values)
+    
     return render_template('start_project.html')
 
 @app.route('/<dynamic>')
