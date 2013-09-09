@@ -3,73 +3,45 @@
     <title>{Title}</title>
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     {block:Description}
         <meta name="description" content="{MetaDescription}" />
     {/block:Description}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
-        /* Bootstrap Marketing Narrow (adapted)
-         * Based on bootstrap-mktg-narrow.css from commit d17b545 in github.com/teslaworks/teslaworks.net
-         */
+
         body {
             padding-top: 20px;
             padding-bottom: 40px;
         }
-        
-        p {
-            text-align: justify;
+        hr {
+            margin: 30px 0;
         }
-
         a {
             color: #1a80f7;
         }
-
-        a:hover {
+        a:hover, a:focus {
             color: #166dd2;
         }
-
-        .nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus {
+        
+        /* Masthead stuff */
+        
+        .nav-pills > li.active > a {
             background-color: #1a80f7;
         }
-
-        div.post.text p {
-            text-indent: 40px;
+        .nav-pills > li.active > a:hover,
+        .nav-pills > li.active > a:focus {
+            background-color: #166dd2;
         }
         
-        div.post.text ul {
-            list-style-type: disc;
-            margin-left: 40px;
-        }
-
-        /* Custom container */
-        .container-narrow {
-            margin: 0 auto;
-            max-width: 700px;
-        }
-        .container-narrow > hr {
-            margin: 30px 0;
-        }
-
-        /* Main marketing message and sign up button */
-        .jumbotron {
-            margin-top: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .jumbotron h1 {
-            font-size: 72px;
-            line-height: 1;
-        }
-        .jumbotron .btn {
-            font-size: 21px;
-            padding: 14px 24px;
-        }
-
-        .pad-bottom {
-            padding-bottom: 30px;
+        /* Make the masthead heading the same height as the navigation */
+        #masthead h3 {
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 40px;
         }
 
         /* Tumblr specific stylin' */
+        
         /* Style the pics */
         .photo {
             max-width: 512px !important; /* includes 16px border on either side */
@@ -134,166 +106,164 @@
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container-narrow">
+    <div class="container">
+        <div class="col-md-offset-1 col-md-10">
 
-        <div class="masthead">
-            <ul class="nav nav-pills pull-right">
-                <li><a href="http://www.teslaworks.net/">Home</a></li>
-                <li class="active"><a href="#">News</a></li>
-            </ul>
-            <h3><a href="/">{Title}</a></h3>
-        </div>
-
-        {block:Description}
-            <p id="description">{Description}</h2>
-        {/block:Description}
-
-        <hr>
-
-        {block:Posts}
-
-            {block:Text}
-                <div class="post text">
-                    {block:Title}
-                        <h3><a href="{Permalink}">{Title}</a>
-                            {block:Date}<a href="{Permalink}" class="datestamp-link"><span class="datestamp" style="margin-left: 10px;">{Month} {DayOfWeekNumber}, {Year}</a></span>{/block:Date}
-                        </h3>
-                    {/block:Title}
-
-                    {Body}
-                </div>
-            {/block:Text}
-
-            {block:Photo}
-                <div class="post photo">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    <img src="{PhotoURL-500}" alt="{PhotoAlt}" class="frame-polaroid"/>
-
-                    {block:Caption}
-                        <div class="caption">
-                            {Caption}
-                        </div>
-                    {/block:Caption}
-                </div>
-            {/block:Photo}
-
-            {block:Panorama}
-                <div class="post panorama">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    {LinkOpenTag}
-                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" class="frame-polaroid"/>
-                    {LinkCloseTag}
-
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                </div>
-            {/block:Panorama}
-
-            {block:Photoset}
-                <div class="post photoset">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    {Photoset-500}
-
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                </div>
-            {/block:Photoset}
-
-            {block:Quote}
-                <div class="post quote">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    <blockquote>{Quote}</blockquote>
-
-                    {block:Source}
-                        <div class="source">~ {Source}</div>
-                    {/block:Source}
-                </div>
-            {/block:Quote}
-
-            {block:Link}
-                <div class="post link">
-                    <h3>
-                        <span class="link-marker">Link:</span>
-                        <a href="{URL}" class="link" {Target}>
-                            {Name}<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png" style="margin-left: 4px;"></a>
-                        {block:Date}<span class="datestamp" style="margin-left: 10px;"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></span>{/block:Date}
-                    </h3>
-
-                    {block:Description}
-                        <div class="description">{Description}</div>
-                    {/block:Description}
-                </div>
-            {/block:Link}
-
-            {block:Chat}
-                <div class="post chat">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    {block:Title}
-                        <h3><a href="{Permalink}">{Title}</a></h3>
-                    {/block:Title}
-
-                    <ul class="chat">
-                        {block:Lines}
-                            <li class="{Alt} user_{UserNumber}">
-                                {block:Label}
-                                    <span class="label">{Label}</span>
-                                {/block:Label}
-
-                                {Line}
-                            </li>
-                        {/block:Lines}
-                    </ul>
-                </div>
-            {/block:Chat}
-
-            {block:Video}
-                <div class="post video">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    {Video-500}
-
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                </div>
-            {/block:Video}
-
-            {block:Audio}
-                <div class="post audio">
-                    {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
-                    {AudioPlayerBlack}
-
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                </div>
-            {/block:Audio}
-
-            <hr>
-
-        {/block:Posts}
-
-        <div id="footer">
-            <span class="left-footer">
-                {block:PreviousPage}
-                    <a href="{PreviousPage}">&#171; Newer</a>
-                {/block:PreviousPage}
-            </span>
-
-            <span class="center-footer">
-                <a href="/archive">Archive</a>
-            </span>
-
-            <span class="right-footer">
-                {block:NextPage}
-                    <a href="{NextPage}">Older &#187;</a>
-                {/block:NextPage}
-            </span>
-        </div>
+            <div id="masthead">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="#">News</a></li>
+                </ul>
+                <h3><a href="/">{Title}</a></h3>
+            </div>
     
+            <hr>
+    
+            {block:Posts}
+    
+                {block:Text}
+                    <div class="post text">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a>
+                                {block:Date}<a href="{Permalink}" class="datestamp-link"><span class="datestamp" style="margin-left: 10px;">{Month} {DayOfWeekNumber}, {Year}</a></span>{/block:Date}
+                            </h3>
+                        {/block:Title}
+    
+                        {Body}
+                    </div>
+                {/block:Text}
+    
+                {block:Photo}
+                    <div class="post photo">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}" class="frame-polaroid"/>
+    
+                        {block:Caption}
+                            <div class="caption">
+                                {Caption}
+                            </div>
+                        {/block:Caption}
+                    </div>
+                {/block:Photo}
+    
+                {block:Panorama}
+                    <div class="post panorama">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" class="frame-polaroid"/>
+                        {LinkCloseTag}
+    
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Panorama}
+    
+                {block:Photoset}
+                    <div class="post photoset">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        {Photoset-500}
+    
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Photoset}
+    
+                {block:Quote}
+                    <div class="post quote">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        <blockquote>{Quote}</blockquote>
+    
+                        {block:Source}
+                            <div class="source">~ {Source}</div>
+                        {/block:Source}
+                    </div>
+                {/block:Quote}
+    
+                {block:Link}
+                    <div class="post link">
+                        <h3>
+                            <span class="link-marker">Link:</span>
+                            <a href="{URL}" class="link" {Target}>
+                                {Name}<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png" style="margin-left: 4px;"></a>
+                            {block:Date}<span class="datestamp" style="margin-left: 10px;"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></span>{/block:Date}
+                        </h3>
+    
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                {/block:Link}
+    
+                {block:Chat}
+                    <div class="post chat">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+    
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+    
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                {/block:Chat}
+    
+                {block:Video}
+                    <div class="post video">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        {Video-500}
+    
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Video}
+    
+                {block:Audio}
+                    <div class="post audio">
+                        {block:Date}<div class="datestamp"><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></div>{/block:Date}
+                        {AudioPlayerBlack}
+    
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                {/block:Audio}
+    
+                <hr>
+    
+            {/block:Posts}
+    
+            <div id="footer">
+                <span class="left-footer">
+                    {block:PreviousPage}
+                        <a href="{PreviousPage}">&#171; Newer</a>
+                    {/block:PreviousPage}
+                </span>
+    
+                <span class="center-footer">
+                    <a href="/archive">Archive</a>
+                </span>
+    
+                <span class="right-footer">
+                    {block:NextPage}
+                        <a href="{NextPage}">Older &#187;</a>
+                    {/block:NextPage}
+                </span>
+            </div>
+        </div>
     </div>
 
 </body>
