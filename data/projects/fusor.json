@@ -10,16 +10,13 @@
     }, 
     "project_needs": {
         "marketing": [
-            ""
         ], 
         "engineering": [
             "Electrical engineers and physicists to construct a 600W AC power supply."
         ], 
         "other": [
-            ""
         ], 
         "design": [
-            ""
         ]
     }, 
     "project_goal": "Apply a large voltage across a vacuum chamber to accelerate and collide deuterium ions, fusing them to create tritium and helium, and releasing detectable neutrons.", 

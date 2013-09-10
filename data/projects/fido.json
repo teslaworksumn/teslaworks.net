@@ -10,16 +10,12 @@
     }, 
     "project_needs": {
         "marketing": [
-            ""
         ], 
         "engineering": [
-            ""
         ], 
         "other": [
-            ""
         ], 
         "design": [
-            ""
         ]
     }, 
     "project_goal": "Create a computerized workshop control system.", 
