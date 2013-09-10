@@ -31,13 +31,13 @@
             "phone": "574-453-1537", 
             "can_sms": "Yes", 
             "email": "phil0780@umn.edu", 
-            "desc": "John is a chemical engineering major in his senior year at the University. Usually easy to spot with his rainbow propeller hat, John enjoys electronic music and anything goofy."
+            "bio": "John is a chemical engineering major in his senior year at the University. Usually easy to spot with his rainbow propeller hat, John enjoys electronic music and anything goofy."
         }, 
         {
             "photo": "/static/img/leaders/sam-finnegan.jpg", 
             "email": "finne219@umn.edu", 
             "name": "Sam Finnegan", 
-            "bio": "", 
+            "bio": "Sam is a sophomore studying mechanical engineering. He enjoys mechanical machinations, new ideas, and long walks on the beach.", 
             "phone": "(507) 923-7995"
         }
     ]

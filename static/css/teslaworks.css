@@ -77,6 +77,10 @@ a.click-zone {
 
 /* Project leader stuff */
 
+.leader-row {
+    margin-bottom: 12px;
+}
+
 .leader-name {
     display: inline-block;
     margin-top: 0;
@@ -85,12 +89,4 @@ a.click-zone {
 }
 .leader-email, .leader-phone {
     margin-right: 10px;
-}
-.leader-polaroid {
-    width: 140px;
-    height: 140px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #eee;
 }

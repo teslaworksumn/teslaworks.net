@@ -9,11 +9,10 @@
 
 {% block html_body %}  
   
-<div class="text-center">
+<div class="row text-center">
     <h1>{{ project_data.project_title }}</h1>
     <div class="cycle-slideshow"
       data-cycle-fx="fade"
-      data-cycle-pause-on-hover="true"
       data-cycle-timeout="3000"
       data-cycle-speed="1500"
       >
@@ -22,7 +21,9 @@
     {% endfor %}
     </div>
     <p class="lead">{{ project_data.project_goal }}</p>
-    <a class="btn btn-success btn-lg btn-block" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
+    <div class="col-md-offset-3 col-md-6">
+      <a class="btn btn-success btn-lg btn-block" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
+    </div>
 </div>
 
 <hr>
@@ -38,7 +39,7 @@
 </div>
 
 {% for leader in project_data.project_leaders %}
-<div class="row">
+<div class="row leader-row">
     <div class="col-md-3">
         <img src="{{ leader.photo }}" alt="" class="img-thumbnail img-responsive">
     </div>
