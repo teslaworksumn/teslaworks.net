@@ -1,8 +1,10 @@
 from flask import Flask, request, url_for, render_template, flash, redirect, abort
+from jinja2 import evalcontextfilter, Markup, escape
 from flask_mail import Mail, Message
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
 import config
+import re
 
 app = Flask(__name__)
 app.secret_key = config.SECRET_KEY
@@ -14,6 +16,17 @@ mail = Mail(app)
 
 projects_controller = ProjectsController(config.DATA_DIR)
 redirects_controller = RedirectsController(config.DATA_DIR)
+
+_paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
+
+@app.template_filter()
+@evalcontextfilter
+def nl2br(eval_ctx, value):
+    result = u'\n\n'.join(u'<p>%s</p>' % p.replace('\n', '<br>\n') \
+        for p in _paragraph_re.split(escape(value)))
+    if eval_ctx.autoescape:
+        result = Markup(result)
+    return result
 
 
 @app.errorhandler(404)
@@ -44,7 +57,7 @@ def start_project():
     
     msg = Message("New Project Request")
     msg.add_recipient(config.CONTACT_EMAIL)
-    msg.html = render_template('project_request.html', name=name, email=email, title=title, desc=desc)
+    msg.html = render_template('project_application.html', name=name, email=email, title=title, desc=desc)
     
     mail.send(msg)
     
