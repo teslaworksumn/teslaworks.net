@@ -28,6 +28,7 @@ def index():
 @app.route('/start')
 def start_project():
     if not request.args:
+        fields = {}
         return render_template('start_project.html')
 
     name = request.args.get('name')
@@ -35,20 +36,10 @@ def start_project():
     title = request.args.get('title')
     desc = request.args.get('desc')
     
-    values = {'name': name, 'email': email, 'title': title, 'desc': desc}
-
-    notices = {}
-    if not name:
-        notices['name'] = "Your name is required."
-    if not email: 
-        notices['email'] = "A valid email address is required."
-    if not title:
-        notices['title'] = "You've gotta call it something!"
-    if not desc:
-        notices['desc'] = "You forgot to fill out the project description!"
+    fields = {'name': name, 'email': email, 'title': title, 'desc': desc}
     
-    if len(notices):
-        return render_template('start_project.html', notices=notices, values=values)
+    if not name or not email or not title or not desc:
+        return render_template('start_project.html', fields=fields)
     
     msg = Message("New Project Request")
     msg.add_recipient('taylortrimble@me.com')
