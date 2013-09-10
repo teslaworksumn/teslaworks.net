@@ -1,56 +1,38 @@
 {% extends "base.html" %}
 
 {% set title = 'Start a Project' %}
+{% set page_width = 'col-md-offset-2 col-md-8' %}
 
 {% block html_body %}
 
-<h1>Start a Project</h1>
-<p>Provide some details about your project below and we'll get in touch with you about how we can help!</p>
+<p class="lead text-center">Submit your project idea here for review. You'll hear back from us in a few days.</p>
 
 <hr>
 
-<form class="form-horizontal">
-    <fieldset>
-
-        <!-- Text input-->
-        <div class="control-group">
-            <label class="control-label" for="user-name">Name</label>
-            <div class="controls">
-                <input id="user-name" name="user-name" type="text" placeholder="What's your name?" class="input-xlarge">
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="control-group">
-            <label class="control-label" for="user-email">Email</label>
-            <div class="controls">
-                <input id="user-email" name="user-email" type="text" placeholder="What's your email address?" class="input-xlarge">
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="control-group">
-            <label class="control-label" for="proj-name">Project Name</label>
-            <div class="controls">
-                <input id="proj-name" name="proj-name" type="text" placeholder="What's the name of your project?" class="input-xlarge">
-            </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="control-group">
-            <label class="control-label" for="proj-desc">Description</label>
-            <div class="controls">                     
-                <textarea id="proj-desc" name="proj-desc" placeholder="Tell us about your vision for the project!" style="width: 300px;" rows="8"></textarea>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <button class="btn btn-primary">Make it happen!</button>
-            </div>
-        </div>
-
-    </fieldset>
+<form role="form">
+  <fieldset>
+    <div class="form-group{% if fields and not fields['name'] %} has-error{% endif %}">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" class="form-control input-lg" id="name" placeholder="What's your name?" {% if fields %}value="{{ fields['name'] }}"{% endif %}>
+      {% if fields and not fields['name'] %}<span class="help-block">Your name is required.</span>{% endif %}
+    </div>
+    <div class="form-group{% if fields and not fields['email'] %} has-error{% endif %}">
+      <label for="email">Email Address</label>
+      <input type="email" name="email" class="form-control input-lg" id="email" placeholder="What's your email?" {% if fields %}value="{{ fields['email'] }}"{% endif %}>
+      {% if fields and not fields['email'] %}<span class="help-block">A valid email address is required.</span>{% endif %}
+    </div>
+    <div class="form-group{% if fields and not fields['title'] %} has-error{% endif %}">
+      <label for="title">Project Title</label>
+      <input type="text" name="title" class="form-control input-lg" id="title" placeholder="What should we call your project?" {% if fields %}value="{{ fields['title'] }}"{% endif %}>
+      {% if fields and not fields['title'] %}<span class="help-block">You've gotta call it something!</span>{% endif %}
+    </div>
+    <div class="form-group{% if fields and not fields['desc'] %} has-error{% endif %}">
+      <label for="desc">Project Description</label>
+      <textarea class="form-control input-lg" name="desc" id="desc" rows="12" placeholder="Convince us your project is worthwhile to pursue!" {% if values %}value="{{ fields['desc'] }}"{% endif %}></textarea>
+      {% if fields and not fields['desc'] %}<span class="help-block">You forgot to fill out the project description!</span>{% endif %}
+    </div>
+    <button type="submit" class="btn btn-success btn-lg">Make it happen!</button>
+  </fieldset>
 </form>
 
 {% endblock %}
