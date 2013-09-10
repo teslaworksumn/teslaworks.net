@@ -42,7 +42,6 @@ def index():
 @app.route('/start')
 def start_project():
     if not request.args:
-        fields = {}
         return render_template('start_project.html')
 
     name = request.args.get('name')
