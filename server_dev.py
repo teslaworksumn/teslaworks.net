@@ -7,6 +7,7 @@ import config
 app = Flask(__name__)
 app.secret_key = config.SECRET_KEY
 app.url_map.strict_slashes = False
+app.config.update(config.APP_CONFIG)
 
 app.config.update(config.MAIL_SETTINGS)
 mail = Mail(app)
@@ -42,10 +43,10 @@ def start_project():
         return render_template('start_project.html', fields=fields)
     
     msg = Message("New Project Request")
-    msg.add_recipient('taylortrimble@me.com')
+    msg.add_recipient(config.CONTACT_EMAIL)
     msg.html = render_template('project_request.html', name=name, email=email, title=title, desc=desc)
     
-    # mail.send(msg)
+    mail.send(msg)
     
     flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
     return redirect(url_for('index'))
