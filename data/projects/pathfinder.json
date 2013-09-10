@@ -10,16 +10,12 @@
     }, 
     "project_needs": {
         "marketing": [
-            ""
         ], 
         "engineering": [
-            ""
         ], 
         "other": [
-            ""
         ], 
         "design": [
-            ""
         ]
     }, 
     "project_goal": "Create an Android app for campus navigation, displaying bus routes, floor plans, NiceRide bicycle locations, and other useful data.", 
