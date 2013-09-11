@@ -20,20 +20,26 @@
 
 <body>
   <div class="container">
+
     <div class="row">
-      <div {% if page_width is defined %}class="{{ page_width }}"{% endif %}>
-        {% include 'masthead.html' %}
-      {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-      {% for category, message in messages %}
-        <div class="alert alert-{{ category }} alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          {{ message }}
-        </div>
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
-        {% block html_body %}{% endblock %}
+      <div class="col-md-offset-1 col-md-10">
+          {% include 'masthead.html' %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div {% if width %}class="col-md-offset-{{ (12 - width) // 2 }} col-md-{{ width }}"{% endif %}>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+          {% block html_body %}{% endblock %}
       </div>
     </div>
   </div>
