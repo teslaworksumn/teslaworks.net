@@ -21,7 +21,7 @@
     {% endfor %}
     </div>
     <p class="lead">{{ project_data.project_goal }}</p>
-    <div class="col-md-offset-3 col-md-6">
+    <div class="col-sm-offset-3 col-sm-6">
       <a class="btn btn-success btn-lg btn-block" href="mailto:{{ project_data.project_leaders[0].email }}?subject=I'm interested in joining the {{ project_data.project_title }} project!">Sign up today!</a>
     </div>
 </div>
@@ -40,10 +40,10 @@
 
 {% for leader in project_data.project_leaders %}
 <div class="row leader-row">
-    <div class="col-md-3">
+    <div class="col-sm-3">
         <img src="{{ leader.photo }}" alt="" class="img-thumbnail img-responsive">
     </div>
-    <div class="col-md-9">
+    <div class="col-sm-9">
         <div class="row">
             <h3 class="leader-name">{{  leader.name  }}</h3>
             <a href="{{ leader.email }}" class="leader-email">{{ leader.email }}</a>
@@ -60,7 +60,7 @@
     <h2>Project Needs</h2>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <h4><i class="icon-wrench"></i> Engineering</h4>
         <ul>
         {% for need in project_data.project_needs.engineering %}
@@ -68,7 +68,7 @@
         {% endfor %}
         </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <h4><i class="icon-edit"></i> Design</h4>
         <ul>
         {% for need in project_data.project_needs.design %}
@@ -78,7 +78,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <h4><i class="icon-shopping-cart"></i> Marketing</h4>
         <ul>
         {% for need in project_data.project_needs.marketing %}
@@ -86,7 +86,7 @@
         {% endfor %}
         </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <h4><i class="icon-beaker"></i> Other</h4>
         <ul>
         {% for need in project_data.project_needs.other %}
