@@ -43,15 +43,7 @@
 <div id="past-projects" class="row collapse">
   <div class="row">
     {% for project_name, project in past_projects.iteritems() %}
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a class="click-zone" href="/{{ project_name }}">
-          <img class="img-rounded img-responsive" src={{ project.photos.front_page }} alt="">
-          <h3>{{ project.project_title }}</h3>
-          <p>{{ project.project_goal }}</p>
-        </a>
-      </div>
-    </div>
+    {{ p.thumbnail(project.project_title, project.photos.front_page, project.project_goal) }}
   {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
