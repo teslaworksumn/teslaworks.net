@@ -19,32 +19,18 @@
 
 <hr>
 
+{% import 'project_thumbnails.html' as p %}
+
 <div id="projects">
   <div class="row">
     {% for project_name, project in current_projects.iteritems() %}
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a class="click-zone" href="/{{ project_name }}">
-          <img class="img-rounded img-responsive" src={{ project.photos.front_page }} alt="">
-          <h3>{{ project.project_title }}</h3>
-          <p>{{ project.project_goal }}</p>
-        </a>
-      </div>
-    </div>
+    {{ p.thumbnail(project.project_title, project.photos.front_page, project.project_goal) }}
   {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
   {% endif %}
     {% endfor %}
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a class="click-zone" href="/start">
-          <img class="img-rounded img-responsive" src="/static/img/start.png" alt="">
-          <h3>Start a New Project!</h3>
-          <p>We're always looking for new projects ideas! Go ahead and get started!</p>
-        </a>
-      </div>
-    </div>
+    {{ p.thumbnail("Start a New Project", "/static/img/start.png", "We're always looking for new projects ideas. Go ahead and get started!") }}
   </div>
 </div>
 
