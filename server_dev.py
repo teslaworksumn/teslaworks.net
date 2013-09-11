@@ -64,7 +64,7 @@ def start_project():
     return redirect(url_for('index'))
 
 @app.route('/<dynamic>')
-def project(dynamic):
+def dynamic(dynamic):
 
     projects = projects_controller.get_all_projects()
     redirects = redirects_controller.get_redirects()
