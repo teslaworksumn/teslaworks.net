@@ -54,25 +54,7 @@
 
 <hr>
 
-<div id="join-mail-list" class="row">
-  <div class="col-md-offset-2 col-md-8">
-    <form role="form"
-          action="http://teslaworks.us6.list-manage.com/subscribe/post?u=29b6ec6923126f61a619ad372&amp;id=6ac5d62894"
-          method="post"
-          name="mc-embedded-subscribe-form"
-          target="_blank"
-          novalidate>
-  
-      <div class="form-group">
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="icon-envelope"></i></span>
-      	  <input type="email" value="" name="EMAIL" class="form-control">
-      	  <span class="input-group-btn"><input type="submit" value="Join our Mailing List" name="subscribe" class="btn btn-success"></span>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+{% include 'mailchimp_join.html' %}
 
 <div id="connect" class="row">
   <div class="col-xs-3 col-md-offset-2 col-md-2">
