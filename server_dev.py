@@ -108,7 +108,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = "Someone wants to join the " + project_data['project_title'] + " project!"
             msg = Message(subject)
-            msg.add_recipient('t.trim@me.com') # project_data['project_leaders'][0]['email']
+            msg.add_recipient(project_data['project_leaders'][0]['email'])
             msg.html = render_template('mail/join_project.html', q=q)
     
             mail.send(msg)
@@ -127,7 +127,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = project_data['project_title'] + " Question"
             msg = Message(subject, reply_to=q.get('ask_email'))
-            msg.add_recipient('t.trim@me.com') # project_data['project_leaders'][0]['email']
+            msg.add_recipient(project_data['project_leaders'][0]['email'])
             msg.html = render_template('mail/project_question.html', q=q)
 
             mail.send(msg)
