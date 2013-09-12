@@ -49,7 +49,7 @@
           <fieldset>
             <div class="form-group{% if fields and fields.ask and not fields.ask['msg'] %} has-error{% endif %}">
               <label for="ask-msg">Message</label>
-              <textarea class="form-control" name="ask[msg]" id="ask-msg" rows="5" placeholder="What do you want to know?"> {% if fields and fields.ask %}{{ fields.ask['msg'] }}{% endif %}</textarea>
+              <textarea class="form-control" name="ask[msg]" id="ask-msg" rows="5" placeholder="What do you want to know?">{% if fields and fields.ask and fields.ask['msg'] %}{{ fields.ask['msg'] }}{% endif %}</textarea>
               {% if fields and fields.ask and not fields.ask['msg'] %}<span class="help-block">You've gotta have something to ask!</span>{% endif %}
             </div>
             <div class="form-group{% if fields and fields.ask and not fields.ask['email'] %} has-error{% endif %}">
