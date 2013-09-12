@@ -76,7 +76,7 @@ def dynamic(dynamic):
             # The project is over, we should redirect to the post
             return redirect(project_data['conclusion_post'])
         else:
-          return render_template('project.html', project_data=project_data)
+          return project(dynamic, project_data)
 
     # Next, check if it's a redirect
     elif dynamic in redirects:
@@ -84,6 +84,48 @@ def dynamic(dynamic):
 
     else:
         abort(404)
+
+def project(project_name, project_data):
+    if not request.args:
+        return render_template('project.html', project_data=project_data)
+
+    fields = {}
+
+    join_email = request.args.get('join[email]')
+    ask_email = request.args.get('ask[email]')
+    ask_msg = request.args.get('ask[msg]')
+
+    if join_email:
+        fields['join'] = {'email': join_email}
+
+        msg = Message("Someone wants to join your project!")
+        msg.add_recipient(project_data['project_leaders'][0]['email'])
+        msg.html = render_template('mail/join_project.html', email=join_email)
+
+        mail.send(msg)
+
+        flash_msg = "Success! You have successfully asked to join the " + project_data['project_title'] + " project!"
+        flash(flash_msg, 'success')
+        redirect_path = "/" + project_name
+        return redirect(redirect_path)
+
+    if ask_email or ask_msg:
+        fields['ask'] = {'email': ask_email, 'msg': ask_msg}
+    
+    if ask_email and ask_msg:
+        subject = project_data['project_title'] + " Question"
+        msg = Message(subject, reply_to=ask_email)
+        msg.add_recipient(project_data['project_leaders'][0]['email'])
+        msg.html = render_template('mail/project_question.html', msg=ask_msg)
+
+        mail.send(msg)
+
+        flash_msg = "Success! Your question has been submitted, and you should hear from the project manager soon."
+        flash(flash_msg, 'success')
+        redirect_path = "/" + project_name
+        return redirect(redirect_path)
+
+    return render_template('project.html', project_data=project_data, fields=fields)
 
 @app.route('/dev_sync')
 def dev_save_and_reload_all_data():
