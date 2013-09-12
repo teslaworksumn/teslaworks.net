@@ -42,7 +42,7 @@ def index():
 @app.route('/start')
 def start_project():
     if not request.args:
-        return render_template('start_project.html')
+        return render_template('start.html')
 
     name = request.args.get('name')
     email = request.args.get('email')
@@ -52,7 +52,7 @@ def start_project():
     fields = {'name': name, 'email': email, 'title': title, 'desc': desc}
     
     if not name or not email or not title or not desc:
-        return render_template('start_project.html', fields=fields)
+        return render_template('start.html', fields=fields)
     
     msg = Message("New Project Request")
     msg.add_recipient(config.CONTACT_EMAIL)
