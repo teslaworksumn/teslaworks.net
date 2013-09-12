@@ -76,7 +76,7 @@ def dynamic(dynamic):
             # The project is over, we should redirect to the post
             return redirect(project_data['conclusion_post'])
         else:
-          return project(dynamic, project_data)
+          return render_project(dynamic, project_data)
 
     # Next, check if it's a redirect
     elif dynamic in redirects:
@@ -85,7 +85,7 @@ def dynamic(dynamic):
     else:
         abort(404)
 
-def project(project_name, project_data):
+def render_project(project_name, project_data):
     if not request.args:
         return render_template('project.html', project_data=project_data)
 
