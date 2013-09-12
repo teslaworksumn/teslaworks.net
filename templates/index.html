@@ -19,18 +19,18 @@
 
 <hr>
 
-{% import 'macros/project_thumbnails.html' as p %}
+{% import 'macros/project.html' as project %}
 
 <div id="projects">
   <div class="row">
-    {% for project_name, project in current_projects.iteritems() %}
-    {{ p.thumbnail(project.project_title, project.photos.front_page, project_name, project.project_goal) }}
+    {% for project_name, project_data in current_projects.iteritems() %}
+    {{ project.thumbnail(project_data.project_title, project_data.photos.front_page, project_name, project_data.project_goal) }}
   {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
   {% endif %}
     {% endfor %}
-    {{ p.thumbnail("Start a New Project", '/static/img/start.png', 'start', "We're always looking for new projects ideas. Go ahead and get started!") }}
+    {{ project.thumbnail("Start a New Project", '/static/img/start.png', 'start', "We're always looking for new projects ideas. Go ahead and get started!") }}
   </div>
 </div>
 
@@ -42,8 +42,8 @@
 
 <div id="past-projects" class="row collapse">
   <div class="row">
-    {% for project_name, project in past_projects.iteritems() %}
-    {{ p.thumbnail(project.project_title, project.photos.front_page, project_name, project.project_goal) }}
+    {% for project_name, project_data in past_projects.iteritems() %}
+    {{ project.thumbnail(project_data.project_title, project_data.photos.front_page, project_name, project_data.project_goal) }}
   {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
