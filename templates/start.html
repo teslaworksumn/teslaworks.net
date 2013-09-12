@@ -9,37 +9,17 @@
 
 <hr>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <form role="form">
-      <fieldset>
+{% import 'macros/form.html' as form with context %}
 
-        <div class="form-group{% if errors['name'] %} has-error{% endif %}">
-          <label for="name">Full Name</label>
-          <input type="text" name="name" class="form-control input-lg" id="name" placeholder="What's your name?" value="{{ q['name'] }}">
-          <span class="help-block">{{ errors['name'] }}</span>
-        </div>
+{{ form.start() }}
 
-        <div class="form-group{% if errors['email'] %} has-error{% endif %}">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" class="form-control input-lg" id="email" placeholder="What's your email?" value="{{ q['email'] }}">
-          <span class="help-block">{{ errors['email'] }}</span>
-        </div>
+{{ form.input('text', 'name', "Full Name", "What's your name?", 'lg') }}
+{{ form.input('email', 'email', "Email Address", "What's your email?", 'lg') }}
+{{ form.input('text', 'ptitle', "Project Title", "What should we call your project?", 'lg') }}
+{{ form.textarea('desc', "Project Description", "Convince us your project is worthwhile to pursue!", 'lg', 12) }}
 
-        <div class="form-group{% if errors['ptitle'] %} has-error{% endif %}">
-          <label for="ptitle">Project Title</label>
-          <input type="text" name="ptitle" class="form-control input-lg" id="ptitle" placeholder="What should we call your project?" value="{{ q['ptitle'] }}">
-          <span class="help-block">{{ errors['ptitle'] }}</span>
-        </div>
+{{ form.submit("Make It Happen!", 'success', 'lg') }}
 
-        <div class="form-group{% if errors['desc'] %} has-error{% endif %}">
-          <label for="desc">Project Description</label>
-          <textarea class="form-control input-lg" name="desc" id="desc" rows="12" placeholder="Convince us your project is worthwhile to pursue!">{{ q['desc'] }}</textarea>
-          <span class="help-block">{{ errors['desc'] }}</span>
-        </div>
-
-        <button type="submit" class="btn btn-success btn-lg">Make it happen!</button>
-      </fieldset>
-    </form>
+{{ form.end() }}
 
 {% endblock %}

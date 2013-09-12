@@ -1,0 +1,43 @@
+{% macro start() %}
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form role="form">
+      <fieldset>
+
+{% endmacro %}
+
+{% macro end() %}
+
+      </fieldset>
+    </form>
+  </div>
+</div>
+  
+{% endmacro %}
+
+{% macro input(type, id, label, placeholder, size) %}
+
+<div class="form-group{% if errors[id] %} has-error{% endif %}">
+  <label for="{{ id }}">{{ label }}</label>
+  <input type="{{ type }}" class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" placeholder="{{ placeholder }}" value="{{ q[id] }}">
+  <span class="help-block">{{ errors[id] }}</span>
+</div>
+
+{% endmacro %}
+
+{% macro textarea(id, label, placeholder, size, rows) %}
+
+<div class="form-group{% if errors[id] %} has-error{% endif %}">
+  <label for="{{ id }}">Project Description</label>
+  <textarea class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" rows="{{ rows }}" placeholder="{{ placeholder }}">{{ q[id] }}</textarea>
+  <span class="help-block">{{ errors[id] }}</span>
+</div>
+
+{% endmacro %}
+
+{% macro submit(text, style, size) %}
+
+<button type="submit" class="btn btn-{{ style }} btn-{{ size }}">{{ text }}</button>
+
+{% endmacro %}
