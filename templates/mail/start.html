@@ -1,13 +1,11 @@
-<div style="font-family: monospace;">
-  <p>
-    {{ q['name'] }} wants to start a Tesla Works project!<br>
-    ============================================================================
-  </p>
-  
-  <p>
-    Name: {{ q['name'] }}<br>
-    Email: {{ q['email'] }}<br>
-    Project Title: {{ q['ptitle'] }}<br>
-    Project Description: {{ q['desc'] | nl2br }}
-  </p>
-</div>
+<h1>{{ q['name'] }} wants to start a Tesla Works project!</h1>
+
+<p><strong>Name:</strong> {{ q['name'] }}<p>
+<p><strong>Email address:</strong> {{ q['email'] }}<p>
+<p><strong>Project title:</strong> {{ q['ptitle'] }}<p>
+<p><strong>Project description:</strong><p>
+<p>
+  {{ q['desc'] | nl2br }}
+</p>
+
+<p><strong>Move this to Basecamp!</strong></p>

@@ -60,13 +60,14 @@ def start_project():
         errors['desc'] = "We need to know what your project is about!"
 
     if not errors:
-        msg = Message("New Project Request")
+        subject = "New Project: " + q.get('ptitle')
+        msg = Message(subject)
         msg.add_recipient(config.CONTACT_EMAIL)
         msg.html = render_template('mail/start.html', q=q)
         
         mail.send(msg)
 
-        flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
+        flash("Success! Your application has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
         return redirect(url_for('index'))
 
     return render_template('start.html', q=q, errors=errors)
@@ -95,45 +96,47 @@ def dynamic(dynamic):
 
 def render_project(project_name, project_data):
     if not request.args:
-        return render_template('project.html', project_data=project_data)
+        return render_template('project.html', project_data=project_data, q={}, errors={})
 
-    fields = {}
+    q = request.args
+    errors = {}
 
-    join_email = request.args.get('join[email]')
-    ask_email = request.args.get('ask[email]')
-    ask_msg = request.args.get('ask[msg]')
-
-    if join_email:
-        fields['join'] = {'email': join_email}
-
-        msg = Message("Someone wants to join your project!")
-        msg.add_recipient(project_data['project_leaders'][0]['email'])
-        msg.html = render_template('mail/join_project.html', email=join_email)
-
-        mail.send(msg)
-
-        flash_msg = "Success! You have successfully asked to join the " + project_data['project_title'] + " project!"
-        flash(flash_msg, 'success')
-        redirect_path = "/" + project_name
-        return redirect(redirect_path)
-
-    if ask_email or ask_msg:
-        fields['ask'] = {'email': ask_email, 'msg': ask_msg}
+    if 'join_email' in q:
+        if not q['join_email']:
+            errors['join_email'] = "We need an email address to get ahold of you!"
+        
+        if not errors:
+            subject = "Someone wants to join the " + project_data['project_title'] + " project!"
+            msg = Message(subject)
+            msg.add_recipient('t.trim@me.com') # project_data['project_leaders'][0]['email']
+            msg.html = render_template('mail/join_project.html', q=q)
     
-    if ask_email and ask_msg:
-        subject = project_data['project_title'] + " Question"
-        msg = Message(subject, reply_to=ask_email)
-        msg.add_recipient(project_data['project_leaders'][0]['email'])
-        msg.html = render_template('mail/project_question.html', msg=ask_msg)
+            mail.send(msg)
+    
+            flash_msg = "Success! You have requested to join the " + project_data['project_title'] + " project, and you should hear back from the project manager soon."
+            flash(flash_msg, 'success')
+            return redirect("/" + project_name)
 
-        mail.send(msg)
+    if 'ask_msg' in q:
+        if not q['ask_msg']:
+            errors['ask_msg'] = "Don't forget to add your message!"
 
-        flash_msg = "Success! Your question has been submitted, and you should hear from the project manager soon."
-        flash(flash_msg, 'success')
-        redirect_path = "/" + project_name
-        return redirect(redirect_path)
+        if not q['ask_email']:
+            errors['ask_email'] = "We need an email address to answer you!"
 
-    return render_template('project.html', project_data=project_data, fields=fields)
+        if not errors:
+            subject = project_data['project_title'] + " Question"
+            msg = Message(subject, reply_to=q.get('ask_email'))
+            msg.add_recipient('t.trim@me.com') # project_data['project_leaders'][0]['email']
+            msg.html = render_template('mail/project_question.html', q=q)
+
+            mail.send(msg)
+    
+            flash_msg = "Success! Your message has been submitted, and you should hear from the project manager soon."
+            flash(flash_msg, 'success')
+            return redirect("/" + project_name)
+
+    return render_template('project.html', project_data=project_data, q=q, errors=errors)
 
 @app.route('/dev_sync')
 def dev_save_and_reload_all_data():

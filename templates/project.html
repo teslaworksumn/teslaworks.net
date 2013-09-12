@@ -23,44 +23,26 @@
     <p class="lead">{{ project_data.project_goal }}</p>
 </div>
 
+{% import 'macros/form.html' as form with context %}
+
 <div class="row">
   <div class="col-sm-6 col-sm-push-6">
     <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" data-target="#join-form">Join This Project</a>
-    <div id="join-form" class="panel panel-default collapse{% if fields and fields.join %} in{% endif %}">
-      <div class="panel-body">
-        <form role="form">
-          <fieldset>
-            <div class="form-group{% if fields and fields.join and not fields.join['email'] %} has-error{% endif %}">
-              <label for="join-email">Email</label>
-              <input type="text" name="join[email]" class="form-control" id="join-email" placeholder="What's your email?" {% if fields and fields.join %}value="{{ fields.join['email'] }}"{% endif %}>
-              {% if fields and fields.join and not fields.join['email'] %}<span class="help-block">Your email is required.</span>{% endif %}
-            </div>
-            <button type="submit" class="btn btn-success">Join</button>
-          </fieldset>
-        </form>
-      </div>
+    <div id="join-form" class="collapse{% if errors['join_email'] %} in{% endif %}">
+      {{ form.start() }}
+      {{ form.input('email', 'join_email', "Email Address", "What's your email?", 'md') }}
+      {{ form.submit("Join", 'success', 'md') }}
+      {{ form.end() }}
     </div>
   </div>
   <div class="col-sm-6 col-sm-pull-6">
     <a class="btn btn-default btn-lg btn-block" data-toggle="collapse" data-target="#ask-form">Ask A Question</a>
-    <div id="ask-form" class="panel panel-default collapse{% if fields and fields.ask %} in{% endif %}">
-      <div class="panel-body">
-        <form role="form">
-          <fieldset>
-            <div class="form-group{% if fields and fields.ask and not fields.ask['msg'] %} has-error{% endif %}">
-              <label for="ask-msg">Message</label>
-              <textarea class="form-control" name="ask[msg]" id="ask-msg" rows="5" placeholder="What do you want to know?">{% if fields and fields.ask and fields.ask['msg'] %}{{ fields.ask['msg'] }}{% endif %}</textarea>
-              {% if fields and fields.ask and not fields.ask['msg'] %}<span class="help-block">You've gotta have something to ask!</span>{% endif %}
-            </div>
-            <div class="form-group{% if fields and fields.ask and not fields.ask['email'] %} has-error{% endif %}">
-              <label for="ask-email">Reply-To Email</label>
-              <input type="text" name="ask[email]" class="form-control" id="ask-email" placeholder="What's your email?" {% if fields and fields.ask %}value="{{ fields.ask['email'] }}"{% endif %}>
-              {% if fields and fields.ask and not fields.ask['email'] %}<span class="help-block">Your email is required.</span>{% endif %}
-            </div>
-            <button type="submit" class="btn btn-success">Ask</button>
-          </fieldset>
-        </form>
-      </div>
+    <div id="ask-form" class="collapse{% if errors['ask_msg'] or errors['ask_email'] %} in{% endif %}">
+      {{ form.start() }}
+      {{ form.textarea('ask_msg', "Message", "What would you like to know?", 'md', 5) }}
+      {{ form.input('email', 'ask_email', "Email Address", "What's your email?", 'md') }}
+      {{ form.submit("Ask", 'success', 'md') }}
+      {{ form.end() }}
     </div>
   </div>
 </div>

@@ -1,3 +1,8 @@
+<h1>Someone has a question about your project!</h1>
+
+<p>Someone at the email address {{ q['ask_email'] }} wrote you this message:</p>
 <p>
-  {{ msg | nl2br }}
+  {{ q['ask_msg'] | nl2br }}
 </p>
+
+<p><strong>End of message.</strong> Respond as soon as you can! Consider answering on Basecamp.</p>
