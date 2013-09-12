@@ -42,26 +42,34 @@ def index():
 @app.route('/start')
 def start_project():
     if not request.args:
-        return render_template('start.html')
+        return render_template('start.html', q={}, errors={})
 
-    name = request.args.get('name')
-    email = request.args.get('email')
-    title = request.args.get('title')
-    desc = request.args.get('desc')
+    q = request.args
+    errors = {}
+
+    if not q['name']:
+        errors['name'] = "We need to know who you are!"
+
+    if not q['email']:
+        errors['email'] = "We need to know how to get ahold of you!"
+
+    if not q['ptitle']:
+        errors['ptitle'] = "We need to know what to call your project!"
     
-    fields = {'name': name, 'email': email, 'title': title, 'desc': desc}
-    
-    if not name or not email or not title or not desc:
-        return render_template('start.html', fields=fields)
-    
-    msg = Message("New Project Request")
-    msg.add_recipient(config.CONTACT_EMAIL)
-    msg.html = render_template('project_application.html', name=name, email=email, title=title, desc=desc)
-    
-    mail.send(msg)
-    
-    flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
-    return redirect(url_for('index'))
+    if not q['desc']:
+        errors['desc'] = "We need to know what your project is about!"
+
+    if not errors:
+        msg = Message("New Project Request")
+        msg.add_recipient(config.CONTACT_EMAIL)
+        msg.html = render_template('mail/start.html', q=q)
+        
+        mail.send(msg)
+
+        flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
+        return redirect(url_for('index'))
+
+    return render_template('start.html', q=q, errors=errors)
 
 @app.route('/<dynamic>')
 def dynamic(dynamic):

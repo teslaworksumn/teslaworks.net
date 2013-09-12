@@ -1,13 +1,13 @@
 <div style="font-family: monospace;">
   <p>
-    {{ name }} wants to start a Tesla Works project!<br>
+    {{ q['name'] }} wants to start a Tesla Works project!<br>
     ============================================================================
   </p>
   
   <p>
-    Name: {{ name }}<br>
-    Email: {{ email }}<br>
-    Project Title: {{ title }}<br>
-    Project Description: {{ desc | nl2br }}
+    Name: {{ q['name'] }}<br>
+    Email: {{ q['email'] }}<br>
+    Project Title: {{ q['ptitle'] }}<br>
+    Project Description: {{ q['desc'] | nl2br }}
   </p>
 </div>
