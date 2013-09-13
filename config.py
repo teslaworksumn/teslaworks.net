@@ -2,7 +2,7 @@ DATA_DIR = 'data'
 SECRET_KEY = '6C863A81-5C37-47BE-9D7D-362F073F7BE7'
 
 CONTACT_EMAIL = 'officers@teslaworks.net'
-DEBUG_EMAIL = 't.trim@me.com'
+DEBUG_EMAIL = 'webmaster@teslaworks.net'
 
 APP_CONFIG = {
   'DEBUG': False,
