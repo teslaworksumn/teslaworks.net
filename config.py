@@ -1,5 +1,6 @@
 DATA_DIR = 'data'
 SECRET_KEY = '6C863A81-5C37-47BE-9D7D-362F073F7BE7'
+DEBUG_EMAIL = 't.trim@me.com'
 
 CONTACT_EMAIL = 'officers@teslaworks.net'
 

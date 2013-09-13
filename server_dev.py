@@ -62,7 +62,7 @@ def start_project():
     if not errors:
         subject = "New Project: " + q.get('ptitle')
         msg = Message(subject)
-        msg.add_recipient(config.CONTACT_EMAIL)
+        msg.add_recipient(email_address(config.CONTACT_EMAIL))
         msg.html = render_template('mail/start.html', q=q)
         
         mail.send(msg)
@@ -109,7 +109,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = "Someone wants to join the " + project_data['project_title'] + " project!"
             msg = Message(subject)
-            msg.add_recipient(project_data['project_leaders'][0]['email'])
+            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/join_project.html', q=q)
     
             mail.send(msg)
@@ -128,7 +128,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = project_data['project_title'] + " Question"
             msg = Message(subject, reply_to=q.get('ask_email'))
-            msg.add_recipient(project_data['project_leaders'][0]['email'])
+            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/project_question.html', q=q)
 
             mail.send(msg)
@@ -161,6 +161,9 @@ def reload_all_data():
 
 def redirect_url():
     return request.args.get('next') or request.referrer or url_for('index')
+
+def email_address(email):
+    return email if not app.debug and not app.testing else config.DEBUG_EMAIL
 
 
 if __name__ == '__main__':
