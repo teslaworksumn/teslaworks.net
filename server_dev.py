@@ -64,6 +64,7 @@ def start_project():
         msg = Message(subject)
         msg.add_recipient(email_address(config.CONTACT_EMAIL))
         msg.html = render_template('mail/start.html', q=q)
+        msg.body = render_template('mail/start.txt', q=q)
         
         mail.send(msg)
 
@@ -111,6 +112,7 @@ def render_project(project_name, project_data):
             msg = Message(subject)
             msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/join_project.html', q=q)
+            msg.body = render_template('mail/join_project.txt', q=q)
     
             mail.send(msg)
     
@@ -130,6 +132,7 @@ def render_project(project_name, project_data):
             msg = Message(subject, reply_to=q.get('ask_email'))
             msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/project_question.html', q=q)
+            msg.body = render_template('mail/project_question.txt', q=q)
 
             mail.send(msg)
     

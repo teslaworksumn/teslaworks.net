@@ -1,0 +1,12 @@
+{{ q['name'] }} wants to start a Tesla Works project!
+{{ '=' * q['name']|count }}======================================
+
+Name: {{ q['name'] }}
+Email address: {{ q['email'] }}
+Project title: {{ q['ptitle'] }}
+Project description:
+
+{{ q['desc'] }}
+
+----------------------
+Move this to Basecamp!
