@@ -23,3 +23,15 @@
 {{ form.end() }}
 
 {% endblock %}
+
+{% block html_post_body %}
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('form .has-error :input:visible:enabled:first').focus();
+  });
+</script>
+
+{% endblock %}

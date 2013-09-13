@@ -129,5 +129,12 @@
 {% block html_post_body %}
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/20130801/jquery.cycle2.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('form .has-error :input:visible:enabled:first').focus();
+  });
+</script>
 
 {% endblock %}

@@ -70,6 +70,7 @@ def start_project():
         flash("Success! Your application has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
         return redirect(url_for('index'))
 
+    flash("There was a problem with your submission. Please try again!", 'danger')
     return render_template('start.html', q=q, errors=errors)
 
 @app.route('/<dynamic>')
@@ -136,6 +137,7 @@ def render_project(project_name, project_data):
             flash(flash_msg, 'success')
             return redirect("/" + project_name)
 
+    flash("There was a problem with your submission. Please try again!", 'danger')
     return render_template('project.html', project_data=project_data, q=q, errors=errors)
 
 @app.route('/dev_sync')
