@@ -166,7 +166,10 @@ def redirect_url():
     return request.args.get('next') or request.referrer or url_for('index')
 
 def email_address(email):
-    return email if not app.debug and not app.testing else config.DEBUG_EMAIL
+    if app.debug or app.testing:
+        return config.DEBUG_EMAIL
+    
+    return email
 
 
 if __name__ == '__main__':
