@@ -116,7 +116,12 @@ a.click-zone {
     text-decoration: none;
 }
 
-/* Project leader stuff */
+/* Project stuff */
+
+.disclose-form {
+    margin-top: 4%;
+    margin-bottom: -8%;
+}
 
 .leader-row {
     margin-bottom: 12px;

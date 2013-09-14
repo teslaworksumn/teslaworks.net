@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% set title = 'Start a Project' %}
+{% set width = 6 %}
+
+{% block html_body %}
+
+<p class="lead text-center">Submit your project idea here for review. You'll hear back from us in a few days.</p>
+
+<hr>
+
+{% import 'macros/form.html' as form with context %}
+
+{{ form.start() }}
+
+{{ form.input('text', 'name', "Full Name", "What's your name?", 'lg') }}
+{{ form.input('email', 'email', "Email Address", "What's your email?", 'lg') }}
+{{ form.input('text', 'ptitle', "Project Title", "What should we call your project?", 'lg') }}
+{{ form.textarea('desc', "Project Description", "Convince us your project is worthwhile to pursue!", 'lg', 12) }}
+
+{{ form.submit("Make It Happen!", 'success', 'lg') }}
+
+{{ form.end() }}
+
+{% endblock %}
+
+{% block html_post_body %}
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('form .has-error :input:visible:enabled:first').focus();
+  });
+</script>
+
+{% endblock %}

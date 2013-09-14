@@ -1,0 +1,9 @@
+Someone has a question about your project!
+==========================================
+
+Someone at the email address {{ form['ask_email'] }} wrote you this message:
+
+{{ form['ask_msg'] }}
+
+---------------------------------------------------------------------------
+End of message. Respond as soon as you can! Consider answering on Basecamp.

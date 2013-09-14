@@ -1,0 +1,11 @@
+<h1>{{ form['name'] }} wants to start a Tesla Works project!</h1>
+
+<p><strong>Name:</strong> {{ form['name'] }}<p>
+<p><strong>Email address:</strong> {{ form['email'] }}<p>
+<p><strong>Project title:</strong> {{ form['ptitle'] }}<p>
+<p><strong>Project description:</strong><p>
+<p>
+  {{ form['desc'] | nl2br }}
+</p>
+
+<p><strong>Move this to Basecamp!</strong></p>

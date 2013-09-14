@@ -39,31 +39,42 @@ def index():
     past_projects = projects_controller.get_past_projects()
     return render_template('index.html', current_projects=current_projects, past_projects=past_projects)
 
-@app.route('/start')
+@app.route('/start', methods=['GET', 'POST'])
 def start_project():
-    if not request.args:
-        return render_template('start_project.html')
+    if request.method == 'GET':
+        return render_template('start.html', form={}, errors={})
 
-    name = request.args.get('name')
-    email = request.args.get('email')
-    title = request.args.get('title')
-    desc = request.args.get('desc')
-    
-    fields = {'name': name, 'email': email, 'title': title, 'desc': desc}
-    
-    if not name or not email or not title or not desc:
-        return render_template('start_project.html', fields=fields)
-    
-    msg = Message("New Project Request")
-    msg.add_recipient(config.CONTACT_EMAIL)
-    msg.html = render_template('project_application.html', name=name, email=email, title=title, desc=desc)
-    
-    mail.send(msg)
-    
-    flash("Success! Your project has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
-    return redirect(url_for('index'))
+    form = request.form
+    errors = {}
 
-@app.route('/<dynamic>')
+    if not form['name']:
+        errors['name'] = "We need to know who you are!"
+
+    if not form['email']:
+        errors['email'] = "We need to know how to get ahold of you!"
+
+    if not form['ptitle']:
+        errors['ptitle'] = "We need to know what to call your project!"
+    
+    if not form['desc']:
+        errors['desc'] = "We need to know what your project is about!"
+
+    if not errors:
+        subject = "New Project: " + form.get('ptitle')
+        msg = Message(subject)
+        msg.add_recipient(email_address(config.CONTACT_EMAIL))
+        msg.html = render_template('mail/start.html', form=form)
+        msg.body = render_template('mail/start.txt', form=form)
+        
+        mail.send(msg)
+
+        flash("Success! Your application has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
+        return redirect(url_for('index'))
+
+    flash("There was a problem with your submission. Please try again!", 'danger')
+    return render_template('start.html', form=form, errors=errors)
+
+@app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
 
     projects = projects_controller.get_all_projects()
@@ -76,7 +87,7 @@ def dynamic(dynamic):
             # The project is over, we should redirect to the post
             return redirect(project_data['conclusion_post'])
         else:
-          return render_template('project.html', project_data=project_data)
+          return render_project(dynamic, project_data)
 
     # Next, check if it's a redirect
     elif dynamic in redirects:
@@ -84,6 +95,53 @@ def dynamic(dynamic):
 
     else:
         abort(404)
+
+def render_project(project_name, project_data):
+    if request.method == 'GET':
+        return render_template('project.html', project_data=project_data, form={}, errors={})
+
+    form = request.form
+    errors = {}
+
+    if 'join_email' in form:
+        if not form['join_email']:
+            errors['join_email'] = "We need an email address to get ahold of you!"
+        
+        if not errors:
+            subject = "Someone wants to join the " + project_data['project_title'] + " project!"
+            msg = Message(subject)
+            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
+            msg.html = render_template('mail/join_project.html', form=form)
+            msg.body = render_template('mail/join_project.txt', form=form)
+    
+            mail.send(msg)
+    
+            flash_msg = "Success! You have requested to join the " + project_data['project_title'] + " project, and you should hear back from the project manager soon."
+            flash(flash_msg, 'success')
+            return redirect("/" + project_name)
+
+    if 'ask_msg' in form:
+        if not form['ask_msg']:
+            errors['ask_msg'] = "Don't forget to add your message!"
+
+        if not form['ask_email']:
+            errors['ask_email'] = "We need an email address to answer you!"
+
+        if not errors:
+            subject = project_data['project_title'] + " Question"
+            msg = Message(subject, reply_to=form.get('ask_email'))
+            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
+            msg.html = render_template('mail/project_question.html', form=form)
+            msg.body = render_template('mail/project_question.txt', form=form)
+
+            mail.send(msg)
+    
+            flash_msg = "Success! Your message has been submitted, and you should hear from the project manager soon."
+            flash(flash_msg, 'success')
+            return redirect("/" + project_name)
+
+    flash("There was a problem with your submission. Please try again!", 'danger')
+    return render_template('project.html', project_data=project_data, form=form, errors=errors)
 
 @app.route('/dev_sync')
 def dev_save_and_reload_all_data():
@@ -106,6 +164,12 @@ def reload_all_data():
 
 def redirect_url():
     return request.args.get('next') or request.referrer or url_for('index')
+
+def email_address(email):
+    if app.debug or app.testing:
+        return config.DEBUG_EMAIL
+    
+    return email
 
 
 if __name__ == '__main__':
