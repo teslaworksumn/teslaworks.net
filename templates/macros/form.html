@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <form role="form">
+    <form role="form" method=post>
       <fieldset>
 
 {% endmacro %}
@@ -20,7 +20,7 @@
 
 <div class="form-group{% if errors[id] %} has-error{% endif %}">
   <label for="{{ id }}">{{ label }}</label>
-  <input type="{{ type }}" class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" placeholder="{{ placeholder }}" value="{{ q[id] }}">
+  <input type="{{ type }}" class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" placeholder="{{ placeholder }}" value="{{ form[id] }}">
   <span class="help-block">{{ errors[id] }}</span>
 </div>
 
@@ -30,7 +30,7 @@
 
 <div class="form-group{% if errors[id] %} has-error{% endif %}">
   <label for="{{ id }}">Project Description</label>
-  <textarea class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" rows="{{ rows }}" placeholder="{{ placeholder }}">{{ q[id] }}</textarea>
+  <textarea class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" rows="{{ rows }}" placeholder="{{ placeholder }}">{{ form[id] }}</textarea>
   <span class="help-block">{{ errors[id] }}</span>
 </div>
 
