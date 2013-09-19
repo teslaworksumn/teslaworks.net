@@ -5,6 +5,7 @@ from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
 import config
 import re
+import strings
 
 app = Flask(__name__)
 app.secret_key = config.SECRET_KEY
@@ -48,19 +49,19 @@ def start_project():
     errors = {}
 
     if not form['name']:
-        errors['name'] = "We need to know who you are!"
+        errors['name'] = strings.ERROR_NO_NAME
 
     if not form['email']:
-        errors['email'] = "We need to know how to get ahold of you!"
+        errors['email'] = strings.ERROR_NO_EMAIL_TO_GET_AHOLD
 
     if not form['ptitle']:
-        errors['ptitle'] = "We need to know what to call your project!"
+        errors['ptitle'] = strings.ERROR_NO_PROJ_TITLE
     
     if not form['desc']:
-        errors['desc'] = "We need to know what your project is about!"
+        errors['desc'] = strings.ERROR_NO_PROJ_DESC
 
     if not errors:
-        subject = "New Project: " + form.get('ptitle')
+        subject = strings.SUBJ_PROJ_NEW % form.get('ptitle')
         msg = Message(subject)
         msg.add_recipient(email_address(config.CONTACT_EMAIL))
         msg.html = render_template('mail/start.html', form=form)
@@ -68,10 +69,10 @@ def start_project():
         
         mail.send(msg)
 
-        flash("Success! Your application has been submitted to the officer board, and you'll hear back from us in a few days.", 'success')
+        flash(strings.SUCCESS_APP_SUBMITTED, 'success')
         return redirect(url_for('index'))
 
-    flash("There was a problem with your submission. Please try again!", 'danger')
+    flash(strings.ERROR_NOT_SUBMITTED, 'danger')
     return render_template('start.html', form=form, errors=errors)
 
 @app.route('/<dynamic>', methods=['GET', 'POST'])
@@ -105,10 +106,10 @@ def render_project(project_name, project_data):
 
     if 'join_email' in form:
         if not form['join_email']:
-            errors['join_email'] = "We need an email address to get ahold of you!"
+            errors['join_email'] = strings.ERROR_NO_EMAIL_TO_GET_AHOLD
         
         if not errors:
-            subject = "Someone wants to join the " + project_data['project_title'] + " project!"
+            subject = strings.SUBJ_PROJ_JOIN_REQUESTED % project_data['project_title']
             msg = Message(subject)
             msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/join_project.html', form=form)
@@ -116,19 +117,19 @@ def render_project(project_name, project_data):
     
             mail.send(msg)
     
-            flash_msg = "Success! You have requested to join the " + project_data['project_title'] + " project, and you should hear back from the project manager soon."
+            flash_msg = strings.SUCCESS_PROJ_JOINED % project_data['project_title']
             flash(flash_msg, 'success')
             return redirect("/" + project_name)
 
     if 'ask_msg' in form:
         if not form['ask_msg']:
-            errors['ask_msg'] = "Don't forget to add your message!"
+            errors['ask_msg'] = strings.ERROR_DONT_FORGET_MSG
 
         if not form['ask_email']:
-            errors['ask_email'] = "We need an email address to answer you!"
+            errors['ask_email'] = strings.ERROR_NO_EMAIL_TO_ANSWER
 
         if not errors:
-            subject = project_data['project_title'] + " Question"
+            subject = strings.SUBJ_PROJ_QUESTION % project_data['project_title']
             msg = Message(subject, reply_to=form.get('ask_email'))
             msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
             msg.html = render_template('mail/project_question.html', form=form)
@@ -136,11 +137,11 @@ def render_project(project_name, project_data):
 
             mail.send(msg)
     
-            flash_msg = "Success! Your message has been submitted, and you should hear from the project manager soon."
+            flash_msg = strings.SUCCESS_MESSAGE_SUBMITTED
             flash(flash_msg, 'success')
             return redirect("/" + project_name)
 
-    flash("There was a problem with your submission. Please try again!", 'danger')
+    flash(ERROR_NOT_SUBMITTED, 'danger')
     return render_template('project.html', project_data=project_data, form=form, errors=errors)
 
 @app.route('/dev_sync')
