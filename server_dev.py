@@ -141,7 +141,7 @@ def render_project(project_name, project_data):
             flash(flash_msg, 'success')
             return redirect("/" + project_name)
 
-    flash(ERROR_NOT_SUBMITTED, 'danger')
+    flash(strings.ERROR_NOT_SUBMITTED, 'danger')
     return render_template('project.html', project_data=project_data, form=form, errors=errors)
 
 @app.route('/dev_sync')
