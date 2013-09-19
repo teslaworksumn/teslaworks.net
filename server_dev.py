@@ -119,7 +119,7 @@ def render_project(project_name, project_data):
     
             flash_msg = strings.SUCCESS_PROJ_JOINED % project_data['project_title']
             flash(flash_msg, 'success')
-            return redirect("/" + project_name)
+            return redirect('/' + project_name)
 
     if 'ask_msg' in form:
         if not form['ask_msg']:
@@ -139,7 +139,7 @@ def render_project(project_name, project_data):
     
             flash_msg = strings.SUCCESS_MESSAGE_SUBMITTED
             flash(flash_msg, 'success')
-            return redirect("/" + project_name)
+            return redirect('/' + project_name)
 
     flash(strings.ERROR_NOT_SUBMITTED, 'danger')
     return render_template('project.html', project_data=project_data, form=form, errors=errors)
