@@ -1,0 +1,15 @@
+SUBJ_PROJ_NEW = "New Project: %s"
+SUBJ_PROJ_QUESTION = "%s Question"
+SUBJ_PROJ_JOIN_REQUESTED = "Someone wants to join the %s project!"
+
+ERROR_NO_NAME = "We need to know who you are!"
+ERROR_NO_EMAIL_TO_GET_AHOLD = "We need to know how to get ahold of you!"
+ERROR_NO_EMAIL_TO_ANSWER = "We need an email address to answer you!"
+ERROR_NO_PROJ_TITLE = "We need to know what to call your project!"
+ERROR_NO_PROJ_DESC = "We need to know what your project is about!"
+ERROR_DONT_FORGET_MSG = "Don't forget to add your message!"
+ERROR_NOT_SUBMITTED = "There was a problem with your submission. Please try again!"
+
+SUCCESS_APP_SUBMITTED = "Success! Your application has been submitted to the officer board, and you'll hear back from us in a few days."
+SUCCESS_MESSAGE_SUBMITTED = "Success! Your message has been submitted, and you should hear from the project manager soon."
+SUCCESS_PROJ_JOINED = "Success! You have requested to join the %s project, and you should hear back from the project manager soon."
