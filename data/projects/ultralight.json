@@ -1,28 +1,24 @@
 {
     "project_title": "Ultralight", 
     "photos": {
-        "front_page": "/static/img/projects/ultralight/plane.jpg", 
+        "front_page": "/static/img/projects/ultralight/moody-easy-riser.jpg", 
         "detail": [
-            "/static/img/projects/ultralight/plane.jpg", 
-            "/static/img/projects/ultralight/plane.jpg", 
-            "/static/img/projects/ultralight/plane.jpg"
+            "/static/img/projects/ultralight/moody-easy-riser.jpg", 
+            "/static/img/projects/ultralight/moody-easy-riser.jpg", 
+            "/static/img/projects/ultralight/moody-easy-riser.jpg"
         ]
     }, 
     "project_needs": {
         "marketing": [
-            "People willing to put together a kiosk of sorts to explain the project during the CSE carnival."
         ], 
         "engineering": [
-            "MEs to figure out the literal nuts and bolts of the design and build the project from raw metal."
         ], 
         "other": [
-            "Powerful bikers to pedal the beest once it is all completed."
         ], 
         "design": [
-            "Anyone who wants to embellesh the beest with bells, whistles, pyrotechnics etc."
         ]
     }, 
-    "project_goal": "Build a small airplane that will not require the pilot to have a license.", 
+    "project_goal": "Build a FAR-103 legal Easy Riser ultralight. This airplane does not require an airworthiness certificate and may be flown by an unlicensed pilot.", 
     "project_categories": "ME, Aerospace, Marketing", 
     "project_leaders": [
         {
@@ -31,7 +27,15 @@
             "phone": "651-497-5694", 
             "can_sms": "Yes", 
             "email": "ekulaw@gmail.com", 
-            "bio": "Luke is currnetly a freshman at St. Paul College. He enjoys camping, canoeing, and anythig related to the outdoors. He has had a total of eight hours of flying lessons and loves airplanes."
+            "bio": "Luke is a freshman interested in aviation and engineering. He enjoys camping, canoeing, and anything related to the outdoors."
+        },
+        {
+            "name": "Peter Wagner", 
+            "photo": "/static/img/leaders/peter-wagner.jpg", 
+            "phone": "320-279-3679", 
+            "can_sms": "Yes", 
+            "email": "wagne763@umn.edu", 
+            "bio": "Peter is a senior in physics and is the current president of Tesla Works. His fascinations include canoeing, juggling, chess, and aviation."
         }
     ]
 }
