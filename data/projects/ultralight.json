@@ -1,11 +1,11 @@
 {
     "project_title": "Ultralight", 
     "photos": {
-        "front_page": "/static/img/projects/ultralight/plane.jpg", 
+        "front_page": "/static/img/projects/ultralight/moody-easy-riser.jpg", 
         "detail": [
-            "/static/img/projects/ultralight/plane.jpg", 
-            "/static/img/projects/ultralight/plane.jpg", 
-            "/static/img/projects/ultralight/plane.jpg"
+            "/static/img/projects/ultralight/moody-easy-riser.jpg", 
+            "/static/img/projects/ultralight/moody-easy-riser.jpg", 
+            "/static/img/projects/ultralight/moody-easy-riser.jpg"
         ]
     }, 
     "project_needs": {
