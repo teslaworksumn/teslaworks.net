@@ -1,6 +1,7 @@
 from flask import Flask, request, url_for, render_template, flash, redirect, abort
 from jinja2 import evalcontextfilter, Markup, escape
 from flask_mail import Mail, Message
+from raven.contrib.flask import Sentry, Client
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
 import config
@@ -13,6 +14,9 @@ app.config.update(config.APP_CONFIG)
 
 app.config.update(config.MAIL_SETTINGS)
 mail = Mail(app)
+
+app.config.update(config.SENTRY_SETTINGS)
+sentry = Sentry(app)
 
 projects_controller = ProjectsController(config.DATA_DIR)
 redirects_controller = RedirectsController(config.DATA_DIR)
