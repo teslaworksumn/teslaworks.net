@@ -15,7 +15,7 @@ app.config.update(config.APP_CONFIG)
 app.config.update(config.MAIL_SETTINGS)
 mail = Mail(app)
 
-projects_controller = ProjectsController(config.DATA_DIR)
+projects_controller = ProjectsController()
 redirects_controller = RedirectsController(config.DATA_DIR)
 
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
