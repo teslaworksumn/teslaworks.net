@@ -8,3 +8,4 @@ itsdangerous==0.22
 py==1.4.15
 pytest==2.3.5
 wsgiref==0.1.2
+raven[flask]==3.4.1

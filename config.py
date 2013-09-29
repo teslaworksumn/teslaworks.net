@@ -20,3 +20,7 @@ MAIL_SETTINGS = {
   'MAIL_DEFAULT_SENDER': 'twnet@mailer.teslaworks.net',
   'MAIL_SUPPRESS_SEND': False
 }
+
+SENTRY_SETTINGS = {
+  'SENTRY_DSN': 'https://your.dsn.goes/here/3'
+}
