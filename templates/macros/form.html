@@ -29,7 +29,7 @@
 {% macro textarea(id, label, placeholder, size, rows) %}
 
 <div class="form-group{% if errors[id] %} has-error{% endif %}">
-  <label for="{{ id }}">Project Description</label>
+  <label for="{{ id }}">{{ label }}</label>
   <textarea class="form-control input-{{ size }}" name="{{ id }}" id="{{ id }}" rows="{{ rows }}" placeholder="{{ placeholder }}">{{ form[id] }}</textarea>
   <span class="help-block">{{ errors[id] }}</span>
 </div>
