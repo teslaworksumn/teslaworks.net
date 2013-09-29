@@ -23,12 +23,12 @@
 
 <div id="projects">
   <div class="row">
-    {% for project_name, project_data in current_projects.iteritems() %}
-    {{ project.thumbnail(project_data.project_title, project_data.photos.front_page, project_name, project_data.project_goal) }}
-  {% if loop.index is divisibleby (3) %}
+    {% for slug, project_data in current_projects.iteritems() %}
+      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+      {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
-  {% endif %}
+      {% endif %}
     {% endfor %}
     {{ project.thumbnail("Start a New Project", '/static/img/start.png', 'start', "We're always looking for new projects ideas. Go ahead and get started!") }}
   </div>
