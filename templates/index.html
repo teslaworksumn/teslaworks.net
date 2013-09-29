@@ -119,6 +119,10 @@
 
   $(document).ready(function(){
 
+    {% if mixpanel_token %}
+    mixpanel.track("Home Page");
+    {% endif %}
+
     $('#past-proj-btn').click(function() {
         $(this).button('toggle');
     });

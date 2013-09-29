@@ -1,8 +1,8 @@
-{% macro start() %}
+{% macro start(id) %}
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <form role="form" method=post>
+    <form id="{{ id }}" role="form" method=post>
       <fieldset>
 
 {% endmacro %}
