@@ -157,7 +157,7 @@ def dev_reload_all_data():
 
 def mixpanel_token():
     if config.MIXPANEL_SUPPRESS_SEND:
-        return ""
+        return None
 
     return config.MIXPANEL_TOKEN
 
