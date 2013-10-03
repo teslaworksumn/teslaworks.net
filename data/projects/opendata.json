@@ -22,12 +22,12 @@
     "project_categories": "", 
     "project_leaders": [
         {
-            "name": "Mepukta Kessy", 
-            "photo": "/static/img/leaders/mepukta-kessy.jpg", 
+            "name": "Mepuka Kessy", 
+            "photo": "/static/img/leaders/mepuka-kessy.jpg", 
             "phone": "708-945-2886", 
             "can_sms": "Yes", 
             "email": "kessy002@umn.edu", 
-            "bio": "Mepukta is a senior chemical engineering student who enjoys creating cool things. For fun he enjoys web programming, playing and watching soccer, good conversation, and reading."
+            "bio": "Mepuka is a senior chemical engineering student who enjoys creating cool things. For fun he enjoys web programming, playing and watching soccer, good conversation, and reading."
         }
     ]
 }
