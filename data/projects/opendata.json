@@ -1,0 +1,33 @@
+{
+    "project_title": "Open Data Initiative", 
+    "photos": {
+        "front_page": "/static/img/projects/opendata/code.jpg", 
+        "detail": [
+            "/static/img/projects/opendata/code.jpg", 
+            "/static/img/projects/opendata/diagram.jpg", 
+            "/static/img/projects/opendata/liberate-data.png"
+        ]
+    }, 
+    "project_needs": {
+        "marketing": [
+        ], 
+        "engineering": [
+        ], 
+        "other": [
+        ], 
+        "design": [
+        ]
+    }, 
+    "project_goal": "Create a programmatic interface for publishing University data, including as course, recreation, and event data.", 
+    "project_categories": "", 
+    "project_leaders": [
+        {
+            "name": "Mepuka Kessy", 
+            "photo": "/static/img/leaders/mepuka-kessy.jpg", 
+            "phone": "708-945-2886", 
+            "can_sms": "Yes", 
+            "email": "kessy002@umn.edu", 
+            "bio": "Mepuka is a senior chemical engineering student who enjoys creating cool things. For fun he enjoys web programming, playing and watching soccer, good conversation, and reading."
+        }
+    ]
+}
