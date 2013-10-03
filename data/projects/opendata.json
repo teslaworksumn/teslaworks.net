@@ -1,11 +1,11 @@
 {
     "project_title": "Open Data Initiative", 
     "photos": {
-        "front_page": "/static/img/projects/pathfinder/opendata1.jpg", 
+        "front_page": "/static/img/projects/opendata/code.jpg", 
         "detail": [
-            "/static/img/projects/pathfinder/opendata1.jpg", 
-            "/static/img/projects/pathfinder/opendata2.jpg", 
-            "/static/img/projects/pathfinder/opendata3.jpg"
+            "/static/img/projects/opendata/code.jpg", 
+            "/static/img/projects/opendata/diagram.jpg", 
+            "/static/img/projects/opendata/liberate-data.png"
         ]
     }, 
     "project_needs": {
