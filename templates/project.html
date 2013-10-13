@@ -10,11 +10,7 @@
   
 <div class="row text-center">
     <h1>{{ project_data.project_title }}</h1>
-    <div class="cycle-slideshow"
-      data-cycle-fx="fade"
-      data-cycle-timeout="3000"
-      data-cycle-speed="1500"
-      >
+    <div id="slideshow">
     {% for img in project_data.photos.detail %}
         <img class="img-thumbnail img-responsive" src="{{ img }}" alt="">
     {% endfor %}
@@ -84,7 +80,6 @@
 
 {% block html_post_body %}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/20130801/jquery.cycle2.min.js"></script>
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -102,6 +97,22 @@
     {% endif %}
 
     $('form .has-error :input:visible:enabled:first').focus();
+
+    // Configure slideshow
+    var firstSlide = $('#slideshow img:first');
+    $('#slideshow').width(firstSlide.width() * 1.05);
+    $('#slideshow').height(firstSlide.height() * 1.05);
+    firstSlide.addClass('active');
+
+    function slideSwitch() {
+      var active = $('#slideshow img.active');
+      var next = active.next().length ? active.next() : $('#slideshow img:first');
+
+      next.addClass('active');
+      active.removeClass('active');
+    }
+
+    setInterval(slideSwitch, 3000);
   });
 </script>
 
