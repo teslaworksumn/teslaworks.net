@@ -1,4 +1,5 @@
 import psycopg2
+import config
 
 PROJECTS_KEY_ORDER = ['id', 'name', 'slug', 'description', 'photo_url', 'past_project']
 GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, past_project FROM projects ORDER BY display_order;'
@@ -43,7 +44,10 @@ class ProjectsController:
         from pprint import pprint
 
         try:
-            con = psycopg2.connect(host='localhost', database='twnet', user='mplewis')
+            con = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
+                                   database=config.DB_SETTINGS['DATABASE'],
+                                   user=config.DB_SETTINGS['USER'],
+                                   password=config.DB_SETTINGS['PASSWORD'])
             cur = con.cursor()
 
             projects_data = {}
