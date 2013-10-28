@@ -94,10 +94,17 @@ class ProjectsController:
                     self.current_projects[slug] = project_data
             
         except psycopg2.DatabaseError, e:
-            if con:
-                con.rollback()
+            try:
+                if con:
+                    con.rollback()
+            except UnboundLocalError:
+                pass
             raise e
 
         finally:
-            if con:
-                con.close()
+            try:
+                if con:
+                    con.close()
+            except UnboundLocalError:
+                pass
+
