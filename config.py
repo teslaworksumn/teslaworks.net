@@ -17,4 +17,10 @@ MAIL_SETTINGS = {
   'MAIL_PASSWORD': '0b9--9zv2aq8',
   'MAIL_DEFAULT_SENDER': 'twnet@mailer.teslaworks.net',
   'MAIL_SUPPRESS_SEND': False
+
+DB_SETTINGS = {
+    'HOST': 'localhost',
+    'USER': 'mplewis',
+    'PASSWORD': 'nope',
+    'DATABASE': 'twnet'
 }
