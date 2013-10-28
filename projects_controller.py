@@ -15,19 +15,19 @@ class ProjectsController:
 
     def __init__(self):
         self.current_projects = None
+        self.got_past_projects = False
+        self.got_all_projects = False
         self.past_projects = None
         self.all_projects = None
 
     def get_current_projects(self):
-        if not self.current_projects:
+        if not self.got_past_projects:
             self.load_projects()
-        
         return self.current_projects
     
     def get_past_projects(self):
-        if not self.past_projects:
+        if not self.got_all_projects:
             self.load_projects()
-        
         return self.past_projects
     
     def get_all_projects(self):
@@ -88,7 +88,10 @@ class ProjectsController:
                     self.past_projects[slug] = project_data
                 else:
                     self.current_projects[slug] = project_data
-            
+
+            self.got_past_projects = True
+            self.got_all_projects = True
+
         except psycopg2.DatabaseError, e:
             try:
                 if con:
