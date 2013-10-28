@@ -41,8 +41,6 @@ class ProjectsController:
         self.past_projects = {}
         self.all_projects = {}
 
-        from pprint import pprint
-
         try:
             con = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
                                    database=config.DB_SETTINGS['DATABASE'],
@@ -80,8 +78,6 @@ class ProjectsController:
                 project_data['photos'] = photos
                 
                 projects_data[project_data['slug']] = project_data
-
-            pprint(projects_data)
 
             self.current_projects = {}
             self.past_projects = {}
