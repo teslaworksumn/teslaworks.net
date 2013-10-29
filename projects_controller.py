@@ -68,11 +68,11 @@ class ProjectsController:
                 project_data['leaders'] = leaders_data
             
                 cur.execute(GET_PROJECT_NEEDS_QUERY, (project_data['id'],))
-                needs = [text_holder[0] for text_holder in cur.fetchall()]
+                needs = [need_text_raw[0] for need_text_raw in cur.fetchall()]
                 project_data['needs'] = needs
                 
                 cur.execute(GET_PROJECT_PHOTOS_QUERY, (project_data['id'],))
-                photos = [url_holder[0] for url_holder in cur.fetchall()]
+                photos = [photo_url_raw[0] for photo_url_raw in cur.fetchall()]
                 project_data['photos'] = photos
                 
                 projects_data[project_data['slug']] = project_data
