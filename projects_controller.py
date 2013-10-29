@@ -1,7 +1,7 @@
 import psycopg2
 import config
 
-PROJECTS_KEY_ORDER = ['id', 'name', 'slug', 'description', 'photo_url', 'past_project']
+PROJECTS_KEY_ORDER = ['project_id', 'name', 'slug', 'description', 'photo_url', 'past_project']
 GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, past_project FROM projects ORDER BY display_order;'
 GET_PROJECT_PHOTOS_QUERY = 'SELECT photo_url FROM project_photos WHERE project_id = %s ORDER BY display_order;'
 GET_PROJECT_NEEDS_QUERY = 'SELECT need_text FROM project_needs WHERE project_id = %s ORDER BY display_order;'
@@ -58,7 +58,7 @@ class ProjectsController:
                     key_name = PROJECTS_KEY_ORDER[attr_num]
                     project_data[key_name] = project_raw[attr_num]
             
-                cur.execute(GET_PROJECT_LEADERS_QUERY, (project_data['id'],))
+                cur.execute(GET_PROJECT_LEADERS_QUERY, (project_data['project_id'],))
                 leaders_raw = cur.fetchall()
                 leaders_data = []
                 for leader_raw in leaders_raw:
@@ -69,11 +69,11 @@ class ProjectsController:
                     leaders_data.append(leader_data)
                 project_data['leaders'] = leaders_data
             
-                cur.execute(GET_PROJECT_NEEDS_QUERY, (project_data['id'],))
+                cur.execute(GET_PROJECT_NEEDS_QUERY, (project_data['project_id'],))
                 needs = [text_holder[0] for text_holder in cur.fetchall()]
                 project_data['needs'] = needs
                 
-                cur.execute(GET_PROJECT_PHOTOS_QUERY, (project_data['id'],))
+                cur.execute(GET_PROJECT_PHOTOS_QUERY, (project_data['project_id'],))
                 photos = [url_holder[0] for url_holder in cur.fetchall()]
                 project_data['photos'] = photos
                 
