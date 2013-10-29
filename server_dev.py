@@ -6,6 +6,7 @@ from redirects_controller import RedirectsController
 import config
 import re
 import strings
+import atexit
 
 app = Flask(__name__)
 app.secret_key = config.SECRET_KEY
@@ -18,6 +19,11 @@ mail = Mail(app)
 projects_controller = ProjectsController()
 redirects_controller = RedirectsController(config.DATA_DIR)
 
+def close_db_conn():
+    projects_controller.close()
+
+atexit.register(close_db_conn)
+
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
 @app.template_filter()
@@ -28,7 +34,6 @@ def nl2br(eval_ctx, value):
     if eval_ctx.autoescape:
         result = Markup(result)
     return result
-
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -169,9 +174,7 @@ def redirect_url():
 def email_address(email):
     if app.debug or app.testing:
         return config.DEBUG_EMAIL
-    
     return email
-
 
 if __name__ == '__main__':
     app.run()

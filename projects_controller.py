@@ -12,13 +12,29 @@ GET_PROJECT_LEADERS_QUERY = (
 )
 
 class ProjectsController:
-
     def __init__(self):
         self.current_projects = None
         self.got_past_projects = False
         self.got_all_projects = False
         self.past_projects = None
         self.all_projects = None
+        self.pg_conn = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
+                                    database=config.DB_SETTINGS['DATABASE'],
+                                    user=config.DB_SETTINGS['USER'],
+                                    password=config.DB_SETTINGS['PASSWORD'])
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self):
+        try:
+            if self.pg_conn:
+                self.pg_conn.close()
+        except UnboundLocalError:
+            pass
+
+    def close(self):
+        self.__exit__()
 
     def get_current_projects(self):
         if not self.got_past_projects:
@@ -41,12 +57,7 @@ class ProjectsController:
         self.all_projects = {}
 
         try:
-            con = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
-                                   database=config.DB_SETTINGS['DATABASE'],
-                                   user=config.DB_SETTINGS['USER'],
-                                   password=config.DB_SETTINGS['PASSWORD'])
-            cur = con.cursor()
-
+            cur = self.pg_conn.cursor()
             projects_data = {}
             
             cur.execute(GET_PROJECTS_QUERY)
@@ -93,16 +104,8 @@ class ProjectsController:
 
         except psycopg2.DatabaseError, e:
             try:
-                if con:
-                    con.rollback()
+                if self.pg_conn:
+                    self.pg_conn.rollback()
             except UnboundLocalError:
                 pass
             raise e
-
-        finally:
-            try:
-                if con:
-                    con.close()
-            except UnboundLocalError:
-                pass
-
