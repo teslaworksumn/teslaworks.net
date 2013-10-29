@@ -19,9 +19,9 @@ class ProjectsController:
         self.past_projects = None
         self.all_projects = None
         self.pg_conn = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
-                                    database=config.DB_SETTINGS['DATABASE'],
-                                    user=config.DB_SETTINGS['USER'],
-                                    password=config.DB_SETTINGS['PASSWORD'])
+                                        database=config.DB_SETTINGS['DATABASE'],
+                                        user=config.DB_SETTINGS['USER'],
+                                        password=config.DB_SETTINGS['PASSWORD'])
 
     def __enter__(self):
         return self
