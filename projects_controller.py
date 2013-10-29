@@ -27,14 +27,14 @@ class ProjectsController:
         return self
 
     def __exit__(self):
+        self.__exit__()
+
+    def close(self):
         try:
             if self.pg_conn:
                 self.pg_conn.close()
         except UnboundLocalError:
             pass
-
-    def close(self):
-        self.__exit__()
 
     def get_current_projects(self):
         if not self.got_past_projects:
