@@ -33,7 +33,6 @@ class ProjectsController:
     def get_all_projects(self):
         if not self.all_projects:
             self.load_projects()
-        
         return self.all_projects
     
     def load_projects(self):
