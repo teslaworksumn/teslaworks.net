@@ -7,6 +7,7 @@ from redirects_controller import RedirectsController
 import config
 import re
 import strings
+import atexit
 
 app = Flask(__name__)
 app.secret_key = config.SECRET_KEY
@@ -19,8 +20,13 @@ mail = Mail(app)
 app.config.update(config.SENTRY_SETTINGS)
 sentry = Sentry(app)
 
-projects_controller = ProjectsController(config.DATA_DIR)
-redirects_controller = RedirectsController(config.DATA_DIR)
+projects_controller = ProjectsController()
+redirects_controller = RedirectsController()
+
+def close_db_conn():
+    projects_controller.close()
+
+atexit.register(close_db_conn)
 
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
@@ -32,7 +38,6 @@ def nl2br(eval_ctx, value):
     if eval_ctx.autoescape:
         result = Markup(result)
     return result
-
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -82,24 +87,22 @@ def start_project():
 @app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
 
-    projects = projects_controller.get_all_projects()
-    redirects = redirects_controller.get_redirects()
-
     # First, test if if it's a project
+    projects = projects_controller.get_all_projects()
     if dynamic in projects:
         project_data = projects[dynamic]
-        if 'conclusion_post' in project_data:
+        past_project_url = project_data.get('past_project_url')
+        if past_project_url:
             # The project is over, we should redirect to the post
-            return redirect(project_data['conclusion_post'])
+            return redirect(past_project_url)
         else:
           return render_project(dynamic, project_data)
 
-    # Next, check if it's a redirect
-    elif dynamic in redirects:
+    redirects = redirects_controller.get_redirects()
+    if dynamic in redirects:
         return redirect(redirects[dynamic])
 
-    else:
-        abort(404)
+    abort(404)
 
 def render_project(project_name, project_data):
     if request.method == 'GET':
@@ -179,9 +182,7 @@ def redirect_url():
 def email_address(email):
     if app.debug or app.testing:
         return config.DEBUG_EMAIL
-    
     return email
-
 
 if __name__ == '__main__':
     app.run()

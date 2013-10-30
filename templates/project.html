@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% set title =  project_data.project_title %}
+{% set title =  project_data.name %}
 {% set width = 8 %}
 
 {% block html_head %}
@@ -9,13 +9,13 @@
 {% block html_body %}  
   
 <div class="row text-center">
-    <h1>{{ project_data.project_title }}</h1>
+    <h1>{{ project_data.name }}</h1>
     <div id="slideshow">
-    {% for img in project_data.photos.detail %}
-        <img class="img-thumbnail img-responsive" src="{{ img }}" alt="">
+    {% for photo_url in project_data.photos %}
+        <img class="img-thumbnail img-responsive" src="{{ photo_url }}" alt="">
     {% endfor %}
     </div>
-    <p class="lead">{{ project_data.project_goal }}</p>
+    <p class="lead">{{ project_data.description }}</p>
 </div>
 
 {% import 'macros/form.html' as form with context %}
@@ -46,7 +46,7 @@
 
 <div class="row">
     <h2>
-    {% if project_data.project_leaders|length > 1 %}
+    {% if project_data.leaders|length > 1 %}
         Project Leaders
     {% else %}
         Project Leader
@@ -54,14 +54,14 @@
     </h2>
 </div>
 
-{% for leader in project_data.project_leaders %}
+{% for leader in project_data.leaders %}
 <div class="row leader-row">
     <div class="col-sm-3">
-        <img src="{{ leader.photo }}" alt="" class="img-thumbnail img-responsive">
+        <img src="{{ leader.photo_url }}" alt="" class="img-thumbnail img-responsive">
     </div>
     <div class="col-sm-9">
         <div class="row">
-            <h3 class="leader-name">{{  leader.name  }}</h3>
+            <h3 class="leader-name">{{ leader.name }}</h3>
             <a href="{{ leader.email }}" class="leader-email">{{ leader.email }}</a>
             <span class="leader-phone">{{ leader.phone }}</span>
         </div>
@@ -69,6 +69,19 @@
     </div>
 </div>
 {% endfor %}
+
+<hr>
+
+<div class="row">
+    <h2>Project Needs</h2>
+</div>
+<div class="row">
+  <ul>
+  {% for need in project_data.needs %}
+    <li>{{ need }}</li>
+  {% endfor %}
+  </ul>
+</div>
 
 <hr>
 

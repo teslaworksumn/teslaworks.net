@@ -1,4 +1,3 @@
-DATA_DIR = 'data'
 SECRET_KEY = '6C863A81-5C37-47BE-9D7D-362F073F7BE7'
 MIXPANEL_TOKEN = '69739dc8164b06a0e6c62571f4b59ce3'
 MIXPANEL_SUPPRESS_SEND = True
@@ -23,4 +22,11 @@ MAIL_SETTINGS = {
 
 SENTRY_SETTINGS = {
     'SENTRY_DSN': 'https://your.dsn.goes/here/3'
+}
+
+DB_SETTINGS = {
+    'HOST': 'localhost',
+    'USER': 'mplewis',
+    'PASSWORD': 'nope',
+    'DATABASE': 'twnet'
 }
