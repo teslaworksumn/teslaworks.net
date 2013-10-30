@@ -2,7 +2,7 @@ import psycopg2
 import config
 
 PROJECTS_KEY_ORDER = ['id', 'name', 'slug', 'description', 'photo_url', 'past_project']
-GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, past_project FROM projects ORDER BY display_order;'
+GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, past_project FROM projects WHERE past_project = %s ORDER BY display_order;'
 GET_PROJECT_PHOTOS_QUERY = 'SELECT photo_url FROM project_photos WHERE project_id = %s ORDER BY display_order;'
 GET_PROJECT_NEEDS_QUERY = 'SELECT need_text FROM project_needs WHERE project_id = %s ORDER BY display_order;'
 PROJECT_LEADER_KEY_ORDER = ['name', 'phone', 'email', 'bio', 'photo_url']
@@ -38,12 +38,12 @@ class ProjectsController:
         except UnboundLocalError:
             pass
 
-    def get_all_projects(self):
+    def get_projects(self, past):
         try:
             cur = self.pg_conn.cursor()
             projects = {}
             
-            cur.execute(GET_PROJECTS_QUERY)
+            cur.execute(GET_PROJECTS_QUERY, (past,))
             projects_raw = cur.fetchall()
             for project_raw in projects_raw:
                 project = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)            
@@ -76,7 +76,10 @@ class ProjectsController:
             raise e
 
     def get_current_projects(self):
-        return {slug: project for (slug, project) in self.get_all_projects().iteritems() if not project['past_project']}
+        return self.get_projects(False)
     
     def get_past_projects(self):
-        return {slug: project for (slug, project) in self.get_all_projects().iteritems() if project['past_project']}
+        return self.get_projects(True)
+
+    def get_all_projects(self):
+        return dict(self.get_current_projects().items() + self.get_past_projects().items())
