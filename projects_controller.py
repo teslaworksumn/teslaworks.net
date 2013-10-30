@@ -2,21 +2,14 @@ import psycopg2
 import config
 
 PROJECTS_KEY_ORDER = ['project_id', 'name', 'slug', 'description', 'photo_url', 'past_project']
-PROJECTS_KEY_STRING = ', '.join(PROJECTS_KEY_ORDER)
-GET_PROJECTS_QUERY_RAW = 'SELECT %s FROM projects ORDER BY display_order;'
-
-PROJECT_LEADER_KEY_ORDER = ['name', 'phone', 'email', 'bio', 'photo_url']
-PROJECT_LEADER_KEY_STRING = ', '.join(PROJECT_LEADER_KEY_ORDER)
-PROJECT_LEADER_KEY_STRING_WITH_SYMBOL = (PROJECT_LEADER_KEY_STRING, '%s')
-GET_PROJECT_LEADERS_QUERY_RAW = (
-    'SELECT %s FROM leaders WHERE leader_id IN '
-        '(SELECT leader_id FROM project_leaders WHERE project_id = %s ORDER BY display_order);'
-)
-
-GET_PROJECTS_QUERY = GET_PROJECTS_QUERY_RAW % PROJECTS_KEY_STRING
+GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, past_project FROM projects ORDER BY display_order;'
 GET_PROJECT_PHOTOS_QUERY = 'SELECT photo_url FROM project_photos WHERE project_id = %s ORDER BY display_order;'
 GET_PROJECT_NEEDS_QUERY = 'SELECT need_text FROM project_needs WHERE project_id = %s ORDER BY display_order;'
-GET_PROJECT_LEADERS_QUERY = GET_PROJECT_LEADERS_QUERY_RAW % PROJECT_LEADER_KEY_STRING_WITH_SYMBOL
+PROJECT_LEADER_KEY_ORDER = ['name', 'phone', 'email', 'bio', 'photo_url']
+GET_PROJECT_LEADERS_QUERY = (
+    'SELECT name, phone, email, bio, photo_url FROM leaders WHERE leader_id IN '
+        '(SELECT leader_id FROM project_leaders WHERE project_id = %s ORDER BY display_order);'
+)
 
 class ProjectsController:
 
