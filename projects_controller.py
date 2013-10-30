@@ -11,11 +11,17 @@ GET_PROJECT_LEADERS_QUERY = (
         '(SELECT leader_id FROM project_leaders WHERE project_id = %s ORDER BY display_order);'
 )
 
+def dict_from_array_with_keys(raw_data_array, ordered_keys):
+    data_dict = {}
+    for attr_num in xrange(len(raw_data_array)):
+        key_name = ordered_keys[attr_num]
+        data_dict[key_name] = raw_data_array[attr_num]
+    return data_dict
+
 class ProjectsController:
     def __init__(self):
         self.current_projects = None
-        self.got_past_projects = False
-        self.got_all_projects = False
+        self.projects_loaded = False
         self.past_projects = None
         self.all_projects = None
         self.pg_conn = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
@@ -37,12 +43,12 @@ class ProjectsController:
             pass
 
     def get_current_projects(self):
-        if not self.got_past_projects:
+        if not self.projects_loaded:
             self.load_projects()
         return self.current_projects
     
     def get_past_projects(self):
-        if not self.got_all_projects:
+        if not self.projects_loaded:
             self.load_projects()
         return self.past_projects
     
@@ -63,28 +69,21 @@ class ProjectsController:
             cur.execute(GET_PROJECTS_QUERY)
             projects = cur.fetchall()
             for project_raw in projects:
-                project_data = {}
-                for attr_num in xrange(len(project_raw)):
-                    key_name = PROJECTS_KEY_ORDER[attr_num]
-                    project_data[key_name] = project_raw[attr_num]
-            
+                project_data = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)            
                 cur.execute(GET_PROJECT_LEADERS_QUERY, (project_data['id'],))
                 leaders_raw = cur.fetchall()
                 leaders_data = []
                 for leader_raw in leaders_raw:
-                    leader_data = {}
-                    for attr_num in xrange(len(leader_raw)):
-                        key_name = PROJECT_LEADER_KEY_ORDER[attr_num]
-                        leader_data[key_name] = leader_raw[attr_num]
+                    leader_data = dict_from_array_with_keys(leader_raw, PROJECT_LEADER_KEY_ORDER)
                     leaders_data.append(leader_data)
                 project_data['leaders'] = leaders_data
             
                 cur.execute(GET_PROJECT_NEEDS_QUERY, (project_data['id'],))
-                needs = [text_holder[0] for text_holder in cur.fetchall()]
+                needs = [need_text_raw[0] for need_text_raw in cur.fetchall()]
                 project_data['needs'] = needs
                 
                 cur.execute(GET_PROJECT_PHOTOS_QUERY, (project_data['id'],))
-                photos = [url_holder[0] for url_holder in cur.fetchall()]
+                photos = [photo_url_raw[0] for photo_url_raw in cur.fetchall()]
                 project_data['photos'] = photos
                 
                 projects_data[project_data['slug']] = project_data
@@ -99,8 +98,7 @@ class ProjectsController:
                 else:
                     self.current_projects[slug] = project_data
 
-            self.got_past_projects = True
-            self.got_all_projects = True
+            self.projects_loaded = True
 
         except psycopg2.DatabaseError, e:
             try:
