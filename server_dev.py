@@ -1,6 +1,7 @@
 from flask import Flask, request, url_for, render_template, flash, redirect, abort
 from jinja2 import evalcontextfilter, Markup, escape
 from flask_mail import Mail, Message
+from raven.contrib.flask import Sentry, Client
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
 import config
@@ -15,6 +16,9 @@ app.config.update(config.APP_CONFIG)
 
 app.config.update(config.MAIL_SETTINGS)
 mail = Mail(app)
+
+app.config.update(config.SENTRY_SETTINGS)
+sentry = Sentry(app)
 
 projects_controller = ProjectsController()
 redirects_controller = RedirectsController(config.DATA_DIR)
@@ -37,18 +41,18 @@ def nl2br(eval_ctx, value):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404.html', mixpanel_token=mixpanel_token()), 404
 
 @app.route('/')
 def index():
     current_projects = projects_controller.get_current_projects()
     past_projects = projects_controller.get_past_projects()
-    return render_template('index.html', current_projects=current_projects, past_projects=past_projects)
+    return render_template('index.html', current_projects=current_projects, past_projects=past_projects, mixpanel_token=mixpanel_token())
 
 @app.route('/start', methods=['GET', 'POST'])
 def start_project():
     if request.method == 'GET':
-        return render_template('start.html', form={}, errors={})
+        return render_template('start.html', form={}, errors={}, mixpanel_token=mixpanel_token())
 
     form = request.form
     errors = {}
@@ -78,7 +82,7 @@ def start_project():
         return redirect(url_for('index'))
 
     flash(strings.ERROR_NOT_SUBMITTED, 'danger')
-    return render_template('start.html', form=form, errors=errors)
+    return render_template('start.html', form=form, errors=errors, mixpanel_token=mixpanel_token())
 
 @app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
@@ -104,7 +108,7 @@ def dynamic(dynamic):
 
 def render_project(project_name, project_data):
     if request.method == 'GET':
-        return render_template('project.html', project_data=project_data, form={}, errors={})
+        return render_template('project.html', project_data=project_data, form={}, errors={}, mixpanel_token=mixpanel_token())
 
     form = request.form
     errors = {}
@@ -147,7 +151,7 @@ def render_project(project_name, project_data):
             return redirect('/' + project_name)
 
     flash(strings.ERROR_NOT_SUBMITTED, 'danger')
-    return render_template('project.html', project_data=project_data, form=form, errors=errors)
+    return render_template('project.html', project_data=project_data, form=form, errors=errors, mixpanel_token=mixpanel_token())
 
 @app.route('/dev_sync')
 def dev_save_and_reload_all_data():
@@ -159,6 +163,12 @@ def dev_save_and_reload_all_data():
 def dev_reload_all_data():
     reload_all_data()
     return redirect(redirect_url())
+
+def mixpanel_token():
+    if config.MIXPANEL_SUPPRESS_SEND:
+        return None
+
+    return config.MIXPANEL_TOKEN
 
 def save_all_data():
     projects_controller.write_projects()

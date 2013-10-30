@@ -11,7 +11,7 @@
 
 {% import 'macros/form.html' as form with context %}
 
-{{ form.start() }}
+{{ form.start('start-project-form') }}
 
 {{ form.input('text', 'name', "Full Name", "What's your name?", 'lg') }}
 {{ form.input('email', 'email', "Email Address", "What's your email?", 'lg') }}
@@ -29,6 +29,11 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
+
+    {% if mixpanel_token %}
+    mixpanel.track("Start a Project Page");
+    mixpanel.track_forms("#start-project-form", "Submit Project");
+    {% endif %}
 
     $('form .has-error :input:visible:enabled:first').focus();
   });

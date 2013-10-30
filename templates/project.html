@@ -4,18 +4,13 @@
 {% set width = 8 %}
 
 {% block html_head %}
-<link rel="stylesheet" href="/static/css/font-awesome.min.css">
 {% endblock %}
 
 {% block html_body %}  
   
 <div class="row text-center">
     <h1>{{ project_data.name }}</h1>
-    <div class="cycle-slideshow"
-      data-cycle-fx="fade"
-      data-cycle-timeout="3000"
-      data-cycle-speed="1500"
-      >
+    <div id="slideshow">
     {% for photo_url in project_data.photos %}
         <img class="img-thumbnail img-responsive" src="{{ photo_url }}" alt="">
     {% endfor %}
@@ -27,18 +22,18 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-push-6">
-    <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" data-target="#join-form">Join This Project</a>
-    <div id="join-form" class="disclose-form collapse{% if errors['join_email'] %} in{% endif %}">
-      {{ form.start() }}
+    <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" data-target="#join">Join This Project</a>
+    <div id="join" class="disclose-form collapse{% if errors['join_email'] %} in{% endif %}">
+      {{ form.start('join-form') }}
       {{ form.input('email', 'join_email', "Email Address", "What's your email?", 'md') }}
       {{ form.submit("Join", 'success', 'md') }}
       {{ form.end() }}
     </div>
   </div>
   <div class="col-sm-6 col-sm-pull-6">
-    <a class="btn btn-default btn-lg btn-block" data-toggle="collapse" data-target="#ask-form">Ask A Question</a>
-    <div id="ask-form" class="disclose-form collapse{% if errors['ask_msg'] or errors['ask_email'] %} in{% endif %}">
-      {{ form.start() }}
+    <a class="btn btn-default btn-lg btn-block" data-toggle="collapse" data-target="#ask">Ask A Question</a>
+    <div id="ask" class="disclose-form collapse{% if errors['ask_msg'] or errors['ask_email'] %} in{% endif %}">
+      {{ form.start('ask-form') }}
       {{ form.textarea('ask_msg', "Message", "What would you like to know?", 'md', 5) }}
       {{ form.input('email', 'ask_email', "Email Address", "What's your email?", 'md') }}
       {{ form.submit("Ask", 'success', 'md') }}
@@ -98,11 +93,39 @@
 
 {% block html_post_body %}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/20130801/jquery.cycle2.min.js"></script>
 <script type="text/javascript">
 
   $(document).ready(function(){
+
+    {% if mixpanel_token %}
+    mixpanel.track("Project Page", {
+      "Project": "{{ project_data.project_title }}"
+    });
+    mixpanel.track_forms("#join-form", "Join Project", {
+      "Project": "{{ project_data.project_title }}"
+    });
+    mixpanel.track_forms("#ask-form", "Ask Question About Project", {
+      "Project": "{{ project_data.project_title }}"
+    });
+    {% endif %}
+
     $('form .has-error :input:visible:enabled:first').focus();
+
+    // Configure slideshow
+    var firstSlide = $('#slideshow img:first');
+    $('#slideshow').width(firstSlide.width() * 1.05);
+    $('#slideshow').height(firstSlide.height() * 1.05);
+    firstSlide.addClass('active');
+
+    function slideSwitch() {
+      var active = $('#slideshow img.active');
+      var next = active.next().length ? active.next() : $('#slideshow img:first');
+
+      next.addClass('active');
+      active.removeClass('active');
+    }
+
+    setInterval(slideSwitch, 3000);
   });
 </script>
 

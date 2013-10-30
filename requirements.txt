@@ -9,3 +9,4 @@ py==1.4.15
 pytest==2.3.5
 wsgiref==0.1.2
 psycopg2==2.5.1
+raven[flask]==3.4.1
