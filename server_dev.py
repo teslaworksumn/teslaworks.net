@@ -87,10 +87,8 @@ def start_project():
 @app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
 
-    projects = projects_controller.get_all_projects()
-    redirects = redirects_controller.get_redirects()
-
     # First, test if if it's a project
+    projects = projects_controller.get_all_projects()
     if dynamic in projects:
         project_data = projects[dynamic]
         past_project_url = project_data.get('past_project_url')
@@ -100,12 +98,11 @@ def dynamic(dynamic):
         else:
           return render_project(dynamic, project_data)
 
-    # Next, check if it's a redirect
-    elif dynamic in redirects:
+    redirects = redirects_controller.get_redirects()
+    if dynamic in redirects:
         return redirect(redirects[dynamic])
 
-    else:
-        abort(404)
+    abort(404)
 
 def render_project(project_name, project_data):
     if request.method == 'GET':
