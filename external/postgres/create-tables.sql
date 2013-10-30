@@ -6,7 +6,7 @@ CREATE TABLE projects (
     slug text,
     description text,
     photo_url text,
-    past_project boolean NOT NULL DEFAULT FALSE,
+    past_project_url text,
     display_order integer,
     PRIMARY KEY (project_id)
 );

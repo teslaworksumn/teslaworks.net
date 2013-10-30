@@ -93,9 +93,10 @@ def dynamic(dynamic):
     # First, test if if it's a project
     if dynamic in projects:
         project_data = projects[dynamic]
-        if 'conclusion_post' in project_data:
+        past_project_url = project_data.get('past_project_url')
+        if past_project_url:
             # The project is over, we should redirect to the post
-            return redirect(project_data['conclusion_post'])
+            return redirect(past_project_url)
         else:
           return render_project(dynamic, project_data)
 
