@@ -33,7 +33,7 @@ class ProjectsController:
         return self
 
     def __exit__(self):
-        self.__exit__()
+        self.close()
 
     def close(self):
         try:
