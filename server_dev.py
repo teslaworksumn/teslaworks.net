@@ -21,7 +21,7 @@ app.config.update(config.SENTRY_SETTINGS)
 sentry = Sentry(app)
 
 projects_controller = ProjectsController()
-redirects_controller = RedirectsController(config.DATA_DIR)
+redirects_controller = RedirectsController()
 
 def close_db_conn():
     projects_controller.close()
@@ -87,24 +87,22 @@ def start_project():
 @app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
 
-    projects = projects_controller.get_all_projects()
-    redirects = redirects_controller.get_redirects()
-
     # First, test if if it's a project
+    projects = projects_controller.get_all_projects()
     if dynamic in projects:
         project_data = projects[dynamic]
-        if 'conclusion_post' in project_data:
+        past_project_url = project_data.get('past_project_url')
+        if past_project_url:
             # The project is over, we should redirect to the post
-            return redirect(project_data['conclusion_post'])
+            return redirect(past_project_url)
         else:
           return render_project(dynamic, project_data)
 
-    # Next, check if it's a redirect
-    elif dynamic in redirects:
+    redirects = redirects_controller.get_redirects()
+    if dynamic in redirects:
         return redirect(redirects[dynamic])
 
-    else:
-        abort(404)
+    abort(404)
 
 def render_project(project_name, project_data):
     if request.method == 'GET':

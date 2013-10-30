@@ -1,27 +1,44 @@
-import json
-import os
+import psycopg2
+import config
+
+GET_REDIRECTS_QUERY = 'SELECT slug, url FROM redirects;'
 
 class RedirectsController:
+    def __init__(self):
+        self.pg_conn = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
+                                        database=config.DB_SETTINGS['DATABASE'],
+                                        user=config.DB_SETTINGS['USER'],
+                                        password=config.DB_SETTINGS['PASSWORD'])
 
-    def __init__(self, data_dir):
-        self.redirects_data_file_path = os.path.join(data_dir, 'redirects.json')
-        self.redirects = None
+    def __enter__(self):
+        return self
+
+    def __exit__(self):
+        self.close()
+
+    def close(self):
+        try:
+            if self.pg_conn:
+                self.pg_conn.close()
+        except UnboundLocalError:
+            pass
 
     def get_redirects(self):
-        if not self.redirects:
-            self.load_redirects()
-        
-        return self.redirects
+        try:
+            cur = self.pg_conn.cursor()
+            redirects = {}
+            
+            cur.execute(GET_REDIRECTS_QUERY)
+            redirects_raw = cur.fetchall()
+            for redirect_raw in redirects_raw:
+                redirects[redirect_raw[0]] = redirect_raw[1];
+                
+            return redirects
 
-    def set_redirects(self, redirects):
-        self.redirects = redirects
-        self.write_redirects()
-
-    def load_redirects(self):
-        self.redirects = {}
-        with open(self.redirects_data_file_path, 'r') as f:
-            self.redirects = json.load(f)
-
-    def write_redirects(self):
-        with open(self.redirects_data_file_path, 'w') as f:
-            json.dump(data, f)
+        except psycopg2.DatabaseError, e:
+            try:
+                if self.pg_conn:
+                    self.pg_conn.rollback()
+            except UnboundLocalError:
+                pass
+            raise e

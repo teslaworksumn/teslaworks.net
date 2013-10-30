@@ -6,7 +6,7 @@ CREATE TABLE projects (
     slug text,
     description text,
     photo_url text,
-    past_project boolean NOT NULL DEFAULT FALSE,
+    past_project_url text,
     display_order integer,
     PRIMARY KEY (project_id)
 );
@@ -54,4 +54,11 @@ CREATE TABLE project_photos (
     photo_url text,
     display_order integer,
     PRIMARY KEY (project_photo_id)
+);
+
+CREATE TABLE redirects (
+    redirect_id serial,
+    slug text,
+    url text,
+    PRIMARY KEY (redirect_id)
 );
