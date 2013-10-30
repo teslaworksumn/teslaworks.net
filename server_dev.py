@@ -21,7 +21,7 @@ app.config.update(config.SENTRY_SETTINGS)
 sentry = Sentry(app)
 
 projects_controller = ProjectsController()
-redirects_controller = RedirectsController(config.DATA_DIR)
+redirects_controller = RedirectsController()
 
 def close_db_conn():
     projects_controller.close()

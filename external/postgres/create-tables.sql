@@ -55,3 +55,10 @@ CREATE TABLE project_photos (
     display_order integer,
     PRIMARY KEY (project_photo_id)
 );
+
+CREATE TABLE redirects (
+    redirect_id serial,
+    slug text,
+    url text,
+    PRIMARY KEY (redirect_id)
+);
