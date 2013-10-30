@@ -20,10 +20,6 @@ def dict_from_array_with_keys(raw_data_array, ordered_keys):
 
 class ProjectsController:
     def __init__(self):
-        self.current_projects = None
-        self.projects_loaded = False
-        self.past_projects = None
-        self.all_projects = None
         self.pg_conn = psycopg2.connect(host=config.DB_SETTINGS['HOST'],
                                         database=config.DB_SETTINGS['DATABASE'],
                                         user=config.DB_SETTINGS['USER'],
@@ -42,63 +38,34 @@ class ProjectsController:
         except UnboundLocalError:
             pass
 
-    def get_current_projects(self):
-        if not self.projects_loaded:
-            self.load_projects()
-        return self.current_projects
-    
-    def get_past_projects(self):
-        if not self.projects_loaded:
-            self.load_projects()
-        return self.past_projects
-    
     def get_all_projects(self):
-        if not self.all_projects:
-            self.load_projects()
-        return self.all_projects
-    
-    def load_projects(self):
-        self.current_projects = {}
-        self.past_projects = {}
-        self.all_projects = {}
-
         try:
             cur = self.pg_conn.cursor()
-            projects_data = {}
+            projects = {}
             
             cur.execute(GET_PROJECTS_QUERY)
-            projects = cur.fetchall()
-            for project_raw in projects:
-                project_data = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)            
-                cur.execute(GET_PROJECT_LEADERS_QUERY, (project_data['id'],))
+            projects_raw = cur.fetchall()
+            for project_raw in projects_raw:
+                project = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)            
+                cur.execute(GET_PROJECT_LEADERS_QUERY, (project['id'],))
                 leaders_raw = cur.fetchall()
-                leaders_data = []
+                leaders = []
                 for leader_raw in leaders_raw:
-                    leader_data = dict_from_array_with_keys(leader_raw, PROJECT_LEADER_KEY_ORDER)
-                    leaders_data.append(leader_data)
-                project_data['leaders'] = leaders_data
+                    leader = dict_from_array_with_keys(leader_raw, PROJECT_LEADER_KEY_ORDER)
+                    leaders.append(leader)
+                project['leaders'] = leaders
             
-                cur.execute(GET_PROJECT_NEEDS_QUERY, (project_data['id'],))
+                cur.execute(GET_PROJECT_NEEDS_QUERY, (project['id'],))
                 needs = [need_text_raw[0] for need_text_raw in cur.fetchall()]
-                project_data['needs'] = needs
+                project['needs'] = needs
                 
-                cur.execute(GET_PROJECT_PHOTOS_QUERY, (project_data['id'],))
+                cur.execute(GET_PROJECT_PHOTOS_QUERY, (project['id'],))
                 photos = [photo_url_raw[0] for photo_url_raw in cur.fetchall()]
-                project_data['photos'] = photos
+                project['photos'] = photos
                 
-                projects_data[project_data['slug']] = project_data
+                projects[project['slug']] = project
 
-            self.current_projects = {}
-            self.past_projects = {}
-            self.all_projects = projects_data
-            for slug in projects_data:
-                project_data = projects_data[slug]
-                if project_data['past_project']:
-                    self.past_projects[slug] = project_data
-                else:
-                    self.current_projects[slug] = project_data
-
-            self.projects_loaded = True
+            return projects
 
         except psycopg2.DatabaseError, e:
             try:
@@ -107,3 +74,9 @@ class ProjectsController:
             except UnboundLocalError:
                 pass
             raise e
+
+    def get_current_projects(self):
+        return {slug: project for (slug, project) in self.get_all_projects().iteritems() if not project['past_project']}
+    
+    def get_past_projects(self):
+        return {slug: project for (slug, project) in self.get_all_projects().iteritems() if project['past_project']}
