@@ -136,3 +136,26 @@ a.click-zone {
 .leader-email, .leader-phone {
     margin-right: 10px;
 }
+
+/* Project stuff */
+
+#slideshow {
+  position: relative;
+  height: 100px;
+}
+
+#slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s ease-in-out;
+     -moz-transition: opacity 1.5s ease-in-out;
+      -ms-transition: opacity 1.5s ease-in-out;
+       -o-transition: opacity 1.5s ease-in-out;
+          transition: opacity 1.5s ease-in-out;
+}
+
+#slideshow img.active {
+  opacity: 1;
+}
