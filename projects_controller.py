@@ -1,3 +1,4 @@
+
 import psycopg2
 import config
 
@@ -6,7 +7,7 @@ GET_PROJECTS_QUERY = 'SELECT project_id, name, slug, description, photo_url, pas
 GET_PROJECT_PHOTOS_QUERY = 'SELECT photo_url FROM project_photos WHERE project_id = %s ORDER BY display_order;'
 GET_PROJECT_NEEDS_QUERY = 'SELECT need_text FROM project_needs WHERE project_id = %s ORDER BY display_order;'
 PROJECT_LEADER_KEY_ORDER = ['name', 'phone', 'email', 'bio', 'photo_url']
-GET_PROJECT_LEADERS_QUERY = ('SELECT l.leader_id, l.name, l.phone, l.email, l.photo_url, l.bio FROM project_leaders pl'
+GET_PROJECT_LEADERS_QUERY = ('SELECT l.name, l.phone, l.email, l.bio, l.photo_url FROM project_leaders pl'
                              'INNER JOIN leaders l USING (leader_id) WHERE pl.project_id = 3 ORDER BY display_order;')
 
 def dict_from_array_with_keys(raw_data_array, ordered_keys):
