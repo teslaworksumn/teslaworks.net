@@ -16,4 +16,5 @@ rerun.txt
 pickle-email-*.html
 .DS_Store
 *.pyc
+config.py
 static/css
