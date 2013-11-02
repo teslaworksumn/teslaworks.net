@@ -10,11 +10,7 @@
   
 <div class="row text-center">
     <h1>{{ project_data.name }}</h1>
-    <div id="slideshow">
-    {% for photo_url in project_data.photos %}
-        <img class="img-thumbnail img-responsive" src="{{ photo_url }}" alt="">
-    {% endfor %}
-    </div>
+    <img class="img-thumbnail img-responsive" src="{{ project_data.photos[0] }}" alt="">
     <p class="lead">{{ project_data.description }}</p>
 </div>
 
@@ -110,22 +106,6 @@
     {% endif %}
 
     $('form .has-error :input:visible:enabled:first').focus();
-
-    // Configure slideshow
-    var firstSlide = $('#slideshow img:first');
-    $('#slideshow').width(firstSlide.width() * 1.05);
-    $('#slideshow').height(firstSlide.height() * 1.05);
-    firstSlide.addClass('active');
-
-    function slideSwitch() {
-      var active = $('#slideshow img.active');
-      var next = active.next().length ? active.next() : $('#slideshow img:first');
-
-      next.addClass('active');
-      active.removeClass('active');
-    }
-
-    setInterval(slideSwitch, 3000);
   });
 </script>
 
