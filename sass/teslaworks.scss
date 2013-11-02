@@ -1,0 +1,175 @@
+// =============================================================================
+// General
+// =============================================================================
+
+$brand-color: rgb(26, 128, 247);
+
+@mixin border-shadow($depth, $color) {
+    -webkit-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
+    -moz-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
+    -ms-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
+    -o-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
+    box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
+}
+
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+hr {
+    margin: 30px 0;
+}
+
+a {
+    color: $brand-color;
+    &:hover,
+    &:focus {
+        color: darken($brand-color, 10%);
+    }
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: $brand-color;
+  border-color: darken($brand-color, 5%);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: darken($brand-color, 10%);
+  border-color: darken(darken($brand-color, 10%), 5%);
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: $brand-color;
+  border-color: darken($brand-color, 5%);
+}
+
+// =============================================================================
+// Masthead stuff
+// =============================================================================
+
+.nav-pills > li.active > a {
+    background-color: $brand-color;
+}
+
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    background-color: darken($brand-color, 10%);
+}
+
+// Make the masthead heading the same height as the navigation
+#masthead h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+}
+
+// =============================================================================
+// Front page stuff
+// =============================================================================
+
+a.click-zone {
+    text-decoration: none;
+    color: inherit;
+}
+
+.thumbnail {
+    margin-bottom: 5%;
+    &:hover,
+    &:focus {
+        border-color: $brand-color;
+        @include border-shadow(1px, $brand-color)
+    }
+}
+
+#past-proj-btn {
+    margin-bottom: 5%;
+}
+
+#join-mail-list {
+    margin-bottom: 3%;
+}
+
+#connect {
+    font-size: 150%;
+    text-align: center;
+    i {
+        font-size: 350%;
+    }
+    :hover {
+        text-decoration: none;
+    }
+}
+
+// =============================================================================
+// Project stuff
+// =============================================================================
+
+.disclose-form {
+    margin-top: 4%;
+    margin-bottom: -8%;
+}
+
+.leader-row {
+    margin-bottom: 12px;
+}
+
+.leader-name {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.leader-email, .leader-phone {
+    margin-right: 10px;
+}
+
+// =============================================================================
+// Slideshow
+// =============================================================================
+
+#slideshow {
+    position: relative;
+    height: 100px;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        webkit-transition: opacity 1.5s ease-in-out;
+        -moz-transition: opacity 1.5s ease-in-out;
+        -ms-transition: opacity 1.5s ease-in-out;
+        -o-transition: opacity 1.5s ease-in-out;
+        transition: opacity 1.5s ease-in-out;
+        &.active {
+            opacity: 1;
+        }
+    }
+}
