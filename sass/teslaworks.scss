@@ -25,47 +25,48 @@ a {
     &:focus {
         color: darken($brand-color, 10%);
     }
+    &.click-zone {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 .btn-primary {
-  color: #ffffff;
-  background-color: $brand-color;
-  border-color: darken($brand-color, 5%);
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-  color: #ffffff;
-  background-color: darken($brand-color, 10%);
-  border-color: darken(darken($brand-color, 10%), 5%);
-}
-
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-  background-image: none;
-}
-
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-  background-color: $brand-color;
-  border-color: darken($brand-color, 5%);
+    color: #ffffff;
+    background-color: $brand-color;
+    border-color: darken($brand-color, 5%);
+    &%active {
+        color: #ffffff;
+        background-color: darken($brand-color, 10%);
+        border-color: darken(darken($brand-color, 10%), 5%);
+    }
+    :hover,
+    :focus {
+        @extend %active;
+    }
+    :active,
+    .active {
+        @extend %active;
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active,
+    fieldset[disabled] &,
+    fieldset[disabled] &:hover,
+    fieldset[disabled] &:focus,
+    fieldset[disabled] &:active,
+    fieldset[disabled] &.active {
+        background-color: $brand-color;
+        border-color: darken($brand-color, 5%);
+    }
 }
 
 // =============================================================================
@@ -74,11 +75,10 @@ fieldset[disabled] .btn-primary.active {
 
 .nav-pills > li.active > a {
     background-color: $brand-color;
-}
-
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-    background-color: darken($brand-color, 10%);
+    &:hover,
+    &:focus {
+        background-color: darken($brand-color, 10%);
+    }
 }
 
 // Make the masthead heading the same height as the navigation
@@ -91,11 +91,6 @@ fieldset[disabled] .btn-primary.active {
 // =============================================================================
 // Front page stuff
 // =============================================================================
-
-a.click-zone {
-    text-decoration: none;
-    color: inherit;
-}
 
 .thumbnail {
     margin-bottom: 5%;
@@ -145,7 +140,8 @@ a.click-zone {
     margin-right: 15px;
 }
 
-.leader-email, .leader-phone {
+.leader-email,
+.leader-phone {
     margin-right: 10px;
 }
 
