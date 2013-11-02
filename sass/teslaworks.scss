@@ -35,18 +35,16 @@ a {
     color: #ffffff;
     background-color: $brand-color;
     border-color: darken($brand-color, 5%);
-    &%active {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
         color: #ffffff;
         background-color: darken($brand-color, 10%);
         border-color: darken(darken($brand-color, 10%), 5%);
     }
-    :hover,
-    :focus {
-        @extend %active;
-    }
-    :active,
-    .active {
-        @extend %active;
+    &:active,
+    &.active {
         background-image: none;
     }
     &.disabled, &[disabled], fieldset[disabled] &,
