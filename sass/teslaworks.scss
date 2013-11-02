@@ -115,8 +115,10 @@ a {
 // =============================================================================
 
 .disclose-form {
-    margin-top: 4%;
-    margin-bottom: -8%;
+    margin: {
+        top: 4%;
+        bottom: -8%;
+    }
 }
 
 .leader-row {
@@ -125,8 +127,6 @@ a {
 
 .leader-name {
     display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
     margin-right: 15px;
 }
 
