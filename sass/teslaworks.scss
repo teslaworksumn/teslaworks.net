@@ -49,21 +49,11 @@ a {
         @extend %active;
         background-image: none;
     }
-    &.disabled,
-    &[disabled],
-    &.disabled:hover,
-    &[disabled]:hover,
-    &.disabled:focus,
-    &[disabled]:focus,
-    &.disabled:active,
-    &[disabled]:active,
-    &.disabled.active,
-    &[disabled].active,
-    fieldset[disabled] &,
-    fieldset[disabled] &:hover,
-    fieldset[disabled] &:focus,
-    fieldset[disabled] &:active,
-    fieldset[disabled] &.active {
+    &.disabled, &[disabled], fieldset[disabled] &,
+    &.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+    &.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+    &.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+    &.disabled.active, &[disabled].active, fieldset[disabled] &.active {
         background-color: $brand-color;
         border-color: darken($brand-color, 5%);
     }
