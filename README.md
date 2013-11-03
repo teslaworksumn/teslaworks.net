@@ -100,19 +100,19 @@ A sample configuration file ([`sample_config.py`](sample_config.py)) is provided
 
 No configuration setting is optional.
 
-`SECRET_KEY`: In order to prevent malicious parties from playing with our app's cookies and flash messages, we need to set a secret key for our app to use. It should be fairly long and sufficiently random, probably generated. On Macs, the `uuidgen` function works nicely.
-`MIXPANEL_TOKEN`: Obtained from Mixpanel for a specific project. Use a different token for production and development to keep production data fairly accurate.
-`MIXPANEL_SUPPRESS_SEND`: Another way to protect production data. When set to `True`, Mixpanel events won't be sent.
+`SECRET_KEY`: In order to prevent malicious parties from playing with our app's cookies and flash messages, we need to set a secret key for our app to use. It should be fairly long and sufficiently random, probably generated. On Macs, the `uuidgen` function works nicely.  
+`MIXPANEL_TOKEN`: Obtained from Mixpanel for a specific project. Use a different token for production and development to keep production data fairly accurate.  
+`MIXPANEL_SUPPRESS_SEND`: Another way to protect production data. When set to `True`, Mixpanel events won't be sent.  
 
-`CONTACT_EMAIL`: The recipient of emails from the Mailgun mailer when the app is in production.
-`DEBUG_EMAIL`: The recipient of emails from the Mailgun mailer when the app is in development.
+`CONTACT_EMAIL`: The recipient of emails from the Mailgun mailer when the app is in production.  
+`DEBUG_EMAIL`: The recipient of emails from the Mailgun mailer when the app is in development.  
 
-`DEBUG`: __Never__ set this to `True` in production. When `True`, helpful developer diagnostic logging and debugger screens are activated and the `DEBUG_EMAIL` is used as the recipient when sending emails from the mailer. These screens can be used to hijack the app in production, so __don't do it__.
-`TESTING`: Set to `True` when running tests on our app.
+`DEBUG`: __Never__ set this to `True` in production. When `True`, helpful developer diagnostic logging and debugger screens are activated and the `DEBUG_EMAIL` is used as the recipient when sending emails from the mailer. These screens can be used to hijack the app in production, so __don't do it__.  
+`TESTING`: Set to `True` when running tests on our app.  
 
-`MAIL_SETTINGS`: Can be filled in using information from your Mailgun account.
-`SENTRY_DSN`: An identifier you can find on your Sentry account. Use a separate project for production and development.
-`DB_SETTINGS`: You'll need a properly configured Postgres database to hold project information and more. Use a separate database for production and development.
+`MAIL_SETTINGS`: Can be filled in using information from your Mailgun account.  
+`SENTRY_DSN`: An identifier you can find on your Sentry account. Use a separate project for production and development.  
+`DB_SETTINGS`: You'll need a properly configured Postgres database to hold project information and more. Use a separate database for production and development.  
 
 License
 -------
