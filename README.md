@@ -64,7 +64,7 @@ Technologies
 
 <!-- TODO: Discuss Tesla Works voice and messaging -->
 
-To update project data, information about project leaders, and special redirects, you'll currently need to directly update the database. Layout of the database can be gleaned from `external/postgres/create-tables.sql`.
+To update project data, information about project leaders, and special redirects, you'll currently need to directly update the database. Layout of the database can be gleaned from [`external/postgres/create-tables.sql`](external/postgres/create-tables.sql).
 
 Photo dimensions were chosen to look best on Retina displays. Be aware of maximum image sizings for different screen sizes! Our projects grid on the home page is widest on mobile devices, since the grid becomes a vertical list.
 
@@ -87,7 +87,7 @@ Photo dimensions were chosen to look best on Retina displays. Be aware of maximu
 
 ### Tumblr
 
-We use Tumblr to host our "News" page. The theme is in [[external/tumblr/theme.html]], and must be manually deployed.
+We use Tumblr to host our "News" page. The theme is in [`external/tumblr/theme.html`](external/tumblr/theme.html), and must be manually deployed.
 
 ### Tests
 
@@ -96,7 +96,7 @@ We have virtually no tests written, and don't really use them anyway. For a list
 Configuration
 -------------
 
-A sample configuration file ([[sample_config.py]]) is provided and must be renamed to `config.py` and populated with real data before being used. You may have to create a few accounts if you're not "one of us" and we can't hand out the passwords.
+A sample configuration file ([`sample_config.py`](sample_config.py)) is provided and must be renamed to `config.py` and populated with real data before being used. You may have to create a few accounts if you're not "one of us" and we can't hand out the passwords.
 
 No configuration setting is optional.
 
@@ -119,7 +119,7 @@ License
 
 All source code is open source and released under the MIT License. Content and images, however, belong to Tesla Works and shouldn't be duplicated anywhere. Feel free to use our theming and layouts, though.
 
-See [[LICENSE]] for more information.
+See [`LICENSE`](license) for more information.
 
 Deploying
 ---------
