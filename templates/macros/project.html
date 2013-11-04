@@ -1,13 +1,11 @@
 {% macro thumbnail(title, img, link, desc) %}
 
-<div class="col-sm-4">
-  <div class="thumbnail">
-    <a class="click-zone" href="/{{ link }}">
-      <img class="img-rounded img-responsive" src="{{ img }}" alt="">
-      <h3>{{ title }}</h3>
-      <p>{{ desc }}</p>
-    </a>
-  </div>
+<div class="click-zone">
+  <a href="/{{ link }}">
+    <img class="img-rounded img-responsive" src="{{ img }}" alt="">
+    <h3>{{ title }}</h3>
+    <p>{{ desc }}</p>
+  </a>
 </div>
-  
+
 {% endmacro %}

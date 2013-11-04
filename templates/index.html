@@ -23,15 +23,17 @@
 
 {% import 'macros/project.html' as project %}
 
-<div id="projects">
-  <div class="row">
-    {% for slug, project_data in current_projects.iteritems() %}
+<div class="row click-zone-row">
+  {% for slug, project_data in current_projects.iteritems() %}
+    <div class="col-sm-4">
       {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
-      {% if loop.index is divisibleby (3) %}
-  </div>
-  <div class="row">
-      {% endif %}
-    {% endfor %}
+    </div>
+    {% if loop.index is divisibleby (3) %}
+</div>
+<div class="row click-zone-row">
+    {% endif %}
+  {% endfor %}
+  <div class="col-sm-4">
     {{ project.thumbnail("Start a New Project", '/static/img/start.png', 'start', "We're always looking for new projects ideas. Go ahead and get started!") }}
   </div>
 </div>
@@ -43,12 +45,14 @@
 {% endif %}
 
 <div id="past-projects" class="row collapse">
-  <div class="row">
+  <div class="row click-zone-row">
     {% for slug, project_data in past_projects.iteritems() %}
-      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+      <div class="col-sm-4">
+        {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+      </div>
       {% if loop.index is divisibleby (3) %}
   </div>
-  <div class="row">
+  <div class="row click-zone-row">
       {% endif %}
     {% endfor %}
   </div>
@@ -125,7 +129,13 @@
     {% endif %}
 
     $('#past-proj-btn').click(function() {
-        $(this).button('toggle');
+      $(this).button('toggle');
+    });
+  });
+
+  $(window).load(function() {
+    $('.click-zone-row').each(function(i) {
+      $(this).find('.click-zone').height($(this).height());
     });
   });
 </script>

@@ -4,7 +4,7 @@
 
 $brand-color: rgb(26, 128, 247);
 
-@import 'border-shadow';
+@import 'border-radius';
 
 // =============================================================================
 // General
@@ -24,10 +24,6 @@ a {
     &:hover,
     &:focus {
         color: darken($brand-color, 10%);
-    }
-    &.click-zone {
-        text-decoration: none;
-        color: inherit;
     }
 }
 
@@ -93,13 +89,19 @@ a {
     }
 }
 
-.thumbnail {
-    margin-bottom: 5%;
-    &:hover,
-    &:focus {
-        border-color: $brand-color;
-        @include border-shadow(1px, $brand-color)
-    }
+.click-zone-row {
+  .click-zone {
+      a {
+          color: #000;
+          text-decoration: none;
+      }
+      @include border-radius(6px);
+      padding: 14px;
+      &:hover,
+      &:focus {
+          background-color: #eee;
+      }
+  }
 }
 
 #past-proj-btn {

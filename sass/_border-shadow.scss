@@ -1,7 +1,0 @@
-@mixin border-shadow($depth, $color) {
-    -webkit-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
-    -moz-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
-    -ms-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
-    -o-box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
-    box-shadow: -#{$depth} -#{$depth} 0 #{$color}, #{$depth} -#{$depth} 0 #{$color}, -#{$depth} #{$depth} 0 #{$color}, #{$depth} #{$depth} 0 $color;
-}
