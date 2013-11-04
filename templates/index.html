@@ -3,13 +3,12 @@
 {% set title = 'Home' %}
 {% set width = 10 %}
 
-{% block html_head %}
-{% endblock %}
-
 {% block html_body %}
 
+{% import 'macros/img.html' as img %}
+
 <div class="row">
-  <img class="img-responsive" src="/static/img/logo-jumbo.png" alt="">
+  {{ img.responsive('/static/img/logo-jumbo.png', "", "") }}
   <div class="col-md-offset-2 col-md-8 text-center">
     <h1>Be a part of awesome engineering and design projects</h1>
     <h4 class="text-muted"> Join us Fridays at 5pm in Keller 3-230</h4>
@@ -22,8 +21,8 @@
 
 <div id="projects">
   <div class="row">
-    {% for slug, project_data in current_projects.iteritems() %}
-      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+    {% for slug, p in current_projects.iteritems() %}
+      {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
       {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
@@ -41,8 +40,8 @@
 
 <div id="past-projects" class="row collapse">
   <div class="row">
-    {% for slug, project_data in past_projects.iteritems() %}
-      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+    {% for slug, p in past_projects.iteritems() %}
+      {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
       {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
