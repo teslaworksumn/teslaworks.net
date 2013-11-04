@@ -42,14 +42,14 @@ a {
 }
 
 .btn-primary {
-    color: #ffffff;
+    color: #fff;
     background-color: $brand-color;
     border-color: darken($brand-color, 5%);
     &:hover,
     &:focus,
     &:active,
     &.active {
-        color: #ffffff;
+        color: #fff;
         background-color: darken($brand-color, 10%);
         border-color: darken(darken($brand-color, 10%), 5%);
     }
@@ -103,19 +103,17 @@ a {
     }
 }
 
-.click-zone-row {
-  .click-zone {
-      a {
-          color: #000;
-          text-decoration: none;
-      }
-      @include border-radius(6px);
-      padding: 14px;
-      &:hover,
-      &:focus {
-          background-color: #eee;
-      }
-  }
+.click-zone {
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    @include border-radius(6px);
+    padding: 14px;
+    &:hover,
+    &:focus {
+        background-color: $hover-grey;
+    }
 }
 
 #past-proj-btn {
