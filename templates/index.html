@@ -22,8 +22,8 @@
 
 <div id="projects">
   <div class="row">
-    {% for slug, project_data in current_projects.iteritems() %}
-      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+    {% for slug, p in current_projects.iteritems() %}
+      {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
       {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
@@ -41,8 +41,8 @@
 
 <div id="past-projects" class="row collapse">
   <div class="row">
-    {% for slug, project_data in past_projects.iteritems() %}
-      {{ project.thumbnail(project_data.name, project_data.photo_url, slug, project_data.description) }}
+    {% for slug, p in past_projects.iteritems() %}
+      {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
       {% if loop.index is divisibleby (3) %}
   </div>
   <div class="row">
