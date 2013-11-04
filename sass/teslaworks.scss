@@ -133,6 +133,17 @@ a {
     margin: 10px 0;
 }
 
+.center-icon-wrapper {
+    display: table;
+    width: 100%;
+    .center-icon {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        color: $brand-color;
+    }
+}
+
 #join-mail-list {
     margin: 52px 0;
 }

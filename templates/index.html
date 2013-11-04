@@ -34,7 +34,20 @@
     {% endif %}
   {% endfor %}
   <div class="col-sm-4">
-    {{ project.thumbnail("Start a New Project", '/static/img/start.png', 'start', "We're always looking for new projects ideas. Go ahead and get started!") }}
+    <div class="click-zone">
+      <a href="/start">
+        <div class="center-icon-wrapper">
+          <div class="center-icon">
+            <span class="icon-stack icon-3x">
+              <i class="icon-cog icon-stack-base"></i>
+              <i class="icon-plus-sign"></i>
+            </span>
+          </div>
+        </div>
+        <h3>Start a New Project</h3>
+        <p>We're always looking for new projects ideas. Go ahead and get started!</p>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -131,6 +144,9 @@
     $('#past-proj-btn').click(function() {
       $(this).button('toggle');
     });
+
+    var startIcon = $('.center-icon');
+    startIcon.height(startIcon.width() * 0.66);
   });
 </script>
 
