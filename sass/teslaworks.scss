@@ -3,6 +3,7 @@
 // =============================================================================
 
 $brand-color: rgb(26, 128, 247);
+$hover-grey: hsl(0, 0, 95);
 
 @import 'border-radius';
 
@@ -24,6 +25,19 @@ a {
     &:hover,
     &:focus {
         color: darken($brand-color, 10%);
+    }
+    &.title-link {
+        color: #000;
+        &:hover,
+        &:focus {
+            @include border-radius(3px);
+            background-color: $hover-grey;
+            text-decoration: none;
+        }
+    }
+    &.text-muted:hover,
+    &.text-muted:focus {
+        color: #444;
     }
 }
 
