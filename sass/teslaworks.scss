@@ -70,9 +70,8 @@ a {
 }
 
 // Make the masthead heading the same height as the navigation
-#masthead h3 {
-    margin-top: 0;
-    margin-bottom: 0;
+.masthead h3 {
+    font-size: 28px;
     line-height: 40px;
 }
 
