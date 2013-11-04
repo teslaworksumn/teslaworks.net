@@ -1,9 +1,11 @@
-{% macro thumbnail(title, img, link, desc) %}
+{% macro thumbnail(title, image, link, desc) %}
+
+{% import 'macros/img.html' as img %}
 
 <div class="col-sm-4">
   <div class="thumbnail">
     <a class="click-zone" href="/{{ link }}">
-      <img class="img-rounded img-responsive" src="{{ img }}" alt="">
+      {{ img.rounded(image, "", "") }}
       <h3>{{ title }}</h3>
       <p>{{ desc }}</p>
     </a>

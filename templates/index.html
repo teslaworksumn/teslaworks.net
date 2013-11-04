@@ -5,8 +5,10 @@
 
 {% block html_body %}
 
+{% import 'macros/img.html' as img %}
+
 <div class="row">
-  <img class="img-responsive" src="/static/img/logo-jumbo.png" alt="">
+  {{ img.responsive('/static/img/logo-jumbo.png', "", "") }}
   <div class="col-md-offset-2 col-md-8 text-center">
     <h1>Be a part of awesome engineering and design projects</h1>
     <h4 class="text-muted"> Join us Fridays at 5pm in Keller 3-230</h4>

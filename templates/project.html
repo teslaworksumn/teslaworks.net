@@ -3,11 +3,13 @@
 {% set title =  project_data.name %}
 {% set width = 8 %}
 
-{% block html_body %}  
+{% block html_body %}
+
+{% import 'macros/img.html' as img %}
   
 <div class="row text-center">
     <h1>{{ project_data.name }}</h1>
-    <img class="img-thumbnail img-responsive" src="{{ project_data.photos[0] }}" alt="">
+    {{ img.thumbnail(project_data.photos[0], "", "") }}
     <p class="lead">{{ project_data.description }}</p>
 </div>
 
@@ -50,7 +52,7 @@
 {% for leader in project_data.leaders %}
 <div class="row leader-row">
     <div class="col-sm-3">
-        <img src="{{ leader.photo_url }}" alt="" class="img-thumbnail img-responsive">
+        {{ img.thumbnail(leader.photo_url, "", "") }}
     </div>
     <div class="col-sm-9">
         <div class="row">
