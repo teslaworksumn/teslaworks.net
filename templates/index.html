@@ -134,7 +134,10 @@
   });
 
   $(window).load(function() {
-    $('.click-zone-row').each(function(i) {
+    $('.click-zone-row:visible').each(function(i) {
+      $(this).find('.click-zone').height($(this).height());
+    });
+    $('#past-projects').on('shown.bs.collapse', function(i) {
       $(this).find('.click-zone').height($(this).height());
     });
   });

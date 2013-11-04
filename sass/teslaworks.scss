@@ -109,19 +109,20 @@ a {
         text-decoration: none;
     }
     @include border-radius(6px);
-    padding: 14px;
+    padding: 14px 14px 0 14px;
     &:hover,
     &:focus {
         background-color: $hover-grey;
     }
+    margin: 10px 0;
 }
 
 #past-proj-btn {
-    margin-bottom: 5%;
+    margin: 10px 0;
 }
 
 #join-mail-list {
-    margin-bottom: 3%;
+    margin: 52px 0;
 }
 
 #connect {
