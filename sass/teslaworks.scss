@@ -151,15 +151,9 @@ a {
 // =============================================================================
 
 .leader-row {
-    margin-bottom: 12px;
-}
-
-.leader-name {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-.leader-email,
-.leader-phone {
-    margin-right: 10px;
+    margin: 30px 0;
+    span p {
+        display: inline-block;
+        margin-right: 10px;
+    }
 }

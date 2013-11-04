@@ -50,20 +50,10 @@
     </h2>
 </div>
 
-{% for leader in project_data.leaders %}
-<div class="row leader-row">
-    <div class="col-sm-3">
-        <img src="{{ leader.photo_url }}" alt="" class="img-thumbnail img-responsive">
-    </div>
-    <div class="col-sm-9">
-        <div class="row">
-            <h3 class="leader-name">{{ leader.name }}</h3>
-            <a href="{{ leader.email }}" class="leader-email">{{ leader.email }}</a>
-            <span class="leader-phone">{{ leader.phone }}</span>
-        </div>
-        {{ leader.bio }}
-    </div>
-</div>
+{% import 'macros/project.html' as project %}
+
+{% for l in project_data.leaders %}
+{{ project.leader(l.photo_url, l.name, l.bio, l.email, l.phone) }}
 {% endfor %}
 
 <hr>
@@ -71,7 +61,7 @@
 {% if project_data.long_description %}
 <div class="row">
     <h2>Project Highlights</h2>
-    <div style="font-size: 130%;">
+    <div>
         {{ project_data.long_description | nl2br }}
     </div>
 </div>

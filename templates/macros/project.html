@@ -9,3 +9,21 @@
 </div>
 
 {% endmacro %}
+
+{% macro leader(img, name, bio, email, phone) %}
+
+<div class="row leader-row">
+    <div class="col-xs-4 col-sm-3">
+        <img src="{{ img }}" alt="" class="img-circle img-responsive">
+    </div>
+    <div class="col-xs-8 col-sm-9">
+        <h3 class="leader-name">{{ name }}</h3>
+        <span>
+            <p><a href="{{ leader.email }}">{{ email }}</a></p>
+            <p>{{ phone }}</p>
+        </span>
+        <p>{{ bio }}</p>
+    </div>
+</div>
+
+{% endmacro %}
