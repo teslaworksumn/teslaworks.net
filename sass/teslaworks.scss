@@ -12,8 +12,10 @@ $hover-grey: hsl(0, 0, 94);
 // =============================================================================
 
 body {
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding {
+        top: 20px;
+        bottom: 40px;
+    }
 }
 
 hr {
