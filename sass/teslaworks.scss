@@ -45,6 +45,10 @@ a {
     }
 }
 
+.btn-margin {
+    margin: 10px 0;
+}
+
 .btn-primary {
     color: #fff;
     background-color: $brand-color;
@@ -123,10 +127,6 @@ a {
     margin: 10px 0;
 }
 
-#past-proj-btn {
-    margin: 10px 0;
-}
-
 #join-mail-list {
     margin: 52px 0;
 }
@@ -145,13 +145,6 @@ a {
 // =============================================================================
 // Project stuff
 // =============================================================================
-
-.disclose-form {
-    margin: {
-        top: 4%;
-        bottom: -8%;
-    }
-}
 
 .leader-row {
     margin-bottom: 12px;
