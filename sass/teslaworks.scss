@@ -125,7 +125,7 @@ a {
         text-decoration: none;
     }
     @include border-radius(6px);
-    padding: 14px 14px 0 14px;
+    padding: 14px;
     &:hover,
     &:focus {
         background-color: $hover-grey;
