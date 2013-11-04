@@ -8,10 +8,10 @@
 
 {% block html_body %}  
   
-<div class="row text-center">
+<div class="row billboard">
     <h1>{{ project_data.name }}</h1>
     <img class="img-thumbnail img-responsive" src="{{ project_data.photos[0] }}" alt="">
-    <p class="lead">{{ project_data.description }}</p>
+    <p>{{ project_data.description }}</p>
 </div>
 
 {% import 'macros/form.html' as form with context %}
