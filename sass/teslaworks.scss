@@ -3,6 +3,7 @@
 // =============================================================================
 
 $brand-color: rgb(26, 128, 247);
+$brand-success: rgb(29, 201, 11);
 $hover-grey: hsl(0, 0, 94);
 
 @import 'border-radius';
@@ -81,6 +82,32 @@ a {
     &.disabled.active, &[disabled].active, fieldset[disabled] &.active {
         background-color: $brand-color;
         border-color: darken($brand-color, 5%);
+    }
+}
+
+.btn-success {
+    color: #fff;
+    background-color: $brand-success;
+    border-color: darken($brand-success, 5%);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: #fff;
+        background-color: darken($brand-success, 10%);
+        border-color: darken(darken($brand-success, 10%), 5%);
+    }
+    &:active,
+    &.active {
+        background-image: none;
+    }
+    &.disabled, &[disabled], fieldset[disabled] &,
+    &.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+    &.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+    &.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+    &.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+        background-color: $brand-success;
+        border-color: darken($brand-success, 5%);
     }
 }
 
