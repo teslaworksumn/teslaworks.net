@@ -26,6 +26,8 @@
 
 {% block html_post_body %}
 
+{% import 'macros/form.js' as form %}
+
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -35,7 +37,7 @@
     mixpanel.track_forms("#start-project-form", "Submit Project");
     {% endif %}
 
-    $('form .has-error :input:visible:enabled:first').focus();
+    {{ form.js() | safe }}
   });
 </script>
 

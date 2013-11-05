@@ -3,14 +3,13 @@
 {% set title =  project_data.name %}
 {% set width = 8 %}
 
-{% block html_head %}
-{% endblock %}
+{% block html_body %}
 
-{% block html_body %}  
+{% import 'macros/img.html' as img %}
   
 <div class="row billboard">
     <h1>{{ project_data.name }}</h1>
-    <img class="img-thumbnail img-responsive img-margin" src="{{ project_data.photos[0] }}" alt="">
+    {{ img.thumbnail(project_data.photos[0], "", "") }}
     <p>{{ project_data.description }}</p>
 </div>
 
@@ -77,6 +76,8 @@
 
 {% block html_post_body %}
 
+{% import 'macros/form.js' as form %}
+
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -93,7 +94,7 @@
     });
     {% endif %}
 
-    $('form .has-error :input:visible:enabled:first').focus();
+    {{ form.js() | safe }}
   });
 </script>
 
