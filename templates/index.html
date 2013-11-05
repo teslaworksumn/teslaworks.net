@@ -22,18 +22,18 @@
 
 {% import 'macros/project.html' as project %}
 
-<div class="row click-zone-row">
+<div class="row">
   {% for slug, p in current_projects.iteritems() %}
     <div class="col-sm-4">
       {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
     </div>
     {% if loop.index is divisibleby (3) %}
 </div>
-<div class="row click-zone-row">
+<div class="row">
     {% endif %}
   {% endfor %}
   <div class="col-sm-4">
-    <div class="click-zone">
+    <div class="card-link">
       <a href="/start">
         <div class="center-icon-wrapper">
           <div class="center-icon">
@@ -57,14 +57,14 @@
 {% endif %}
 
 <div id="past-projects" class="row collapse">
-  <div class="row click-zone-row">
+  <div class="row">
     {% for slug, p in past_projects.iteritems() %}
       <div class="col-sm-4">
         {{ project.thumbnail(p.name, p.photo_url, slug, p.description) }}
       </div>
       {% if loop.index is divisibleby (3) %}
   </div>
-  <div class="row click-zone-row">
+  <div class="row">
       {% endif %}
     {% endfor %}
   </div>
