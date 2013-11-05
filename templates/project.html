@@ -55,9 +55,10 @@
 {{ project.leader(l.photo_url, l.name, l.bio, l.email, l.phone) }}
 {% endfor %}
 
+{% if project_data.long_description %}
+
 <hr>
 
-{% if project_data.long_description %}
 <div class="row">
     <h2>Project Highlights</h2>
     <div>
