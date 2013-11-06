@@ -25,6 +25,9 @@ hr {
 
 p {
     font-size: 14pt;
+    .justified &{
+        text-align: justify;
+    }
 }
 
 a {

@@ -84,8 +84,9 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     {block:Date}
                                         <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
-    
-                                    {Body}
+                                    <div class="justified">
+                                      {Body}
+                                    </div>
                                 </li>
                             {/block:Text}
             
