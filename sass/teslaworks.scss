@@ -3,20 +3,28 @@
 // =============================================================================
 
 $brand-color: rgb(26, 128, 247);
+$brand-success: rgb(29, 201, 11);
+$hover-grey: hsl(0, 0, 94);
 
-@import 'border-shadow';
+@import 'border-radius';
 
 // =============================================================================
 // General
 // =============================================================================
 
 body {
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding: {
+        top: 10px;
+        bottom: 44px;
+    }
 }
 
 hr {
     margin: 30px 0;
+}
+
+p {
+    font-size: 14pt;
 }
 
 a {
@@ -25,21 +33,41 @@ a {
     &:focus {
         color: darken($brand-color, 10%);
     }
-    &.click-zone {
-        text-decoration: none;
-        color: inherit;
+    &.title-link {
+        color: #000;
+        &:hover,
+        &:focus {
+            @include border-radius(3px);
+            background-color: $hover-grey;
+            text-decoration: none;
+        }
+    }
+    &.text-muted:hover,
+    &.text-muted:focus {
+        color: #444;
     }
 }
 
+.img-margin {
+    margin: {
+        top: 12px;
+        bottom: 16px;
+    }
+}
+
+.btn-margin {
+    margin: 10px 0;
+}
+
 .btn-primary {
-    color: #ffffff;
+    color: #fff;
     background-color: $brand-color;
     border-color: darken($brand-color, 5%);
     &:hover,
     &:focus,
     &:active,
     &.active {
-        color: #ffffff;
+        color: #fff;
         background-color: darken($brand-color, 10%);
         border-color: darken(darken($brand-color, 10%), 5%);
     }
@@ -57,6 +85,39 @@ a {
     }
 }
 
+.btn-success {
+    color: #fff;
+    background-color: $brand-success;
+    border-color: darken($brand-success, 5%);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: #fff;
+        background-color: darken($brand-success, 10%);
+        border-color: darken(darken($brand-success, 10%), 5%);
+    }
+    &:active,
+    &.active {
+        background-image: none;
+    }
+    &.disabled, &[disabled], fieldset[disabled] &,
+    &.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+    &.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+    &.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+    &.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+        background-color: $brand-success;
+        border-color: darken($brand-success, 5%);
+    }
+}
+
+// Workaround until Bootstrap > 3.0.1 gets it's shit together (fix is in twbs master)
+@media (min-width: 768px) {
+    .col-sm-offset-0 {
+        margin-left: 0;
+    }
+}
+
 // =============================================================================
 // Masthead stuff
 // =============================================================================
@@ -70,9 +131,8 @@ a {
 }
 
 // Make the masthead heading the same height as the navigation
-#masthead h3 {
-    margin-top: 0;
-    margin-bottom: 0;
+.masthead h3 {
+    font-size: 28px;
     line-height: 40px;
 }
 
@@ -80,21 +140,46 @@ a {
 // Front page stuff
 // =============================================================================
 
-.thumbnail {
-    margin-bottom: 5%;
-    &:hover,
-    &:focus {
-        border-color: $brand-color;
-        @include border-shadow(1px, $brand-color)
+.billboard {
+    text-align: center;
+    padding: 0% 5%;
+    h1 {
+        margin-top: 0;
+        font-size: 24pt;
+        line-height: 30pt;
+    }
+    p {
+        font-size: 16pt;
     }
 }
 
-#past-proj-btn {
-    margin-bottom: 5%;
+.card-link {
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    @include border-radius(6px);
+    padding: 14px;
+    &:hover,
+    &:focus {
+        background-color: $hover-grey;
+    }
+    margin: 10px 0;
+}
+
+.center-icon-wrapper {
+    display: table;
+    width: 100%;
+    .center-icon {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        color: $brand-color;
+    }
 }
 
 #join-mail-list {
-    margin-bottom: 3%;
+    margin: 52px 0;
 }
 
 #connect {
@@ -112,23 +197,13 @@ a {
 // Project stuff
 // =============================================================================
 
-.disclose-form {
-    margin: {
-        top: 4%;
-        bottom: -8%;
-    }
-}
-
 .leader-row {
-    margin-bottom: 12px;
-}
-
-.leader-name {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-.leader-email,
-.leader-phone {
-    margin-right: 10px;
+    margin: 30px 0;
+    h3 {
+        margin-top: 7px;
+    }
+    span p {
+        display: inline-block;
+        margin-right: 10px;
+    }
 }
