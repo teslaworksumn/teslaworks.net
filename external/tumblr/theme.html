@@ -28,10 +28,6 @@ typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
         <style>
-            p {
-                font-size: 130%;
-            }
-
             #posts {
                 list-style-type: none;
                 padding: 0;
@@ -60,33 +56,13 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                 max-width: 100%;
                 <!-- End Bootstrap copy -->
             }
-
-            .post-title a {
-                color: #000;
-            }
-
-            .post-title a:hover {
-                border-radius: 3px;
-                background-color: #ddd;
-                text-decoration: none;
-            }
-
-            .datestamp-link {
-                color: #777;
-                font-style: italic;
-                text-decoration: none;
-            }
-
-            .datestamp-link:hover {
-                color: #444;
-            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-1 col-md-10">
-                    <div id="masthead">
+                    <div class="masthead">
                         <ul class="nav nav-pills pull-right">
                             <li><a href="http://teslaworks.net">Home</a></li>
                             <li class="active"><a href="{BlogURL}">News</a></li>
@@ -103,10 +79,10 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                             {block:Text}
                                 <li class="post text">
                                     {block:Title}
-                                        <h3 class="post-title"><a href="{Permalink}">{Title}</a></h3>
+                                        <h3><a class="title-link" href="{Permalink}">{Title}</a></h3>
                                     {/block:Title}
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
     
                                     {Body}
@@ -118,7 +94,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Caption}
                                         <div class="caption">{Caption}</div>
@@ -133,7 +109,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     {LinkCloseTag}
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Caption}
                                         <div class="caption">{Caption}</div>
@@ -146,7 +122,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     {Photoset-500}
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Caption}
                                         <div class="caption">{Caption}</div>
@@ -159,7 +135,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     "{Quote}"
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Source}
                                         <div class="source">{Source}</div>
@@ -172,7 +148,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     <a href="{URL}" class="link" {Target}>{Name}</a>
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Description}
                                         <div class="description">{Description}</div>
@@ -183,10 +159,10 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                             {block:Chat}
                                 <li class="post chat">
                                     {block:Title}
-                                        <h3 class="post-title"><a href="{Permalink}">{Title}</a></h3>
+                                        <h3><a class="title-link" href="{Permalink}">{Title}</a></h3>
                                     {/block:Title}
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
     
                                     <ul class="chat">
@@ -208,7 +184,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     {Video-500}
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Caption}
                                         <div class="caption">{Caption}</div>
@@ -221,7 +197,7 @@ mixpanel.init("{{ mixpanel_token }}");</script><!-- end Mixpanel -->
                                     {AudioPlayerBlack}
     
                                     {block:Date}
-                                        <p><a href="{Permalink}" class="datestamp-link">{Month} {DayOfWeekNumber}, {Year}</a></p>
+                                        <p><a href="{Permalink}" class="text-muted">{Month} {DayOfWeekNumber}, {Year}</a></p>
                                     {/block:Date}
                                     {block:Caption}
                                         <div class="caption">{Caption}</div>
