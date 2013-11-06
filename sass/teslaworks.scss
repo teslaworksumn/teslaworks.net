@@ -25,6 +25,9 @@ hr {
 
 p {
     font-size: 14pt;
+    .justified &{
+        text-align: justify;
+    }
 }
 
 a {
@@ -35,6 +38,7 @@ a {
     }
     &.title-link {
         color: #000;
+        font-style: italic;
         &:hover,
         &:focus {
             @include border-radius(3px);
