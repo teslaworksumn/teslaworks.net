@@ -1,13 +1,31 @@
-{% macro thumbnail(title, img, link, desc) %}
+{% import 'macros/img.html' as img %}
 
-<div class="col-sm-4">
-  <div class="thumbnail">
-    <a class="click-zone" href="/{{ link }}">
-      <img class="img-rounded img-responsive" src="{{ img }}" alt="">
-      <h3>{{ title }}</h3>
-      <p>{{ desc }}</p>
-    </a>
-  </div>
+{% macro thumbnail(title, image, link, desc) %}
+
+<div class="card-link">
+  <a href="/{{ link }}">
+    {{ img.rounded(image, "", "") }}
+    <h3>{{ title }}</h3>
+    <p>{{ desc }}</p>
+  </a>
 </div>
-  
+
+{% endmacro %}
+
+{% macro leader(image, name, bio, email, phone) %}
+
+<div class="row leader-row">
+    <div class="col-xs-4 col-sm-3">
+        {{ img.circle(image, "", "") }}
+    </div>
+    <div class="col-xs-8 col-sm-9">
+        <h3 class="leader-name">{{ name }}</h3>
+        <span>
+            <p><a href="mailto:{{ email }}">{{ email }}</a></p>
+            <p>{{ phone }}</p>
+        </span>
+        <p>{{ bio }}</p>
+    </div>
+</div>
+
 {% endmacro %}

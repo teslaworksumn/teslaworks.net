@@ -1,0 +1,23 @@
+{% macro responsive(src, alt, classes) %}
+
+<img class="img-responsive {{ classes }}" src="{{ src }}" alt="{{ alt }}">
+
+{% endmacro %}
+
+{% macro rounded(src, alt, classes) %}
+
+{{ responsive(src, alt, classes + " img-rounded") }}
+
+{% endmacro %}
+
+{% macro circle(src, alt, classes) %}
+
+{{ responsive(src, alt, classes + " img-circle") }}
+
+{% endmacro %}
+
+{% macro thumbnail(src, alt, classes) %}
+
+{{ responsive(src, alt, classes + " img-thumbnail") }}
+
+{% endmacro %}

@@ -5,7 +5,7 @@
 
 {% block html_body %}
 
-<p class="lead text-center">Submit your project idea here for review. You'll hear back from us in a few days.</p>
+<p class="text-center">Submit your project idea here for review. You'll hear back from us in a few days.</p>
 
 <hr>
 
@@ -26,6 +26,8 @@
 
 {% block html_post_body %}
 
+{% import 'macros/form.js' as form %}
+
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -35,7 +37,7 @@
     mixpanel.track_forms("#start-project-form", "Submit Project");
     {% endif %}
 
-    $('form .has-error :input:visible:enabled:first').focus();
+    {{ form.js() | safe }}
   });
 </script>
 

@@ -1,7 +1,7 @@
 <!-- This must be updated as more items are added to the masthead -->
 {% set default_masthead_items = ['Home', 'Blog'] %}
 
-<div id="masthead">
+<div class="masthead">
     <ul class="nav nav-pills pull-right">
         <li{% if title == 'Home' %} class="active"{% endif %}><a href="/">Home</a></li>
         {% if title is defined and title not in default_masthead_items %}<li class="active"><a href=".">{{ title }}</a></li>{% endif %}
