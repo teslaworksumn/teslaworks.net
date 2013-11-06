@@ -38,7 +38,6 @@ a {
     }
     &.title-link {
         color: #000;
-        font-style: italic;
         &:hover,
         &:focus {
             @include border-radius(3px);
@@ -46,9 +45,12 @@ a {
             text-decoration: none;
         }
     }
-    &.text-muted:hover,
-    &.text-muted:focus {
-        color: #444;
+    &.text-muted {
+        font-style: italic;
+        &:hover,
+        &:focus {
+            color: #444;
+        }
     }
 }
 
