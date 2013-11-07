@@ -116,15 +116,15 @@ def render_project(project_name, project_data):
             errors['join_email'] = strings.ERROR_NO_EMAIL_TO_GET_AHOLD
         
         if not errors:
-            subject = strings.SUBJ_PROJ_JOIN_REQUESTED % project_data['project_title']
+            subject = strings.SUBJ_PROJ_JOIN_REQUESTED % project_data['name']
             msg = Message(subject)
-            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
+            msg.add_recipient(email_address(project_data['leaders'][0]['email']))
             msg.html = render_template('mail/join_project.html', form=form)
             msg.body = render_template('mail/join_project.txt', form=form)
     
             mail.send(msg)
     
-            flash_msg = strings.SUCCESS_PROJ_JOINED % project_data['project_title']
+            flash_msg = strings.SUCCESS_PROJ_JOINED % project_data['name']
             flash(flash_msg, 'success')
             return redirect('/' + project_name)
 
@@ -136,14 +136,14 @@ def render_project(project_name, project_data):
             errors['ask_email'] = strings.ERROR_NO_EMAIL_TO_ANSWER
 
         if not errors:
-            subject = strings.SUBJ_PROJ_QUESTION % project_data['project_title']
+            subject = strings.SUBJ_PROJ_QUESTION % project_data['name']
             msg = Message(subject, reply_to=form.get('ask_email'))
-            msg.add_recipient(email_address(project_data['project_leaders'][0]['email']))
+            msg.add_recipient(email_address(project_data['leaders'][0]['email']))
             msg.html = render_template('mail/project_question.html', form=form)
             msg.body = render_template('mail/project_question.txt', form=form)
 
             mail.send(msg)
-    
+
             flash_msg = strings.SUCCESS_MESSAGE_SUBMITTED
             flash(flash_msg, 'success')
             return redirect('/' + project_name)
