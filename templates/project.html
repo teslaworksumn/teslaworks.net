@@ -87,13 +87,13 @@
 
     {% if mixpanel_token %}
     mixpanel.track("Project Page", {
-      "Project": "{{ project_data.project_title }}"
+      "Project": "{{ project_data.name }}"
     });
     mixpanel.track_forms("#join-form", "Join Project", {
-      "Project": "{{ project_data.project_title }}"
+      "Project": "{{ project_data.name }}"
     });
     mixpanel.track_forms("#ask-form", "Ask Question About Project", {
-      "Project": "{{ project_data.project_title }}"
+      "Project": "{{ project_data.name }}"
     });
     {% endif %}
 
