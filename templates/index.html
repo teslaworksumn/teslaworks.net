@@ -18,7 +18,8 @@
   </div>
 </div>
 
-{% include 'mailchimp_join.html' %}
+{% import 'macros/mailchimp.html' as mailchimp %}
+{{ mailchimp.big("join-mailing-list-billboard") }}
 
 <hr>
 
@@ -74,7 +75,7 @@
 
 <hr>
 
-{% include 'mailchimp_join.html' %}
+{{ mailchimp.big("join-mailing-list-below-projects") }}
 
 <div id="connect" class="row">
   <div class="col-xs-3 col-sm-offset-2 col-sm-2">
@@ -140,6 +141,12 @@
 
     {% if mixpanel_token %}
     mixpanel.track("Home Page");
+    mixpanel.track_forms("#join-mailing-list-billboard", "Join Mailing List", {
+      "Location": "Billboard"
+    });
+    mixpanel.track_forms("#join-mailing-list-below-projects", "Join Mailing List", {
+      "Location": "Below Projects"
+    });
     {% endif %}
 
     $('#past-proj-btn').click(function() {
