@@ -1,19 +1,25 @@
-<div id="join-mail-list" class="row">
+{% macro big(id) %}
+
+<div class="row">
   <div class="col-md-offset-1 col-md-10">
-    <form role="form"
+    <form id="{{ id }}"
+          role="form"
           action="http://teslaworks.us6.list-manage.com/subscribe/post?u=29b6ec6923126f61a619ad372&amp;id=6ac5d62894"
           method="post"
           name="mc-embedded-subscribe-form"
           target="_blank"
+          class="inline-form-margin"
           novalidate>
   
       <div class="form-group">
         <div class="input-group input-group-lg">
           <span class="input-group-addon"><i class="icon-envelope"></i></span>
       	  <input type="email" value="" name="EMAIL" class="form-control">
-      	  <span class="input-group-btn"><input type="submit" value="Join our Mailing List" name="subscribe" class="btn btn-primary"></span>
+      	  <span class="input-group-btn"><input type="submit" value="Join our mailing list!" name="subscribe" class="btn btn-primary"></span>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+{% endmacro %}
