@@ -5,6 +5,7 @@ from raven.contrib.flask import Sentry, Client
 from projects_controller import ProjectsController
 from redirects_controller import RedirectsController
 import config
+import util
 import re
 import strings
 import atexit
@@ -41,18 +42,18 @@ def nl2br(eval_ctx, value):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html', mixpanel_token=mixpanel_token()), 404
+    return render_template('404.html', mixpanel_token=util.mixpanel_token()), 404
 
 @app.route('/')
 def index():
     current_projects = projects_controller.get_current_projects()
     past_projects = projects_controller.get_past_projects()
-    return render_template('index.html', current_projects=current_projects, past_projects=past_projects, mixpanel_token=mixpanel_token())
+    return render_template('index.html', current_projects=current_projects, past_projects=past_projects, mixpanel_token=util.mixpanel_token())
 
 @app.route('/start', methods=['GET', 'POST'])
 def start_project():
     if request.method == 'GET':
-        return render_template('start.html', form={}, errors={}, mixpanel_token=mixpanel_token())
+        return render_template('start.html', form={}, errors={}, mixpanel_token=util.mixpanel_token())
 
     form = request.form
     errors = {}
@@ -72,7 +73,7 @@ def start_project():
     if not errors:
         subject = strings.SUBJ_PROJ_NEW % form.get('ptitle')
         msg = Message(subject)
-        msg.add_recipient(email_address(config.CONTACT_EMAIL))
+        msg.add_recipient(util.email_address(config.CONTACT_EMAIL))
         msg.html = render_template('mail/start.html', form=form)
         msg.body = render_template('mail/start.txt', form=form)
         
@@ -82,7 +83,7 @@ def start_project():
         return redirect(url_for('index'))
 
     flash(strings.ERROR_NOT_SUBMITTED, 'danger')
-    return render_template('start.html', form=form, errors=errors, mixpanel_token=mixpanel_token())
+    return render_template('start.html', form=form, errors=errors, mixpanel_token=util.mixpanel_token())
 
 @app.route('/<dynamic>', methods=['GET', 'POST'])
 def dynamic(dynamic):
@@ -106,7 +107,7 @@ def dynamic(dynamic):
 
 def render_project(project_name, project_data):
     if request.method == 'GET':
-        return render_template('project.html', project_data=project_data, form={}, errors={}, mixpanel_token=mixpanel_token())
+        return render_template('project.html', project_data=project_data, form={}, errors={}, mixpanel_token=util.mixpanel_token())
 
     form = request.form
     errors = {}
@@ -118,7 +119,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = strings.SUBJ_PROJ_JOIN_REQUESTED % project_data['name']
             msg = Message(subject)
-            msg.add_recipient(email_address(project_data['leaders'][0]['email']))
+            msg.add_recipient(util.email_address(project_data['leaders'][0]['email']))
             msg.html = render_template('mail/join_project.html', form=form)
             msg.body = render_template('mail/join_project.txt', form=form)
     
@@ -138,7 +139,7 @@ def render_project(project_name, project_data):
         if not errors:
             subject = strings.SUBJ_PROJ_QUESTION % project_data['name']
             msg = Message(subject, reply_to=form.get('ask_email'))
-            msg.add_recipient(email_address(project_data['leaders'][0]['email']))
+            msg.add_recipient(util.email_address(project_data['leaders'][0]['email']))
             msg.html = render_template('mail/project_question.html', form=form)
             msg.body = render_template('mail/project_question.txt', form=form)
 
@@ -149,7 +150,7 @@ def render_project(project_name, project_data):
             return redirect('/' + project_name)
 
     flash(strings.ERROR_NOT_SUBMITTED, 'danger')
-    return render_template('project.html', project_data=project_data, form=form, errors=errors, mixpanel_token=mixpanel_token())
+    return render_template('project.html', project_data=project_data, form=form, errors=errors, mixpanel_token=util.mixpanel_token())
 
 @app.route('/dev_sync')
 def dev_save_and_reload_all_data():
@@ -162,12 +163,6 @@ def dev_reload_all_data():
     reload_all_data()
     return redirect(redirect_url())
 
-def mixpanel_token():
-    if config.MIXPANEL_SUPPRESS_SEND:
-        return None
-
-    return config.MIXPANEL_TOKEN
-
 def save_all_data():
     projects_controller.write_projects()
     redirects_controller.load_redirects()
@@ -178,11 +173,6 @@ def reload_all_data():
 
 def redirect_url():
     return request.args.get('next') or request.referrer or url_for('index')
-
-def email_address(email):
-    if app.debug or app.testing:
-        return config.DEBUG_EMAIL
-    return email
 
 if __name__ == '__main__':
     app.run()
