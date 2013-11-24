@@ -1,5 +1,6 @@
 import psycopg2
 import config
+import util
 
 PROJECTS_KEY_ORDER = ['project_id', 'name', 'slug', 'description', 'long_description', 'photo_url', 'past_project_url']
 GET_PROJECTS_QUERY = ('SELECT project_id, name, slug, description, long_description, photo_url, past_project_url '
@@ -45,12 +46,14 @@ class ProjectsController:
             cur.execute(GET_PROJECTS_QUERY, (past,))
             projects_raw = cur.fetchall()
             for project_raw in projects_raw:
-                project = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)            
+                project = dict_from_array_with_keys(project_raw, PROJECTS_KEY_ORDER)
+                project['photo_url'] = util.cdn_url(project['photo_url']) # Modify image path to use CDN URL
                 cur.execute(GET_PROJECT_LEADERS_QUERY, (project['project_id'],))
                 leaders_raw = cur.fetchall()
                 leaders = []
                 for leader_raw in leaders_raw:
                     leader = dict_from_array_with_keys(leader_raw, PROJECT_LEADER_KEY_ORDER)
+                    leader['photo_url'] = util.cdn_url(leader['photo_url']) # Modify image path to use CDN URL
                     leaders.append(leader)
                 project['leaders'] = leaders
             
@@ -59,7 +62,9 @@ class ProjectsController:
                 project['needs'] = needs
                 
                 cur.execute(GET_PROJECT_PHOTOS_QUERY, (project['project_id'],))
-                photos = [photo_url_raw[0] for photo_url_raw in cur.fetchall()]
+                print config.CDN_DOMAIN
+                photos = [util.cdn_url(photo_url_raw[0]) for photo_url_raw in cur.fetchall()]
+                print photos
                 project['photos'] = photos
                 
                 projects[project['slug']] = project

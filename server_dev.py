@@ -21,6 +21,8 @@ mail = Mail(app)
 app.config.update(config.SENTRY_SETTINGS)
 sentry = Sentry(app)
 
+app.jinja_env.globals.update(cdn_url=util.cdn_url)
+
 projects_controller = ProjectsController()
 redirects_controller = RedirectsController()
 

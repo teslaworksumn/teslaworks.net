@@ -50,6 +50,8 @@ This project is built using a myriad of carefully chosen technologies, most of w
 - Sentry
 - Mixpanel
 - Basecamp API
+- Amazon S3
+- CloudFront
 - Docker
 - uWSGI
 - Nginx
